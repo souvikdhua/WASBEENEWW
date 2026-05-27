@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Wasabee Oriental Cuisine: Authentic Japanese, Korean, Thai & Chinese dining in Kolkata. Premium sushi, ramen, dumplings and more. Order on Zomato & Swiggy.">
-  <meta name="keywords" content="Wasabee, Oriental Cuisine, Japanese Restaurant, Sushi, Ramen, Kolkata, Kalikapur, Deshapriya Park">
+  <meta name="description"
+    content="Wasabee Oriental Cuisine: Authentic Japanese, Korean, Thai & Chinese dining in Kolkata. Premium sushi, ramen, dumplings and more.">
+  <meta name="keywords" content="Wasabee, Oriental Cuisine, Japanese Restaurant, Sushi, Ramen, Kolkata, Kalikapur">
   <meta property="og:title" content="Wasabee | Oriental Cuisine">
-  <meta property="og:description" content="Authentic Japanese dining experience. Premium sushi, ramen, and oriental flavors in Kolkata.">
+  <meta property="og:description"
+    content="Authentic Japanese dining experience. Premium sushi, ramen, and oriental flavors in Kolkata.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://wasabee.in">
   <meta name="theme-color" content="#0a0a0a">
@@ -14,8 +17,8 @@
   <title>Wasabee | Oriental Cuisine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Michroma&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Michroma&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20">
   <style>
     :root {
       --font-display: 'Michroma', sans-serif;
@@ -25,20 +28,22 @@
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="images/wasabee logo.svg">
-  
+
   <!-- WebGL Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
+
 <body>
   <!-- Header Offer Banner -->
   <div class="promo-banner">
     <div class="promo-banner-track">
-      <span>ESTD. 2012 &nbsp;|&nbsp; KOLKATA'S VERY FIRST AUTHENTIC JAPANESE RESTAURANT &nbsp;|&nbsp; BRINGING A TASTE OF ASIA TO THE CITY OF JOY &nbsp;|&nbsp; PROUDLY SERVING FOR 14 YEARS</span>
-      <span>ESTD. 2012 &nbsp;|&nbsp; KOLKATA'S VERY FIRST AUTHENTIC JAPANESE RESTAURANT &nbsp;|&nbsp; BRINGING A TASTE OF ASIA TO THE CITY OF JOY &nbsp;|&nbsp; PROUDLY SERVING FOR 14 YEARS</span>
+      <span>ESTD. 2012 &nbsp;|&nbsp; KOLKATA'S VERY FIRST AUTHENTIC JAPANESE RESTAURANT &nbsp;|&nbsp; BRINGING A TASTE
+        OF ASIA TO THE CITY OF JOY &nbsp;|&nbsp; PROUDLY SERVING FOR 14 YEARS</span>
+      <span>ESTD. 2012 &nbsp;|&nbsp; KOLKATA'S VERY FIRST AUTHENTIC JAPANESE RESTAURANT &nbsp;|&nbsp; BRINGING A TASTE
+        OF ASIA TO THE CITY OF JOY &nbsp;|&nbsp; PROUDLY SERVING FOR 14 YEARS</span>
     </div>
   </div>
-  <!-- WebGL Background -->
-  <canvas id="webgl-canvas"></canvas>
+  <!-- (WebGL Background Removed) -->
 
   <!-- Cinematic Elements -->
 
@@ -46,15 +51,16 @@
   <nav class="nav" id="navbar">
     <span class="nav-kanji-left" aria-hidden="true">美</span>
     <a href="#" class="nav-logo" aria-label="Wasabee Home">
-      <img src="images/wasabeelogo .PNG" alt="Wasabee Oriental Cuisine" class="nav-logo-img" id="navLogoImg" style="width: 140px; height: auto;">
+      <img src="images/wasabeelogo.png?v=4" alt="Wasabee Oriental Cuisine" class="nav-logo-img" id="navLogoImg"
+        style="width: 140px; height: auto;">
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#menu">Menu</a></li>
       <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#order">Savory Servings</a></li>
+      <li><a href="#menu">Order Online</a></li>
       <li><a href="#contact">Access</a></li>
-      <li><a href="#reservation" class="cta-btn nav-cta">Requested Presence</a></li>
+      <li><a href="#reservation" class="cta-btn nav-cta">Book a Table</a></li>
     </ul>
     <span class="nav-kanji-right" aria-hidden="true">味</span>
     <div class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -66,12 +72,12 @@
   <div class="menu-overlay" id="menuOverlay">
     <div class="menu-overlay-content">
       <ul class="menu-overlay-links">
-        <li><a href="#about">About <span class="jp-text">わさびーについて</span></a></li>
-        <li><a href="#menu">Menu <span class="jp-text">お品書き</span></a></li>
-        <li><a href="#gallery">Gallery <span class="jp-text">ギャラリー</span></a></li>
-        <li><a href="#order">Order Online <span class="jp-text">オンライン注文</span></a></li>
-        <li><a href="#contact">Access <span class="jp-text">アクセス</span></a></li>
-        <li><a href="#reservation">Reservation <span class="jp-text">ご予約</span></a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#menu">Order Online</a></li>
+        <li><a href="#contact">Find Us</a></li>
+        <li><a href="#reservation">Book a Table</a></li>
       </ul>
       <div class="menu-overlay-info">
         <p>For reservations, call</p>
@@ -93,18 +99,40 @@
 
     <div class="hero-content">
       <div class="hero-graphic-frame reveal">
-        <div class="hero-graphic-watermark watermark-br" aria-hidden="true">和さび</div>
-        <div class="hero-graphic-watermark watermark-tl" aria-hidden="true">和さび</div>
-        
         <!-- Postcard Mounting Tapes -->
+        <div class="hero-tape tape-tl" aria-hidden="true"></div>
         <div class="hero-tape tape-tr" aria-hidden="true"></div>
         <div class="hero-tape tape-bl" aria-hidden="true"></div>
-        
+        <div class="hero-tape tape-br" aria-hidden="true"></div>
+
         <div class="hero-graphic-container">
-          <img src="images/graphic 5.jpg" alt="Wasabee Oriental Cuisine" class="hero-logo-img-enlarged" id="heroLogoImg">
-        <div class="hero-graphic-overlay"></div>
-        <p class="hero-address-refined">Wasabee Oriental Cuisine — Honors Your Glorious Presence</p>
-        <p class="hero-address-refined" style="font-size: 0.8rem; margin-top: 0.5rem;">30, Baidyapara, Sahid Nagar, Kalikapur, Kolkata</p>
+          <img src="images/graphic 5.jpg?v=4" alt="Wasabee Oriental Cuisine" class="hero-logo-img-enlarged"
+            id="heroLogoImg">
+          <div class="hero-graphic-overlay"></div>
+        </div>
+      </div>
+      <div class="hero-info-panel-wrapper washi-card-wrapper reveal">
+        <div class="hero-info-panel washi-card">
+          <div class="hero-promo-header reveal" data-delay="0.05">
+            <img src="images/wasabeelogo.png?v=4" alt="Wasabee Oriental Cuisine" style="width: 240px; height: auto; margin: 0.5rem auto 1rem auto; display: block;">
+          </div>
+          <p class="hero-promo-text reveal" data-delay="0.1">Get exclusive discounts on table booking and online ordering only on our website</p>
+          <div class="hero-trust-list reveal" data-delay="0.15">
+            <span class="hero-trust-item"><svg class="trust-icon" viewBox="0 0 24 24" width="14" height="14" style="fill: none; stroke: #FAF7F2; opacity: 0.8; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"><polyline points="20 6 9 17 4 12"></polyline></svg> No Hidden Costs</span>
+            <span class="hero-trust-item"><svg class="trust-icon" viewBox="0 0 24 24" width="14" height="14" style="fill: none; stroke: #FAF7F2; opacity: 0.8; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"><polyline points="20 6 9 17 4 12"></polyline></svg> Zero Convenience Fees</span>
+            <span class="hero-trust-item"><svg class="trust-icon" viewBox="0 0 24 24" width="14" height="14" style="fill: none; stroke: #FAF7F2; opacity: 0.8; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"><polyline points="20 6 9 17 4 12"></polyline></svg> Zero Delivery Charges</span>
+            <span class="hero-trust-item"><svg class="trust-icon" viewBox="0 0 24 24" width="14" height="14" style="fill: none; stroke: #FAF7F2; opacity: 0.8; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"><polyline points="20 6 9 17 4 12"></polyline></svg> Honest Direct Pricing</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#menu" class="hero-explore-cta">
+              Explore Our Menu
+            </a>
+            <a href="#reservation" class="hero-explore-cta secondary-cta">
+              Book a Table
+            </a>
+          </div>
+          <p class="hero-events-nudge reveal" data-delay="0.2">Planning a private dining or corporate event? <a href="#contact">Let's make it special →</a></p>
+        </div>
       </div>
     </div>
 
@@ -112,11 +140,14 @@
     <div class="hero-red-marquee">
       <div class="marquee-track">
         <!-- Set 1 -->
-        <a href="#menu" class="brand-link">HONORING OUR GUESTS ON WASABEE.IN &nbsp;|&nbsp; A COMPLIMENTARY DESSERT ON ₹1299+ &nbsp;|&nbsp; <span class="ab-marquee-offer">BE HONORED WITH 15% OFF</span></a>
+        <a href="#menu" class="brand-link">WELCOME TO WASABEE.IN &nbsp;|&nbsp; GET A COMPLIMENTARY DESSERT ON ORDERS
+          ABOVE ₹1299 &nbsp;|&nbsp; <span class="ab-marquee-offer">ENJOY 15% OFF ON YOUR FIRST ORDER</span></a>
         <!-- Set 2 -->
-        <a href="#menu" class="brand-link">HONORING OUR GUESTS ON WASABEE.IN &nbsp;|&nbsp; A COMPLIMENTARY DESSERT ON ₹1299+ &nbsp;|&nbsp; <span class="ab-marquee-offer">BE HONORED WITH 15% OFF</span></a>
+        <a href="#menu" class="brand-link">WELCOME TO WASABEE.IN &nbsp;|&nbsp; GET A COMPLIMENTARY DESSERT ON ORDERS
+          ABOVE ₹1299 &nbsp;|&nbsp; <span class="ab-marquee-offer">ENJOY 15% OFF ON YOUR FIRST ORDER</span></a>
         <!-- Set 3 -->
-        <a href="#menu" class="brand-link">HONORING OUR GUESTS ON WASABEE.IN &nbsp;|&nbsp; A COMPLIMENTARY DESSERT ON ₹1299+ &nbsp;|&nbsp; <span class="ab-marquee-offer">BE HONORED WITH 15% OFF</span></a>
+        <a href="#menu" class="brand-link">WELCOME TO WASABEE.IN &nbsp;|&nbsp; GET A COMPLIMENTARY DESSERT ON ORDERS
+          ABOVE ₹1299 &nbsp;|&nbsp; <span class="ab-marquee-offer">ENJOY 15% OFF ON YOUR FIRST ORDER</span></a>
       </div>
     </div>
 
@@ -131,35 +162,41 @@
     <span class="section-kanji-bg" aria-hidden="true">食</span>
     <div class="section-narrow">
       <div class="about-grid">
-        <div class="about-image reveal-left">
-          <div class="img-reveal">
-            <img src="images/graphic 4.jpg" alt="Wasabee Brand Artwork" class="main-img">
-          </div>
-          <div class="accent-border"></div>
-          <span class="jp-accent">和さび</span>
+        <!-- Left: Google Reviews Widget -->
+        <div id="reviews" class="about-reviews-container reveal-left" style="width: 100%;">
+          <script src="https://elfsightcdn.com/platform.js" async></script>
+          <div class="elfsight-app-55571e57-f90e-4b3c-bbec-2ee01480d44e" data-elfsight-app-lazy></div>
         </div>
-        <div class="about-content">
+        <div class="washi-card-wrapper reveal-right" style="width: 100%;">
+          <div class="about-content washi-card washi-card-cream">
           <div class="reveal" data-delay="0.2">
-            <span class="section-label">Hon'ble Guest</span>
-            <h2 class="section-title">Welcome to<br><span class="accent">Wasabee</span></h2>
+            <span class="section-label">ようこそ · OUR STORY</span>
+            <h2 class="section-title">Welcome to <span class="accent">Wasabee</span></h2>
           </div>
-          <p class="section-text reveal" data-delay="0.3" style="text-transform: uppercase; font-weight: 500; font-size: 0.85rem; letter-spacing: 0.05em; line-height: 1.8;">
-            We are honored and humbled by your glorious presence today and take this opportunity to thank you on behalf of every member of the Wasabee family and assure you of our best service as always.
+          <p class="section-text reveal" data-delay="0.3"
+            style="text-transform: uppercase; font-weight: 500; font-size: 0.85rem; letter-spacing: 0.05em; line-height: 1.8;">
+            Kolkata's Favorite Standalone Pan-Asian Dining Destination
           </p>
-          <p class="section-text reveal" data-delay="0.4" style="text-transform: uppercase; font-weight: 400; font-size: 0.8rem; letter-spacing: 0.05em; margin-bottom: 2rem;">
-            For sheer academic reason we take pride in being the city's first standalone oriental restaurant to serve authentic Japanese cuisine alongside Burmese, Chinese, Singaporean, Malaysian, Korean, Filipino, Indonesian and Thai.
+          <p class="section-text reveal" data-delay="0.4"
+            style="text-transform: uppercase; font-weight: 400; font-size: 0.8rem; letter-spacing: 0.05em; margin-bottom: 2rem;">
+            Established in 2012, Wasabee is proudly Kolkata's very first standalone restaurant to bring you authentic
+            Japanese cuisine, alongside a rich menu of Burmese, Chinese, Singaporean, Malaysian, Korean, Indonesian, and
+            Thai delicacies.
           </p>
-          <p class="section-text reveal" data-delay="0.5" style="font-size: 0.9rem; line-height: 1.6; color: var(--color-text-dim);">
-            Our Chef's repertoire comprises of a wide range of oriental delicacies and to make our savory servings as authentic as possible, we use imported raw materials and ingredients. However, should you prefer, we can customize our offerings befitting our Indian taste buds based on your preference. 
-            <br><br>
-            Please note that we only use imported salmon in our sushi and sashimi preparations.
+          <p class="section-text reveal" data-delay="0.5"
+            style="font-size: 0.9rem; line-height: 1.6; color: var(--color-text-dim);">
+            To give you the most authentic taste, we use high-quality imported ingredients like premium Norwegian salmon
+            for our sushi. Everything is freshly prepared, and we are always happy to customize the spice levels and
+            flavors to suit your Indian palate.
           </p>
-          <p class="section-text reveal" data-delay="0.6" style="font-style: italic; margin: 2rem 0; border-left: 2px solid var(--color-brand); padding-left: 1.5rem;">
-            "Bon Appetit!!!!"
+          <p class="section-text reveal" data-delay="0.6"
+            style="font-style: italic; margin: 2rem 0; border-left: 2px solid var(--color-brand); padding-left: 1.5rem;">
+            "Bon Appetit!"
           </p>
           <div class="founder-signature reveal" data-delay="0.7">
             <p style="font-family: var(--font-display); color: var(--color-brand); margin-bottom: 0;">Yours Truly,</p>
-            <p style="font-size: 1.1rem; letter-spacing: 0.1em; font-weight: 600;">TANMOY BOSE &amp; DEBRAJ CHOUDHURY</p>
+            <p style="font-size: 1.1rem; letter-spacing: 0.1em; font-weight: 600;">TANMOY BOSE &amp; DEBRAJ CHOUDHURY
+            </p>
           </div>
           <div class="about-stats reveal" data-delay="0.5">
             <div class="stat-item">
@@ -167,346 +204,21 @@
               <div class="stat-label">Menu Items</div>
             </div>
             <div class="stat-item">
-              <div class="stat-number" data-count="2">0</div>
-              <div class="stat-label">Locations</div>
+              <div class="stat-number" data-count="4.2" data-suffix="">0</div>
+              <div class="stat-label">out of 5 based on 2,408 reviews</div>
             </div>
             <div class="stat-item">
               <div class="stat-number" data-count="10" data-suffix="K+">0</div>
               <div class="stat-label">Happy Guests</div>
             </div>
           </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Marquee -->
-  <div class="marquee-section">
-    <div class="marquee-track">
-      <span class="filled">寿司</span><span>SUSHI</span>
-      <span class="filled">ラーメン</span><span>RAMEN</span>
-      <span class="filled">餃子</span><span>GYOZA</span>
-      <span class="filled">김밥</span><span>KIMBAP</span>
-      <span class="filled">パッタイ</span><span>PAD THAI</span>
-      <span class="filled">カレー</span><span>CURRY</span>
-    </div>
-  </div>
 
-  <!-- ════════ 3-COLUMN: PHILOSOPHY, GRAPHIC & ORDER ════════ -->
-  <section class="philosophy-order-combined" id="philosophy" style="background: var(--color-bg); padding: 1.5rem 1rem;">
-    <div class="split-section-grid-3col" style="max-width: 1600px; margin: 0 auto; align-items: stretch;">
-      
-      <!-- Left: Philosophy Art Card -->
-      <div class="philosophy-col reveal-left" style="height: 100%;">
-        <div class="philosophy-frame" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
-          <div class="enso-circle" aria-hidden="true"></div>
-          <div class="philosophy-content">
-            <blockquote class="philosophy-quote">
-              We, at Wasabee, are immensely concerned of your health and well-being and therefore we are averse to Monosodium Glutamate Ajinomoto and we refrain to its usage in any form in our servings.
-            </blockquote>
-            <p class="philosophy-author">— Tanmoy Bose &amp; Debraj Choudhury</p>
-          </div>
-          <p class="philosophy-jp" aria-hidden="true">一期一会</p>
-        </div>
-      </div>
-
-      <!-- Middle: Graphic Cat -->
-      <div class="reveal-up" style="height: 100%; display: flex; flex-direction: column;">
-        <div class="side-graphic-container" style="width: 100%; height: 100%; min-height: unset; margin: 0; padding: 0;">
-          <img src="images/graphic 3.jpg" alt="Order Wasabee" class="side-graphic-img">
-        </div>
-      </div>
-
-      <!-- Right: Order Platforms -->
-      <div class="order-platforms-col reveal-right" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 1rem 2rem;">
-        <div>
-          <span class="section-label">オンライン注文</span>
-          <h2 class="section-title">Savory <span class="accent">Servings</span></h2>
-          <p class="section-text" style="text-align:left; color: var(--color-brand); font-weight: 500; font-size: 1rem; margin-bottom: 0;">
-            Should you prefer to dine at home, experience our repertoire in the comfort of your humble abode.
-          </p>
-        </div>
-        <div style="display: flex; flex-direction: row; gap: 1rem; flex-wrap: wrap;">
-          <!-- Zomato -->
-          <a href="http://zoma.to/r/22188" target="_blank" style="flex: 1; min-width: 120px; display: flex; align-items: center; justify-content: center; gap: 0.75rem; border: 1px solid var(--color-brand); padding: 1rem; color: var(--color-brand); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;">
-            <img src="images/zomato-1.svg" alt="Zomato" height="20">
-            Zomato
-          </a>
-          <!-- Swiggy -->
-          <a href="https://www.swiggy.com/city/kolkata/wasabee-kalikapur-ruby-area-rest33209" target="_blank" style="flex: 1; min-width: 120px; display: flex; align-items: center; justify-content: center; gap: 0.75rem; border: 1px solid var(--color-brand); padding: 1rem; color: var(--color-brand); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;">
-            <img src="images/swiggy-1.svg" alt="Swiggy" height="20">
-            Swiggy
-          </a>
-        </div>
-        <div style="margin-top: 1rem; display: flex;">
-          <!-- Google Maps -->
-          <a href="https://share.google/Fpbui7WFzKV8RP00X" target="_blank" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.75rem; border: 1px solid rgba(130, 6, 106, 0.4); padding: 1rem; color: var(--color-brand); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; background: rgba(130, 6, 106, 0.03);">
-            <img src="images/google-maps-2020-icon.svg" alt="Google Maps" height="18">
-            View on Google Maps
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Seigaiha Wave Divider -->
-  <div class="seigaiha-divider seigaiha-flip" aria-hidden="true"></div>
-
-  <!-- ══════════════════════════════════════════════════ -->
-  <!-- MENU: 4×2 Artbook Catalogue                      -->
-  <!-- ══════════════════════════════════════════════════ -->
-  <section class="section menu-section" id="menu">
-    <div class="menu-section-header reveal">
-      <span class="section-label">お品書き</span>
-      <h2 class="section-title">Chef's <span class="accent">Repertoire</span></h2>
-      <p class="section-subline">A wide range of savory oriental delicacies, spanning the heart of Asia.</p>
-    </div>
-    <!-- Unified 3-Column Menu Container -->
-    <div class="unified-menu-container">
-
-      <aside class="unified-sidebar reveal">
-        <nav class="unified-nav">
-          <a href="#cat-offers" class="unified-nav-link active" style="color: var(--color-brand);">Offers <span class="nav-jp">特恵</span></a>
-          <a href="#cat-dumplings" class="unified-nav-link">Dumplings <span class="nav-jp">点心</span></a>
-          <a href="#cat-sushi" class="unified-nav-link">Sushi, Sashimi &amp; Rolls <span class="nav-jp">寿司</span></a>
-          <a href="#cat-soup" class="unified-nav-link">Soup <span class="nav-jp">汁物</span></a>
-          <a href="#cat-appetizers" class="unified-nav-link">Appetizers <span class="nav-jp">前菜</span></a>
-          <a href="#cat-rice" class="unified-nav-link">Rice <span class="nav-jp">ご飯</span></a>
-          <a href="#cat-noodles" class="unified-nav-link">Noodles &amp; Ramen <span class="nav-jp">麺類</span></a>
-          <a href="#cat-mains" class="unified-nav-link">Main Course &amp; Curry <span class="nav-jp">主菜</span></a>
-          <a href="#cat-desserts" class="unified-nav-link">Desserts <span class="nav-jp">甘味</span></a>
-        </nav>
-      </aside>
-
-      <div class="unified-menu-main">
-
-        <!-- 00: OFFERS -->
-        <div class="unified-category-group" id="cat-offers">
-          <div class="unified-category-header reveal">
-            <h3 class="unified-title">HONORED OFFERINGS</h3>
-            <span class="unified-plate">図 00 <span class="unified-jp">特恵</span></span>
-          </div>
-          <div class="unified-items-list offers-list reveal" data-delay="0.1" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
-            
-            <div class="offer-card">
-              <div class="offer-content">
-                <h4 class="offer-title">A Festive Offering</h4>
-                <p class="offer-desc">Be honored with a Complimentary Dessert on your savory servings above ₹1299.</p>
-              </div>
-            </div>
-
-            <div class="offer-card offer-ab">
-              <div class="offer-content">
-                <h4 class="offer-title">Chef's Special Selection</h4>
-                <p class="offer-desc" id="dynamicOfferText">...</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- 01: DUMPLINGS -->
-        <div class="unified-category-group" id="cat-dumplings">
-          <div class="unified-category-header reveal">
-            <h3 class="unified-title">DUMPLINGS</h3>
-            <span class="unified-plate">図 01 <span class="unified-jp">点心</span></span>
-          </div>
-          <div class="unified-items-list reveal" data-delay="0.1">
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Gyoza</span><span class="pi-desc">Steamed or pan-fried with spicy dip</span></div><span class="pi-price">₹275</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Siu Mai</span><span class="pi-desc">Open dumpling, spring onion sauce</span></div><span class="pi-price">₹295</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Wonton</span><span class="pi-desc">Flavorful steamed wontons in broth</span></div><span class="pi-price">₹225</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Momo</span><span class="pi-desc">Tibetan style stuffed momos</span></div><span class="pi-price">₹155</span></div>
-          </div>
-        </div>
-
-        <!-- 02: SUSHI, SASHIMI & ROLLS -->
-        <div class="unified-category-group" id="cat-sushi">
-          <div class="unified-category-header reveal">
-            <h3 class="unified-title">SUSHI, SASHIMI &amp; ROLLS</h3>
-            <span class="unified-plate">図 02 <span class="unified-jp">寿司</span></span>
-          </div>
-          <div class="unified-items-list reveal" data-delay="0.1">
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg Gimbap</span><span class="pi-desc">Avocado, cheese, cucumber, carrot</span></div><span class="pi-price">₹575</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Non-Veg Gimbap</span><span class="pi-desc">Chicken, pork, and tamago</span></div><span class="pi-price">₹625</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg Kimbap</span><span class="pi-desc">Spinach, cheese, cucumber, sesame</span></div><span class="pi-price">₹575</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Non-Veg Kimbap</span><span class="pi-desc">Chicken, crabstick, sesame seed</span></div><span class="pi-price">₹625</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Sushi Platter</span><span class="pi-desc">Maki and Uramaki combo 16pc</span></div><span class="pi-price">₹1075</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Uramaki Sushi</span><span class="pi-desc">Inside-out rolls</span></div><span class="pi-price">₹675</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Mixed Uramaki</span><span class="pi-desc">Assorted inside-out rolls</span></div><span class="pi-price">₹525</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">California Uramaki</span><span class="pi-desc">Cucumber, avocado, crabstick</span></div><span class="pi-price">₹775</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Buta No Tempura Uramaki</span><span class="pi-desc">Crisp pork in tempura</span></div><span class="pi-price">₹625</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Chicken Teriyaki Uramaki</span><span class="pi-desc">Glazed in soy mirin &amp; teriyaki</span></div><span class="pi-price">₹575</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Nigiri Sushi</span><span class="pi-desc">Classic hand-pressed sushi</span></div><span class="pi-price">₹675</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Maki Sushi</span><span class="pi-desc">Traditional seaweed rolls</span></div><span class="pi-price">₹525</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tamaki Sushi</span><span class="pi-desc">Egg rolled sushi</span></div><span class="pi-price">₹475</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Futomaki</span><span class="pi-desc">Thick rolled sushi</span></div><span class="pi-price">₹875</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Mixed Maki Sushi</span><span class="pi-desc">Assorted thin rolls</span></div><span class="pi-price">₹525</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Philadelphia Sushi</span><span class="pi-desc">Cream cheese &amp; smoked salmon</span></div><span class="pi-price">₹1025</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tempura Sushi</span><span class="pi-desc">Crispy fried sushi roll</span></div><span class="pi-price">₹875</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Ebi</span><span class="pi-desc">Shrimp topping</span></div><span class="pi-price">₹695</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tori</span><span class="pi-desc">Chicken topping</span></div><span class="pi-price">₹595</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Yakitori Sushi</span><span class="pi-desc">Grilled chicken skewers rolled</span></div><span class="pi-price">₹625</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Spicy Seabass Sushi</span><span class="pi-desc">Smoked seabass in spicy glaze</span></div><span class="pi-price">₹695</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Sushi Roll</span><span class="pi-desc">Classic roll</span></div><span class="pi-price">₹525</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg Kakiyaki Sushi Roll</span><span class="pi-desc">Crispy vegetable tempura roll</span></div><span class="pi-price">₹475</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Sushi Roll Veg</span><span class="pi-desc">Fresh vegetable selection</span></div><span class="pi-price">₹475</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Sushi Roll Non-Veg</span><span class="pi-desc">Fresh meat/fish selection</span></div><span class="pi-price">₹575</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Nigiri</span><span class="pi-desc">Vinegared rice topped with fish</span></div><span class="pi-price">₹675</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Sashimi</span><span class="pi-desc">Finely sliced premium fish</span></div><span class="pi-price">₹1395</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Temaki</span><span class="pi-desc">Hand-rolled cone sushi</span></div><span class="pi-price">₹495</span></div>
-          </div>
-        </div>
-
-        <!-- 03: SOUP -->
-        <div class="unified-category-group" id="cat-soup">
-          <div class="unified-category-header reveal">
-            <h3 class="unified-title">SOUP</h3>
-            <span class="unified-plate">図 03 <span class="unified-jp">汁物</span></span>
-          </div>
-          <div class="unified-items-list reveal" data-delay="0.1">
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Miso Soup</span><span class="pi-desc">Traditional Japanese soy bean broth</span></div><span class="pi-price">₹145</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Mee Soto Soup</span><span class="pi-desc">Spicy Indonesian noodle soup</span></div><span class="pi-price">₹195</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tom Yum</span><span class="pi-desc">Thai hot &amp; sour aromatic broth</span></div><span class="pi-price">₹175</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tom Kha</span><span class="pi-desc">Thai coconut milk soup</span></div><span class="pi-price">₹195</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Wasabee Special Soup</span><span class="pi-desc">House special clear broth</span></div><span class="pi-price">₹145</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Clear Soup</span><span class="pi-desc">Light and healthy vegetable broth</span></div><span class="pi-price">₹125</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Sweet Corn Soup</span><span class="pi-desc">Classic thick sweet corn</span></div><span class="pi-price">₹135</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Hot &amp; Sour Soup</span><span class="pi-desc">Peppery &amp; tangy classic broth</span></div><span class="pi-price">₹145</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Lemon Coriander Soup</span><span class="pi-desc">Zesty fresh herb broth</span></div><span class="pi-price">₹145</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Lemon Garlic Soup</span><span class="pi-desc">Garlicky tangy clear soup</span></div><span class="pi-price">₹145</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Wonton Soup</span><span class="pi-desc">Clear broth with stuffed wontons</span></div><span class="pi-price">₹175</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Manchow Soup</span><span class="pi-desc">Dark thick soup with crispy noodles</span></div><span class="pi-price">₹145</span></div>
-          </div>
-        </div>
-
-        <!-- 04: APPETIZERS -->
-        <div class="unified-category-group" id="cat-appetizers">
-          <div class="unified-category-header reveal">
-            <h3 class="unified-title">APPETIZERS</h3>
-            <span class="unified-plate">図 04 <span class="unified-jp">前菜</span></span>
-          </div>
-          <div class="unified-items-list reveal" data-delay="0.1">
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Dak Gui</span><span class="pi-desc">Hot &amp; spicy grilled chicken</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Dak Galbi</span><span class="pi-desc">Spicy stir-fried chicken</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Dakgangjeong</span><span class="pi-desc">Crispy sweet &amp; spicy fried wings</span></div><span class="pi-price">₹395</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Bulgogi Chicken</span><span class="pi-desc">Sweet &amp; savoury pan-fried chicken</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Dwaejigogi Bokkeum</span><span class="pi-desc">Spicy stir-fried pork</span></div><span class="pi-price">₹425</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Ojingeo Bokkeum</span><span class="pi-desc">Spicy stir-fried squid</span></div><span class="pi-price">₹450</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Teriyaki</span><span class="pi-desc">Classic glazed grill selection</span></div><span class="pi-price">₹395</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Kushiyaki</span><span class="pi-desc">Skewered selection, tossed &amp; grilled</span></div><span class="pi-price">₹425</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tempura Prawn</span><span class="pi-desc">Crisp tempura batter, sweet chilli</span></div><span class="pi-price">₹545</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Panko Fish</span><span class="pi-desc">Japanese breadcrumbs, mayo</span></div><span class="pi-price">₹575</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Chicken Satay</span><span class="pi-desc">Skewers with peanut &amp; chili sauce</span></div><span class="pi-price">₹325</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Char Siu Pork</span><span class="pi-desc">Roasted pork in savory BBQ sauce</span></div><span class="pi-price">₹375</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Non Veg Drunken</span><span class="pi-desc">Spicy herb tossed protein</span></div><span class="pi-price">₹395</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Fish Caldereta</span><span class="pi-desc">Hearty tomato-based stew</span></div><span class="pi-price">₹425</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Chicken Hamonad</span><span class="pi-desc">Sweet and savory marinated chicken</span></div><span class="pi-price">₹395</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg Tossed In Thai Chilli Sauce (Dry)</span><span class="pi-desc">Spicy wok tossed greens</span></div><span class="pi-price">₹245</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Non-Veg Tossed In Thai Chilli Sauce (Dry)</span><span class="pi-desc">Spicy wok tossed bite-size meat</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Thai Roasted Pork With Pak Choi</span><span class="pi-desc">Crispy pork, garlic greens</span></div><span class="pi-price">₹425</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Rad Prik (Dry)</span><span class="pi-desc">Thai sweet chili glazed protein</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Pad Prik Khing (Dry)</span><span class="pi-desc">Red curry paste stir-fry without coconut milk</span></div><span class="pi-price">₹395</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg Tossed In Choice Of Sauce (Dry)</span><span class="pi-desc">Wok tossed customized veg</span></div><span class="pi-price">₹245</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Non-Veg Tossed In Choice Of Sauce (Dry)</span><span class="pi-desc">Wok tossed customized meat</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Chicken Lat Me Kai</span><span class="pi-desc">Diced chicken wok-tossed with chili</span></div><span class="pi-price">₹375</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Chicken Drums Of Heaven</span><span class="pi-desc">Crispy wingettes, spicy sauce</span></div><span class="pi-price">₹395</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Golden Fried Prawn</span><span class="pi-desc">Crisp batter fried prawns</span></div><span class="pi-price">₹545</span></div>
-          </div>
-        </div>
-
-        <!-- 05: RICE -->
-        <div class="unified-category-group" id="cat-rice">
-          <div class="unified-category-header reveal">
-            <h3 class="unified-title">RICE</h3>
-            <span class="unified-plate">図 05 <span class="unified-jp">ご飯</span></span>
-          </div>
-          <div class="unified-items-list reveal" data-delay="0.1">
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Bokkeumbap</span><span class="pi-desc">Korean fried rice</span></div><span class="pi-price">₹395</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Chahan Rice</span><span class="pi-desc">Japanese style garlic fried rice</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Omu Rice</span><span class="pi-desc">Fried rice wrapped in omelette</span></div><span class="pi-price">₹375</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Nasi Goreng</span><span class="pi-desc">Indonesian fried rice with fried egg</span></div><span class="pi-price">₹325</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Nasi Kampung</span><span class="pi-desc">Traditional village-style fried rice</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Adobo</span><span class="pi-desc">Filipino savory rice bowl</span></div><span class="pi-price">₹395</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Khao Pad</span><span class="pi-desc">Thai street-style fried rice</span></div><span class="pi-price">₹325</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Thai Garlic Basil Fried Rice</span><span class="pi-desc">Spicy aromatic basil rice</span></div><span class="pi-price">₹275</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Fried Rice</span><span class="pi-desc">Classic wok-tossed rice</span></div><span class="pi-price">₹195</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Szechwan Fried Rice</span><span class="pi-desc">Spicy red chili tossed rice</span></div><span class="pi-price">₹225</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Burnt Garlic Fried Rice</span><span class="pi-desc">Aromatic rice with crispy garlic bits</span></div><span class="pi-price">₹175</span></div>
-          </div>
-        </div>
-
-        <!-- 06: NOODLES & RAMEN -->
-        <div class="unified-category-group" id="cat-noodles">
-          <div class="unified-category-header reveal">
-            <h3 class="unified-title">NOODLES &amp; RAMEN</h3>
-            <span class="unified-plate">図 06 <span class="unified-jp">麺類</span></span>
-          </div>
-          <div class="unified-items-list reveal" data-delay="0.1">
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Jajangmyeon</span><span class="pi-desc">Korean black bean noodles</span></div><span class="pi-price">₹445</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Yaki Udon</span><span class="pi-desc">Thick stir-fried wheat noodles</span></div><span class="pi-price">₹425</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Yaki Soba</span><span class="pi-desc">Stir-fried buckwheat noodles</span></div><span class="pi-price">₹395</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Miso Ramen</span><span class="pi-desc">Soy bean paste broth with noodles</span></div><span class="pi-price">₹375</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Shoyu Ramen</span><span class="pi-desc">Soy sauce based ramen broth</span></div><span class="pi-price">₹375</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tonkotsu Ramen Pork</span><span class="pi-desc">Rich creamy pork bone broth</span></div><span class="pi-price">₹375</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Mee Goreng</span><span class="pi-desc">Spicy stir-fried thin noodles</span></div><span class="pi-price">₹175</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Singapore Rice Noodle</span><span class="pi-desc">Curry flavored vermicelli</span></div><span class="pi-price">₹225</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Pad Thai</span><span class="pi-desc">Thai stir-fried flat rice noodles</span></div><span class="pi-price">₹195</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Pad Kee Mao</span><span class="pi-desc">Spicy drunken noodles</span></div><span class="pi-price">₹225</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Hakka Noodles</span><span class="pi-desc">Classic stir-fried thin noodles</span></div><span class="pi-price">₹145</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Chilli Garlic Noodles</span><span class="pi-desc">Spicy garlicky tossed noodles</span></div><span class="pi-price">₹165</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Mee Foon Noodles</span><span class="pi-desc">Thin rice vermicelli stir-fry</span></div><span class="pi-price">₹195</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Pan-Fried Noodles</span><span class="pi-desc">Crispy noodle bed with savory sauce</span></div><span class="pi-price">₹225</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Cantonese Noodles</span><span class="pi-desc">Light soy tossed noodles</span></div><span class="pi-price">₹245</span></div>
-          </div>
-        </div>
-
-        <!-- 07: MAIN COURSE & CURRY -->
-        <div class="unified-category-group" id="cat-mains">
-          <div class="unified-category-header reveal">
-            <h3 class="unified-title">MAIN COURSE &amp; CURRY</h3>
-            <span class="unified-plate">図 07 <span class="unified-jp">主菜</span></span>
-          </div>
-          <div class="unified-items-list reveal" data-delay="0.1">
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Mapadub</span><span class="pi-desc">Spicy tofu and minced meat stew</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Japanese Golden Curry</span><span class="pi-desc">Rich Japanese curry sauce</span></div><span class="pi-price">₹425</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Japanese Mild Curry</span><span class="pi-desc">Subtly sweet and savory curry</span></div><span class="pi-price">₹425</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Pad Prik Pao</span><span class="pi-desc">Roasted chili paste stir-fry</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Pad Pak</span><span class="pi-desc">Stir-fried mixed vegetables</span></div><span class="pi-price">₹295</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tod Kratiem Prik Thai</span><span class="pi-desc">Garlic and black pepper stir-fry</span></div><span class="pi-price">₹395</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Pad Med Mamuang</span><span class="pi-desc">Stir-fried with cashew nuts</span></div><span class="pi-price">₹375</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Pad Prew Wan</span><span class="pi-desc">Thai sweet and sour stir-fry</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Pad Prik Gaeng</span><span class="pi-desc">Spicy red curry paste stir-fry</span></div><span class="pi-price">₹395</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Thai Red Curry</span><span class="pi-desc">Aromatic coconut red curry</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Thai Green Curry</span><span class="pi-desc">Aromatic coconut green curry</span></div><span class="pi-price">₹345</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg Manchurian</span><span class="pi-desc">Mixed veg balls in brown sauce</span></div><span class="pi-price">₹225</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Eight Treasure Veg</span><span class="pi-desc">Assorted exotic vegetables in sauce</span></div><span class="pi-price">₹275</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Devils Choice Veg</span><span class="pi-desc">Extremely spicy vegetable wok</span></div><span class="pi-price">₹295</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Pak Choy Delight</span><span class="pi-desc">Bok choy in garlic sauce</span></div><span class="pi-price">₹295</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg In Choice Of Sauce Gravy</span><span class="pi-desc">Customizable vegetable main</span></div><span class="pi-price">₹245</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Non-Veg In Choice Of Sauce Gravy</span><span class="pi-desc">Customizable meat/fish main</span></div><span class="pi-price">₹345</span></div>
-          </div>
-        </div>
-
-        <!-- 08: DESSERTS -->
-        <div class="unified-category-group" id="cat-desserts">
-          <div class="unified-category-header reveal">
-            <h3 class="unified-title">DESSERTS</h3>
-            <span class="unified-plate">図 08 <span class="unified-jp">甘味</span></span>
-          </div>
-          <div class="unified-items-list reveal" data-delay="0.1">
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Caramel Pudding</span><span class="pi-desc">Silky soft custard with caramel glaze</span></div><span class="pi-price">₹125</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Darsaan</span><span class="pi-desc">Honey-glazed crispy noodles with sesame</span></div><span class="pi-price">₹125</span></div>
-        <div class="popup-item"><div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Hot Brownie</span><span class="pi-desc">Warm chocolate brownie, vanilla cream</span></div><span class="pi-price">₹175</span></div>
-          </div>
-        </div>
-
-      </div><!-- /unified-menu-main -->
-    </div><!-- /unified-menu-container -->
-
-
-    <!-- End of Unified Menu -->
-  </section>
 
   <!-- Gallery Section -->
   <section class="gallery" id="gallery">
@@ -514,11 +226,12 @@
     <div class="cliche-hinomaru" aria-hidden="true"></div>
     <div class="cliche-seigaiha" aria-hidden="true"></div>
     <div class="cliche-tanzaku" aria-hidden="true">芸術</div>
-    
+
     <span class="section-kanji-bg" aria-hidden="true">美</span>
     <div class="gallery-header reveal">
-      <span class="section-label">ギャラリー</span>
-      <h2 class="section-title">The <span class="accent">Gallery</span><span class="cliche-hanko" aria-hidden="true">和</span></h2>
+      <span class="section-label">ギャラリー · GALLERY</span>
+      <h2 class="section-title">The <span class="accent">Gallery</span><span class="cliche-hanko"
+          aria-hidden="true">和</span></h2>
     </div>
     <div class="gallery-grid">
       <!-- Row 1 -->
@@ -586,179 +299,680 @@
     </div>
   </section>
 
-  <!-- Features Grid -->
-  <section class="features" id="features">
-    <span class="section-kanji-bg" aria-hidden="true">道</span>
-    <!-- Asanoha Pattern Border -->
-    <div class="asanoha-border-top" aria-hidden="true"></div>
-    <div class="section-narrow">
-      <div class="reveal" style="text-align:center; margin-bottom:4rem;">
-        <span class="section-label" style="justify-content:center;">体験</span>
-        <h2 class="section-title">The Wasabee <span class="accent">Experience</span></h2>
+
+
+  <!-- Marquee -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="filled">寿司</span><span>SUSHI</span>
+      <span class="filled">ラーメン</span><span>RAMEN</span>
+      <span class="filled">餃子</span><span>GYOZA</span>
+      <span class="filled">김밥</span><span>KIMBAP</span>
+      <span class="filled">パッタイ</span><span>PAD THAI</span>
+      <span class="filled">カレー</span><span>CURRY</span>
+    </div>
+  </div>
+
+
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- MENU: 4×2 Artbook Catalogue                      -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <section class="section menu-section" id="menu">
+    <div class="menu-section-header-wrapper washi-card-wrapper reveal">
+      <div class="menu-section-header washi-card washi-card-cream">
+        <span class="section-label">お品書き · MENU & ORDERING</span>
+        <h2 class="section-title">Our Pan-Asian Menu &amp; <span class="accent">Online Ordering</span></h2>
+        <p class="section-subline">Choose from over 100 freshly prepared Asian favorites, from hand-rolled Sushi to hot Dim Sums &amp; Momos. Enjoy quick delivery straight to your doorstep.</p>
       </div>
-      <div class="features-grid">
-        <div class="feature-card reveal" data-delay="0"><div class="feature-card-img"><img src="images/slide 2.jpg" alt="Tradition"></div><div class="feature-card-content"><div class="card-label">Our Tradition</div><h3>Philosophy &amp; Craft</h3><p>Rooted in centuries-old culinary arts from Japan, Korea, Thailand &amp; China.</p></div><div class="feature-card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div></div>
-        <div class="feature-card reveal" data-delay="0.15">
-          <a href="#menu" style="text-decoration: none; color: inherit; display: block; height: 100%;">
-            <div class="feature-card-img"><img src="images/taste of asia.jpg" alt="Taste of Asia"></div>
-            <div class="feature-card-content">
-              <div class="card-label">100+ Dishes</div>
-              <h3>Taste of Asia</h3>
-              <p>From Japanese sushi to Korean bibimbap, Thai curries to Chinese classics.</p>
+    </div>
+    <!-- Unified 3-Column Menu Container -->
+    <div class="unified-menu-container">
+
+      <aside class="unified-sidebar reveal">
+        <nav class="unified-nav">
+          <a href="#cat-dumplings" class="unified-nav-link active" style="color: var(--color-brand);">Dim Sums &amp; Momos <span class="nav-jp">点心</span></a>
+          <a href="#cat-sushi" class="unified-nav-link">Sushi &amp; Rolls <span class="nav-jp">寿司</span></a>
+          <a href="#cat-soup" class="unified-nav-link">Soup <span class="nav-jp">汁物</span></a>
+          <a href="#cat-appetizers" class="unified-nav-link">Appetizers <span class="nav-jp">前菜</span></a>
+          <a href="#cat-rice" class="unified-nav-link">Rice <span class="nav-jp">ご飯</span></a>
+          <a href="#cat-noodles" class="unified-nav-link">Noodles &amp; Ramen <span class="nav-jp">麺類</span></a>
+          <a href="#cat-mains" class="unified-nav-link">Main Course &amp; Curries <span class="nav-jp">主菜</span></a>
+          <a href="#cat-desserts" class="unified-nav-link">Desserts <span class="nav-jp">甘味</span></a>
+        </nav>
+      </aside>
+
+      <div class="unified-menu-main">
+
+        <!-- 01: DUMPLINGS -->
+        <div class="unified-category-group" id="cat-dumplings">
+          <div class="unified-category-header reveal">
+            <h3 class="unified-title">DIM SUMS &amp; MOMOS</h3>
+            <span class="unified-plate">図 01 <span class="unified-jp">点心</span></span>
+          </div>
+          <div class="unified-items-list reveal" data-delay="0.1">
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Gyoza</span><span
+                  class="pi-desc">Steamed or pan-fried with spicy dip</span></div><span class="pi-price">₹275</span>
             </div>
-            <div class="feature-card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div>
-          </a>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Siu Mai</span><span
+                  class="pi-desc">Open dumpling, spring onion sauce</span></div><span class="pi-price">₹295</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Wonton</span><span
+                  class="pi-desc">Flavorful steamed wontons in broth</span></div><span class="pi-price">₹225</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Momo</span><span
+                  class="pi-desc">Tibetan style stuffed momos</span></div><span class="pi-price">₹155</span>
+            </div>
+          </div>
         </div>
-        <div class="feature-card reveal" data-delay="0.3"><div class="feature-card-img"><img src="images/slide 2.jpg" alt="Ambiance"></div><div class="feature-card-content"><div class="card-label">2 Locations</div><h3>Bypass &amp; Deshapriya Park</h3><p>Premium Oriental dining across two neighborhoods in Kolkata.</p></div><div class="feature-card-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div></div>
-      </div>
-    </div>
+
+        <!-- 02: SUSHI, SASHIMI & ROLLS -->
+        <div class="unified-category-group" id="cat-sushi">
+          <div class="unified-category-header reveal">
+            <h3 class="unified-title">SUSHI &amp; ROLLS</h3>
+            <span class="unified-plate">図 02 <span class="unified-jp">寿司</span></span>
+          </div>
+          <div class="unified-items-list reveal" data-delay="0.1">
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg Gimbap</span><span
+                  class="pi-desc">Avocado, cheese, cucumber, carrot</span></div><span class="pi-price">₹575</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Non-Veg
+                  Gimbap</span><span class="pi-desc">Chicken, pork, and tamago</span></div><span
+                class="pi-price">₹625</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg Kimbap</span><span
+                  class="pi-desc">Spinach, cheese, cucumber, sesame</span></div><span class="pi-price">₹575</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Non-Veg
+                  Kimbap</span><span class="pi-desc">Chicken, crabstick, sesame seed</span></div><span
+                class="pi-price">₹625</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Sushi Platter</span><span
+                  class="pi-desc">Maki and Uramaki combo 16pc</span></div><span class="pi-price">₹1075</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Uramaki
+                  Sushi</span><span class="pi-desc">Inside-out rolls</span></div><span class="pi-price">₹675</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Mixed
+                  Uramaki</span><span class="pi-desc">Assorted inside-out rolls</span></div><span
+                class="pi-price">₹525</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">California
+                  Uramaki</span><span class="pi-desc">Cucumber, avocado, crabstick</span></div><span
+                class="pi-price">₹775</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Buta No Tempura
+                  Uramaki</span><span class="pi-desc">Crisp pork in tempura</span></div><span
+                class="pi-price">₹625</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Chicken Teriyaki
+                  Uramaki</span><span class="pi-desc">Glazed in soy mirin &amp; teriyaki</span></div><span
+                class="pi-price">₹575</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Nigiri Sushi</span><span
+                  class="pi-desc">Classic hand-pressed sushi</span></div><span class="pi-price">₹675</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Maki Sushi</span><span
+                  class="pi-desc">Traditional seaweed rolls</span></div><span class="pi-price">₹525</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tamaki Sushi</span><span
+                  class="pi-desc">Egg rolled sushi</span></div><span class="pi-price">₹475</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Futomaki</span><span
+                  class="pi-desc">Thick rolled sushi</span></div><span class="pi-price">₹875</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Mixed Maki
+                  Sushi</span><span class="pi-desc">Assorted thin rolls</span></div><span class="pi-price">₹525</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Philadelphia
+                  Sushi</span><span class="pi-desc">Cream cheese &amp; smoked salmon</span></div><span
+                class="pi-price">₹1025</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tempura
+                  Sushi</span><span class="pi-desc">Crispy fried sushi roll</span></div><span
+                class="pi-price">₹875</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Ebi</span><span
+                  class="pi-desc">Shrimp topping</span></div><span class="pi-price">₹695</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tori</span><span
+                  class="pi-desc">Chicken topping</span></div><span class="pi-price">₹595</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Yakitori
+                  Sushi</span><span class="pi-desc">Grilled chicken skewers rolled</span></div><span
+                class="pi-price">₹625</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Spicy Seabass
+                  Sushi</span><span class="pi-desc">Smoked seabass in spicy glaze</span></div><span
+                class="pi-price">₹695</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Sushi Roll</span><span
+                  class="pi-desc">Classic roll</span></div><span class="pi-price">₹525</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg Kakiyaki Sushi
+                  Roll</span><span class="pi-desc">Crispy vegetable tempura roll</span></div><span
+                class="pi-price">₹475</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Sushi Roll Veg</span><span
+                  class="pi-desc">Fresh vegetable selection</span></div><span class="pi-price">₹475</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Sushi Roll
+                  Non-Veg</span><span class="pi-desc">Fresh meat/fish selection</span></div><span
+                class="pi-price">₹575</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Nigiri</span><span
+                  class="pi-desc">Vinegared rice topped with fish</span></div><span class="pi-price">₹675</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Sashimi</span><span
+                  class="pi-desc">Finely sliced premium fish</span></div><span class="pi-price">₹1395</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Temaki</span><span
+                  class="pi-desc">Hand-rolled cone sushi</span></div><span class="pi-price">₹495</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03: SOUP -->
+        <div class="unified-category-group" id="cat-soup">
+          <div class="unified-category-header reveal">
+            <h3 class="unified-title">SOUP</h3>
+            <span class="unified-plate">図 03 <span class="unified-jp">汁物</span></span>
+          </div>
+          <div class="unified-items-list reveal" data-delay="0.1">
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Miso Soup</span><span
+                  class="pi-desc">Traditional Japanese soy bean broth</span></div><span class="pi-price">₹145</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Mee Soto
+                  Soup</span><span class="pi-desc">Spicy Indonesian noodle soup</span></div><span
+                class="pi-price">₹195</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tom Yum</span><span
+                  class="pi-desc">Thai hot &amp; sour aromatic broth</span></div><span class="pi-price">₹175</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tom Kha</span><span
+                  class="pi-desc">Thai coconut milk soup</span></div><span class="pi-price">₹195</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Wasabee Special
+                  Soup</span><span class="pi-desc">House special clear broth</span></div><span
+                class="pi-price">₹145</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Clear Soup</span><span
+                  class="pi-desc">Light and healthy vegetable broth</span></div><span class="pi-price">₹125</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Sweet Corn Soup</span><span
+                  class="pi-desc">Classic thick sweet corn</span></div><span class="pi-price">₹135</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Hot &amp; Sour
+                  Soup</span><span class="pi-desc">Peppery &amp; tangy classic broth</span></div><span
+                class="pi-price">₹145</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Lemon Coriander
+                  Soup</span><span class="pi-desc">Zesty fresh herb broth</span></div><span class="pi-price">₹145</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Lemon Garlic
+                  Soup</span><span class="pi-desc">Garlicky tangy clear soup</span></div><span
+                class="pi-price">₹145</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Wonton Soup</span><span
+                  class="pi-desc">Clear broth with stuffed wontons</span></div><span class="pi-price">₹175</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Manchow Soup</span><span
+                  class="pi-desc">Dark thick soup with crispy noodles</span></div><span class="pi-price">₹145</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04: APPETIZERS -->
+        <div class="unified-category-group" id="cat-appetizers">
+          <div class="unified-category-header reveal">
+            <h3 class="unified-title">APPETIZERS</h3>
+            <span class="unified-plate">図 04 <span class="unified-jp">前菜</span></span>
+          </div>
+          <div class="unified-items-list reveal" data-delay="0.1">
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Dak Gui</span><span
+                  class="pi-desc">Hot &amp; spicy grilled chicken</span></div><span class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Dak Galbi</span><span
+                  class="pi-desc">Spicy stir-fried chicken</span></div><span class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Dakgangjeong</span><span
+                  class="pi-desc">Crispy sweet &amp; spicy fried wings</span></div><span class="pi-price">₹395</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Bulgogi
+                  Chicken</span><span class="pi-desc">Sweet &amp; savoury pan-fried chicken</span></div><span
+                class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Dwaejigogi
+                  Bokkeum</span><span class="pi-desc">Spicy stir-fried pork</span></div><span
+                class="pi-price">₹425</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Ojingeo
+                  Bokkeum</span><span class="pi-desc">Spicy stir-fried squid</span></div><span
+                class="pi-price">₹450</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Teriyaki</span><span
+                  class="pi-desc">Classic glazed grill selection</span></div><span class="pi-price">₹395</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Kushiyaki</span><span
+                  class="pi-desc">Skewered selection, tossed &amp; grilled</span></div><span
+                class="pi-price">₹425</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tempura
+                  Prawn</span><span class="pi-desc">Crisp tempura batter, sweet chilli</span></div><span
+                class="pi-price">₹545</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Panko Fish</span><span
+                  class="pi-desc">Japanese breadcrumbs, mayo</span></div><span class="pi-price">₹575</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Chicken
+                  Satay</span><span class="pi-desc">Skewers with peanut &amp; chili sauce</span></div><span
+                class="pi-price">₹325</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Char Siu
+                  Pork</span><span class="pi-desc">Roasted pork in savory BBQ sauce</span></div><span
+                class="pi-price">₹375</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Non Veg
+                  Drunken</span><span class="pi-desc">Spicy herb tossed protein</span></div><span
+                class="pi-price">₹395</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Fish
+                  Caldereta</span><span class="pi-desc">Hearty tomato-based stew</span></div><span
+                class="pi-price">₹425</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Chicken
+                  Hamonad</span><span class="pi-desc">Sweet and savory marinated chicken</span></div><span
+                class="pi-price">₹395</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg Tossed In Thai Chilli
+                  Sauce (Dry)</span><span class="pi-desc">Spicy wok tossed greens</span></div><span
+                class="pi-price">₹245</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Non-Veg Tossed In Thai
+                  Chilli Sauce (Dry)</span><span class="pi-desc">Spicy wok tossed bite-size meat</span></div><span
+                class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Thai Roasted Pork With
+                  Pak Choi</span><span class="pi-desc">Crispy pork, garlic greens</span></div><span
+                class="pi-price">₹425</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Rad Prik
+                  (Dry)</span><span class="pi-desc">Thai sweet chili glazed protein</span></div><span
+                class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Pad Prik Khing
+                  (Dry)</span><span class="pi-desc">Red curry paste stir-fry without coconut milk</span></div><span
+                class="pi-price">₹395</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg Tossed In Choice Of
+                  Sauce (Dry)</span><span class="pi-desc">Wok tossed customized veg</span></div><span
+                class="pi-price">₹245</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Non-Veg Tossed In Choice
+                  Of Sauce (Dry)</span><span class="pi-desc">Wok tossed customized meat</span></div><span
+                class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Chicken Lat Me
+                  Kai</span><span class="pi-desc">Diced chicken wok-tossed with chili</span></div><span
+                class="pi-price">₹375</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Chicken Drums Of
+                  Heaven</span><span class="pi-desc">Crispy wingettes, spicy sauce</span></div><span
+                class="pi-price">₹395</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Golden Fried
+                  Prawn</span><span class="pi-desc">Crisp batter fried prawns</span></div><span
+                class="pi-price">₹545</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05: RICE -->
+        <div class="unified-category-group" id="cat-rice">
+          <div class="unified-category-header reveal">
+            <h3 class="unified-title">RICE</h3>
+            <span class="unified-plate">図 05 <span class="unified-jp">ご飯</span></span>
+          </div>
+          <div class="unified-items-list reveal" data-delay="0.1">
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Bokkeumbap</span><span
+                  class="pi-desc">Korean fried rice</span></div><span class="pi-price">₹395</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Chahan Rice</span><span
+                  class="pi-desc">Japanese style garlic fried rice</span></div><span class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Omu Rice</span><span
+                  class="pi-desc">Fried rice wrapped in omelette</span></div><span class="pi-price">₹375</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Nasi Goreng</span><span
+                  class="pi-desc">Indonesian fried rice with fried egg</span></div><span class="pi-price">₹325</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Nasi Kampung</span><span
+                  class="pi-desc">Traditional village-style fried rice</span></div><span class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Adobo</span><span
+                  class="pi-desc">Filipino savory rice bowl</span></div><span class="pi-price">₹395</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Khao Pad</span><span
+                  class="pi-desc">Thai street-style fried rice</span></div><span class="pi-price">₹325</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Thai Garlic Basil Fried
+                  Rice</span><span class="pi-desc">Spicy aromatic basil rice</span></div><span
+                class="pi-price">₹275</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Fried Rice</span><span
+                  class="pi-desc">Classic wok-tossed rice</span></div><span class="pi-price">₹195</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Szechwan Fried
+                  Rice</span><span class="pi-desc">Spicy red chili tossed rice</span></div><span
+                class="pi-price">₹225</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Burnt Garlic Fried
+                  Rice</span><span class="pi-desc">Aromatic rice with crispy garlic bits</span></div><span
+                class="pi-price">₹175</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06: NOODLES & RAMEN -->
+        <div class="unified-category-group" id="cat-noodles">
+          <div class="unified-category-header reveal">
+            <h3 class="unified-title">NOODLES &amp; RAMEN</h3>
+            <span class="unified-plate">図 06 <span class="unified-jp">麺類</span></span>
+          </div>
+          <div class="unified-items-list reveal" data-delay="0.1">
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Jajangmyeon</span><span
+                  class="pi-desc">Korean black bean noodles</span></div><span class="pi-price">₹445</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Yaki Udon</span><span
+                  class="pi-desc">Thick stir-fried wheat noodles</span></div><span class="pi-price">₹425</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Yaki Soba</span><span
+                  class="pi-desc">Stir-fried buckwheat noodles</span></div><span class="pi-price">₹395</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Miso Ramen</span><span
+                  class="pi-desc">Soy bean paste broth with noodles</span></div><span class="pi-price">₹375</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Shoyu Ramen</span><span
+                  class="pi-desc">Soy sauce based ramen broth</span></div><span class="pi-price">₹375</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tonkotsu Ramen
+                  Pork</span><span class="pi-desc">Rich creamy pork bone broth</span></div><span
+                class="pi-price">₹375</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Mee Goreng</span><span
+                  class="pi-desc">Spicy stir-fried thin noodles</span></div><span class="pi-price">₹175</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Singapore Rice
+                  Noodle</span><span class="pi-desc">Curry flavored vermicelli</span></div><span
+                class="pi-price">₹225</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Pad Thai</span><span
+                  class="pi-desc">Thai stir-fried flat rice noodles</span></div><span class="pi-price">₹195</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Pad Kee Mao</span><span
+                  class="pi-desc">Spicy drunken noodles</span></div><span class="pi-price">₹225</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Hakka Noodles</span><span
+                  class="pi-desc">Classic stir-fried thin noodles</span></div><span class="pi-price">₹145</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Chilli Garlic
+                  Noodles</span><span class="pi-desc">Spicy garlicky tossed noodles</span></div><span
+                class="pi-price">₹165</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Mee Foon Noodles</span><span
+                  class="pi-desc">Thin rice vermicelli stir-fry</span></div><span class="pi-price">₹195</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Pan-Fried
+                  Noodles</span><span class="pi-desc">Crispy noodle bed with savory sauce</span></div><span
+                class="pi-price">₹225</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Cantonese
+                  Noodles</span><span class="pi-desc">Light soy tossed noodles</span></div><span
+                class="pi-price">₹245</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07: MAIN COURSE & CURRY -->
+        <div class="unified-category-group" id="cat-mains">
+          <div class="unified-category-header reveal">
+            <h3 class="unified-title">MAIN COURSE &amp; CURRIES</h3>
+            <span class="unified-plate">図 07 <span class="unified-jp">主菜</span></span>
+          </div>
+          <div class="unified-items-list reveal" data-delay="0.1">
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Mapadub</span><span
+                  class="pi-desc">Spicy tofu and minced meat stew</span></div><span class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Japanese Golden
+                  Curry</span><span class="pi-desc">Rich Japanese curry sauce</span></div><span
+                class="pi-price">₹425</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Japanese Mild
+                  Curry</span><span class="pi-desc">Subtly sweet and savory curry</span></div><span
+                class="pi-price">₹425</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Pad Prik Pao</span><span
+                  class="pi-desc">Roasted chili paste stir-fry</span></div><span class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Pad Pak</span><span
+                  class="pi-desc">Stir-fried mixed vegetables</span></div><span class="pi-price">₹295</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Tod Kratiem Prik
+                  Thai</span><span class="pi-desc">Garlic and black pepper stir-fry</span></div><span
+                class="pi-price">₹395</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Pad Med
+                  Mamuang</span><span class="pi-desc">Stir-fried with cashew nuts</span></div><span
+                class="pi-price">₹375</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Pad Prew Wan</span><span
+                  class="pi-desc">Thai sweet and sour stir-fry</span></div><span class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Pad Prik
+                  Gaeng</span><span class="pi-desc">Spicy red curry paste stir-fry</span></div><span
+                class="pi-price">₹395</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Thai Red Curry</span><span
+                  class="pi-desc">Aromatic coconut red curry</span></div><span class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Thai Green Curry</span><span
+                  class="pi-desc">Aromatic coconut green curry</span></div><span class="pi-price">₹345</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg Manchurian</span><span
+                  class="pi-desc">Mixed veg balls in brown sauce</span></div><span class="pi-price">₹225</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Eight Treasure
+                  Veg</span><span class="pi-desc">Assorted exotic vegetables in sauce</span></div><span
+                class="pi-price">₹275</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Devils Choice
+                  Veg</span><span class="pi-desc">Extremely spicy vegetable wok</span></div><span
+                class="pi-price">₹295</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Pak Choy Delight</span><span
+                  class="pi-desc">Bok choy in garlic sauce</span></div><span class="pi-price">₹295</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Veg In Choice Of Sauce
+                  Gravy</span><span class="pi-desc">Customizable vegetable main</span></div><span
+                class="pi-price">₹245</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon non-veg"></span><span class="pi-name">Non-Veg In Choice Of
+                  Sauce Gravy</span><span class="pi-desc">Customizable meat/fish main</span></div><span
+                class="pi-price">₹345</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08: DESSERTS -->
+        <div class="unified-category-group" id="cat-desserts">
+          <div class="unified-category-header reveal">
+            <h3 class="unified-title">DESSERTS</h3>
+            <span class="unified-plate">図 08 <span class="unified-jp">甘味</span></span>
+          </div>
+          <div class="unified-items-list reveal" data-delay="0.1">
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Caramel Pudding</span><span
+                  class="pi-desc">Silky soft custard with caramel glaze</span></div><span class="pi-price">₹125</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Darsaan</span><span
+                  class="pi-desc">Honey-glazed crispy noodles with sesame</span></div><span class="pi-price">₹125</span>
+            </div>
+            <div class="popup-item">
+              <div class="pi-info"><span class="diet-icon veg"></span><span class="pi-name">Hot Brownie</span><span
+                  class="pi-desc">Warm chocolate brownie, vanilla cream</span></div><span class="pi-price">₹175</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /unified-menu-main -->
+
+      <!-- Right: Sticky Special Offers Sidebar -->
+      <aside class="unified-offers-sidebar reveal" data-delay="0.15">
+        <div class="offers-sidebar-header">
+          <span class="section-label">特別オファー · SPECIAL OFFERS</span>
+          <h3 class="offers-sidebar-title">Special <span class="accent">Offers</span></h3>
+        </div>
+        <p class="offers-sidebar-text">
+          Unlock exclusive rewards and discounts when ordering online or booking a table.
+        </p>
+        <div class="offers-sidebar-banner">
+          <div class="offers-sidebar-card">
+            <div class="sidebar-offer-item">
+              <h4 class="sidebar-offer-title">A Festive Offering</h4>
+              <p class="sidebar-offer-desc">Enjoy a Complimentary Dessert on all orders above ₹1299.</p>
+            </div>
+            <div class="sidebar-offer-divider"></div>
+            <div class="sidebar-offer-item">
+              <h4 class="sidebar-offer-title">Chef's Special Selection</h4>
+              <p class="sidebar-offer-desc">Enjoy 15% OFF on all orders of ₹799 or more.</p>
+            </div>
+          </div>
+        </div>
+        <a href="#menu" class="btn-claim-offer">
+          Claim Offer Now
+        </a>
+      </aside>
+
+    </div><!-- /unified-menu-container -->
+
+
+    <!-- End of Unified Menu -->
   </section>
 
 
-  <!-- Live Reviews -->
-  <section class="section reviews-section" id="reviews">
-    <div class="section-narrow">
-      <div class="reveal" style="text-align:center; margin-bottom:3rem;">
-        <span class="section-label" style="justify-content:center;">レビュー</span>
-        <h2 class="section-title">Recent <span class="accent">Reviews</span></h2>
-      </div>
-    </div>
-    
-    <div class="reviews-marquee-container">
-      <div class="reviews-track reveal" data-delay="0.2">
-        <!-- Review Card 1 -->
-        <a href="https://share.google/Fpbui7WFzKV8RP00X" target="_blank" class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style="background:#e91e63;">A</div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Ananya Ray</div>
-              <div class="reviewer-source"><img src="images/google-maps-2020-icon.svg" height="12" alt="Google"> Google Review</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"The absolute best Asian fusion in Kolkata! The sushi rolls are incredible and the ambiance is very premium. Highly recommend taking friends here."</p>
-        </a>
-        <!-- Review Card 2 -->
-        <a href="https://share.google/Fpbui7WFzKV8RP00X" target="_blank" class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style="background:#2196f3;">R</div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Rahul Banerjee</div>
-              <div class="reviewer-source"><img src="images/google-maps-2020-icon.svg" height="12" alt="Google"> Google Review</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Authentic taste and completely flawless service. We ordered the Ramen and Dim Sum, it felt like eating in downtown Tokyo. Worth every penny."</p>
-        </a>
-        <!-- Review Card 3 -->
-        <a href="https://share.google/Fpbui7WFzKV8RP00X" target="_blank" class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style="background:#ff9800;">S</div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Srabanti C.</div>
-              <div class="reviewer-source"><img src="images/google-maps-2020-icon.svg" height="12" alt="Google"> Google Review</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Been ordering from Zomato for months, finally visited the Deshapriya Park outlet. The interior is stunning and the Thai Green Curry is perfection!"</p>
-        </a>
-        <!-- Review Card 4 -->
-        <a href="https://share.google/Fpbui7WFzKV8RP00X" target="_blank" class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style="background:#4caf50;">D</div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Debayan Das</div>
-              <div class="reviewer-source"><img src="images/google-maps-2020-icon.svg" height="12" alt="Google"> Google Review</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Easily the best sushi place in Kolkata. Period. I frequently eat Oriental cuisine and Wasabee absolutely knocks it out of the park."</p>
-        </a>
-        <!-- Duplicates for seamless looping -->
-        <a href="https://share.google/Fpbui7WFzKV8RP00X" target="_blank" class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style="background:#e91e63;">A</div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Ananya Ray</div>
-              <div class="reviewer-source"><img src="images/google-maps-2020-icon.svg" height="12" alt="Google"> Google Review</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"The absolute best Asian fusion in Kolkata! The sushi rolls are incredible and the ambiance is very premium. Highly recommend taking friends here."</p>
-        </a>
-        <a href="https://share.google/Fpbui7WFzKV8RP00X" target="_blank" class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style="background:#2196f3;">R</div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Rahul Banerjee</div>
-              <div class="reviewer-source"><img src="images/google-maps-2020-icon.svg" height="12" alt="Google"> Google Review</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Authentic taste and completely flawless service. We ordered the Ramen and Dim Sum, it felt like eating in downtown Tokyo. Worth every penny."</p>
-        </a>
-        <a href="https://share.google/Fpbui7WFzKV8RP00X" target="_blank" class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style="background:#ff9800;">S</div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Srabanti C.</div>
-              <div class="reviewer-source"><img src="images/google-maps-2020-icon.svg" height="12" alt="Google"> Google Review</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Been ordering from Zomato for months, finally visited the Deshapriya Park outlet. The interior is stunning and the Thai Green Curry is perfection!"</p>
-        </a>
-        <a href="https://share.google/Fpbui7WFzKV8RP00X" target="_blank" class="review-card">
-          <div class="review-header">
-            <div class="reviewer-avatar" style="background:#4caf50;">D</div>
-            <div class="reviewer-info">
-              <div class="reviewer-name">Debayan Das</div>
-              <div class="reviewer-source"><img src="images/google-maps-2020-icon.svg" height="12" alt="Google"> Google Review</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Easily the best sushi place in Kolkata. Period. I frequently eat Oriental cuisine and Wasabee absolutely knocks it out of the park."</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Instagram / Our World -->
-  <section class="section instagram-section" id="social">
-    <div class="section-narrow">
-      <div class="reveal section-header-center">
-        <span class="section-label">私たちの世界</span>
-        <h2 class="section-title">Our <span class="accent">World</span></h2>
-        <a href="https://www.instagram.com/wasabeekolkata/" target="_blank" class="insta-handle">@wasabeekolkata</a>
-      </div>
-      <div class="insta-grid reveal" data-delay="0.2">
-        <a href="https://www.instagram.com/wasabeekolkata/" target="_blank" class="insta-item">
-          <img src="images/slide 1.jpg" alt="Instagram Post">
-          <div class="insta-overlay"><svg viewBox="0 0 24 24" width="32" height="32" fill="#FAF7F2"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
-        </a>
-        <a href="https://www.instagram.com/wasabeekolkata/" target="_blank" class="insta-item">
-          <img src="images/slide 2.jpg" alt="Instagram Post">
-          <div class="insta-overlay"><svg viewBox="0 0 24 24" width="32" height="32" fill="#FAF7F2"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
-        </a>
-        <a href="https://www.instagram.com/wasabeekolkata/" target="_blank" class="insta-item">
-          <img src="images/slide. 3.jpg" alt="Instagram Post">
-          <div class="insta-overlay"><svg viewBox="0 0 24 24" width="32" height="32" fill="#FAF7F2"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
-        </a>
-        <a href="https://www.instagram.com/wasabeekolkata/" target="_blank" class="insta-item">
-          <img src="images/IMG_2828.jpg" alt="Instagram Post">
-          <div class="insta-overlay"><svg viewBox="0 0 24 24" width="32" height="32" fill="#FAF7F2"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
-        </a>
-      </div>
-      <div class="reveal insta-actions">
-        <a href="https://www.instagram.com/wasabeekolkata/" target="_blank" class="cta-btn instagram-btn">Follow Us on Insta <svg viewBox="0 0 24 24"><path d="M5 12H19M19 12L12 5M19 12L12 19"/></svg></a>
-        <a href="http://zoma.to/r/22188" target="_blank" class="cta-btn platform-btn"><img src="images/zomato-1.svg" height="18" alt="Zomato"> Order</a>
-        <a href="https://www.swiggy.com/city/kolkata/wasabee-kalikapur-ruby-area-rest33209" target="_blank" class="cta-btn platform-btn"><img src="images/swiggy-1.svg" height="20" alt="Swiggy"> Order</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Seigaiha Wave Divider -->
-  <div class="seigaiha-divider" aria-hidden="true"></div>
 
   <!-- Reservation CTA -->
   <section class="reservation" id="reservation">
@@ -766,10 +980,13 @@
     <div class="section-narrow">
       <div class="split-section-grid">
         <div class="reservation-content reveal-left">
-          <span class="section-label">ご予約</span>
-          <h2 class="section-title">Reserve Your <span class="accent">Table</span></h2>
-          <p class="section-text">Join us for an unforgettable journey through the flavors of Asia. Book your table today.</p>
-          <a href="tel:+919163764444" class="cta-btn">Make a Reservation <svg viewBox="0 0 24 24"><path d="M5 12H19M19 12L12 5M19 12L12 19"/></svg></a>
+          <span class="section-label">ご予約 · RESERVATION</span>
+          <h2 class="section-title">Book a <span class="accent">Table</span></h2>
+          <p class="section-text">Planning a family get-together, kitty party, or date night? Call us to book the best
+            table at Wasabee today and get 15% OFF on total bill!</p>
+          <a href="tel:+919163764444" class="cta-btn">Book Your Table Now <svg viewBox="0 0 24 24">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" />
+            </svg></a>
         </div>
         <div class="side-graphic-container reveal-right">
           <img src="images/graphic 1.jpg" alt="Wasabee Hospitality" class="side-graphic-img">
@@ -779,111 +996,348 @@
     </div>
   </section>
 
-  <!-- Contact / Access -->
-  <section class="section contact" id="contact">
-    <span class="section-kanji-bg" aria-hidden="true">場</span>
+  <!-- Seigaiha Wave Divider -->
+  <div class="seigaiha-divider" aria-hidden="true"></div>
+
+  <!-- Features Grid -->
+  <section class="features" id="features">
+    <span class="section-kanji-bg" aria-hidden="true">道</span>
+    <!-- Asanoha Pattern Border -->
+    <div class="asanoha-border-top" aria-hidden="true"></div>
     <div class="section-narrow">
-      <div class="reveal section-header-center">
-        <span class="section-label">アクセス</span>
-        <h2 class="section-title">Find <span class="accent">Us</span></h2>
+      <div class="reveal" style="text-align:center; margin-bottom:4rem;">
+        <span class="section-label" style="justify-content:center;">体験 · EXPERIENCE</span>
+        <h2 class="section-title">The Wasabee <span class="accent">Experience</span></h2>
       </div>
-      <div class="contact-grid">
-        <div class="contact-info reveal-left">
-          <div class="contact-block">
-            <h4>Bypass · South City Connector</h4>
-            <p>30, Arya Vidyalaya Road<br>Kolkata 700 078<br>(Opposite National Furniture)</p>
-            <a href="tel:+919163764444" class="phone-number">9163764444</a>
-            <span class="phone-separator">·</span>
-            <a href="tel:+919831626544" class="phone-number phone-secondary">9831626544</a>
+      <div class="heritage-grid">
+        <!-- Owner's Corner -->
+        <div class="washi-card-wrapper reveal-left" data-delay="0.1">
+          <div class="heritage-card washi-card washi-card-cream">
+          <div class="heritage-card-badge">FOUNDERS</div>
+          <span class="heritage-kanji-watermark">創業者</span>
+          <h3 class="heritage-card-title">Owner's <span class="accent">Corner</span></h3>
+          <div class="heritage-card-image">
+            <img src="images/graphic 1.jpg" alt="Wasabee Founders Ambiance">
           </div>
-          <div class="contact-block">
-            <h4>Deshapriya Park</h4>
-            <p>Kolkata</p>
-            <a href="tel:+919073948146" class="phone-number">9073948146</a>
-            <span class="phone-separator">·</span>
-            <a href="tel:+919163000200" class="phone-number phone-secondary">9163000200</a>
+          <p class="heritage-quote">"Building Kolkata's first standalone Japanese dining destination in 2012 wasn't just about food—it was about introducing a philosophy of pure, honest culinary art."</p>
+          <div class="heritage-card-divider"></div>
+          <p class="heritage-text">
+            From importing genuine ingredients to crafting a space that feels like a quiet sanctuary, we wanted Wasabee to be a direct channel to Tokyo and Seoul. Our journey started over a decade ago with a simple mission: Zero convenience fees, zero delivery charges, honest direct pricing, and a culinary experience without any compromises.
+          </p>
+          <div class="heritage-signature">
+            <span class="sig-name">Tanmoy Bose &amp; Debraj Choudhury</span>
+            <span class="sig-title">Founders of Wasabee</span>
           </div>
-          <div class="contact-block">
-            <h4>Corporate / Events</h4>
-            <a href="tel:+918981359413" class="phone-number">+91 89813 59413</a>
-          </div>
-          <div class="contact-block">
-            <h4>Hours</h4>
-            <div class="hours-grid">
-              <span class="day">Mon – Sun</span>
-              <span class="time">12:00 – 15:00 · 18:00 – 22:30</span>
-            </div>
-          </div>
-          <div class="contact-block">
-            <h4>Follow Us / Order</h4>
-            <div class="footer-social" style="margin-top:0.5rem;">
-              <a href="https://www.instagram.com/wasabeekolkata/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-              <a href="http://zoma.to/r/22188" target="_blank" aria-label="Zomato"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.5 16.5H5v-1.8h6.5V16.5zm7-3.8H5v-1.8h13.5v1.8zm0-3.8H5V7.1h13.5v1.8z"/></svg></a>
-              <a href="https://www.swiggy.com/city/kolkata/wasabee-kalikapur-ruby-area-rest33209" target="_blank" aria-label="Swiggy"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.5 17.5h-9c-.83 0-1.5-.67-1.5-1.5v-4c0-.83.67-1.5 1.5-1.5h.5V9c0-2.21 1.79-4 4-4s4 1.79 4 4v1.5h.5c.83 0 1.5.67 1.5 1.5v4c0 .83-.67 1.5-1.5 1.5zM14.5 9c0-1.38-1.12-2.5-2.5-2.5S9.5 7.62 9.5 9v1.5h5V9z"/></svg></a>
-              <a href="https://share.google/Fpbui7WFzKV8RP00X" target="_blank" aria-label="Google Maps"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></a>
-            </div>
           </div>
         </div>
-        <div class="contact-map reveal-right">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.7!2d88.3833421!3d22.5024003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDMwJzA4LjYiTiA4OMKwMjMnMDAuMCJF!5e0!3m2!1sen!2sin!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Wasabee Location Map"></iframe>
+
+        <!-- Chef's Corner -->
+        <div class="washi-card-wrapper reveal-right" data-delay="0.2">
+          <div class="heritage-card washi-card washi-card-cream">
+          <div class="heritage-card-badge">CUISINE</div>
+          <span class="heritage-kanji-watermark">料理長</span>
+          <h3 class="heritage-card-title">Chef's <span class="accent">Corner</span></h3>
+          <div class="heritage-card-image">
+            <img src="images/graphic 2.jpg" alt="Master Chef Craftsmanship">
+          </div>
+          <p class="heritage-quote">"We source premium Norwegian salmon daily and handcraft every single dumpling, ensuring authentic technique is alive in every plate."</p>
+          <div class="heritage-card-divider"></div>
+          <p class="heritage-text">
+            Our kitchen runs on uncompromising principles: we refuse to use MSG (Ajinomoto) in any of our dishes to protect your health, and everything is prepared fresh from scratch. We embrace traditional Japanese precision while balancing spice levels to suit the local palate, turning every meal into a memorable encounter.
+          </p>
+          <div class="heritage-signature">
+            <span class="sig-name">Master Chef &amp; Team</span>
+            <span class="sig-title">Culinary Directors</span>
+          </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ════════ COMBINED: CONTACT & SOCIAL (FIND US & OUR WORLD) ════════ -->
+  <section class="section contact" id="contact">
+    <div class="section-narrow">
+      <div class="contact-grid">
+        
+        <!-- Left Column: Find Us / Access -->
+        <div class="combined-col-left reveal-left">
+          <div class="section-header-left">
+            <span class="section-label">アクセス · FIND US</span>
+            <h2 class="section-title">Find <span class="accent">Us</span></h2>
+          </div>
+          <div class="contact-info">
+            <div class="contact-block">
+              <h4>Bypass · South City Connector</h4>
+              <p>30, Arya Vidyalaya Road<br>Kolkata 700 078<br>(Opposite National Furniture)</p>
+              <div class="phone-list">
+                <a href="tel:+919163764444" class="phone-link">
+                  <svg class="phone-icon" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.57a1.003 1.003 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.36 11.36 0 008.5 3.7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+                  +91 91637 64444
+                </a>
+                <a href="tel:+919831626544" class="phone-link">
+                  <svg class="phone-icon" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.57a1.003 1.003 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.36 11.36 0 008.5 3.7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+                  +91 98316 26544
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-block">
+              <h4>Corporate / Events</h4>
+              <a href="tel:+918981359413" class="phone-link">
+                <svg class="phone-icon" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.57a1.003 1.003 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.36 11.36 0 008.5 3.7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+                +91 89813 59413
+              </a>
+            </div>
+            <div class="contact-block">
+              <h4 style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+                Hours <div id="statusBadge" class="status-badge" style="margin: 0; transform: translateY(-1px);"></div>
+              </h4>
+              <div class="hours-grid">
+                <span class="day">Mon – Sun</span>
+                <span class="time">12:00 – 15:00 · 18:00 – 22:30</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Map embedded inside Left Column -->
+          <div class="contact-map" style="margin-top: 1rem;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.7!2d88.3833421!3d22.5024003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDMwJzA4LjYiTiA4OMKwMjMnMDAuMCJF!5e0!3m2!1sen!2sin!4v1"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="Wasabee Location Map"></iframe>
+          </div>
+        </div>
+
+        <!-- Right Column: Our World -->
+        <div class="combined-col-right reveal-right">
+          <div class="section-header-left">
+            <span class="section-label">私たちの世界 · OUR WORLD</span>
+            <h2 class="section-title our-world-title">Our <span class="accent">World</span></h2>
+            <a href="https://www.instagram.com/wasabeekolkata/" target="_blank" class="insta-handle our-world-handle">
+              Follow Us On 
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="insta-icon"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              @wasabeekolkata
+            </a>
+          </div>
+          <!-- Instagram Embed Frame inside Right Column -->
+          <div class="insta-embed-container">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/wasabeekolkata" data-instgrm-version="12" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:min(540px, 100%);min-width:150px;padding:0;width:99.375%;width:600px;max-height:100%;"><div style="padding:16px"><a id="main_link" href="https://www.instagram.com/wasabeekolkata" style="background:#FFF;line-height:0;padding:0 0;text-align:center;text-decoration:none;width:100%" target="_blank"><div style="display:flex;flex-direction:row;align-items:center"><div style="background-color:#F4F4F4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px"></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center"><div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px"></div><div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;width:60px"></div></div></div><div style="padding:50px 0"></div><div style="display:block;height:50px;margin:0 auto 12px;width:50px"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000"><g><path d="M556.869,30.41C554.814,30.41 553.148,32.076 553.148,34.131C553.148,36.186 554.814,37.852 556.869,37.852C558.924,37.852 560.59,36.186 560.59,34.131C560.59,32.076 558.924,30.41 556.869,30.41M541,60.657C535.114,60.657 530.342,55.887 530.342,50C530.342,44.114 535.114,39.342 541,39.342C546.887,39.342 551.658,44.114 551.658,50C551.658,55.887 546.887,60.657 541,60.657M541,33.886C532.1,33.886 524.886,41.1 524.886,50C524.886,58.899 532.1,66.113 541,66.113C549.9,66.113 557.115,58.899 557.115,50C557.115,41.1 549.9,33.886 541,33.886M565.378,62.101C565.244,65.022 564.756,66.606 564.346,67.663C563.803,69.06 563.154,70.057 562.106,71.106C561.058,72.155 560.06,72.803 558.662,73.347C557.607,73.757 556.021,74.244 553.102,74.378C549.944,74.521 548.997,74.552 541,74.552C533.003,74.552 532.056,74.521 528.898,74.378C525.979,74.244 524.393,73.757 523.338,73.347C521.94,72.803 520.942,72.155 519.894,71.106C518.846,70.057 518.197,69.06 517.654,67.663C517.244,66.606 516.755,65.022 516.623,62.101C516.479,58.943 516.448,57.996 516.448,50C516.448,42.003 516.479,41.056 516.623,37.899C516.755,34.978 517.244,33.391 517.654,32.338C518.197,30.938 518.846,29.942 519.894,28.894C520.942,27.846 521.94,27.196 523.338,26.654C524.393,26.244 525.979,25.756 528.898,25.623C532.057,25.479 533.004,25.448 541,25.448C548.997,25.448 549.943,25.479 553.102,25.623C556.021,25.756 557.607,26.244 558.662,26.654C560.06,27.196 561.058,27.846 562.106,28.894C563.154,29.942 563.803,30.938 564.346,32.338C564.756,33.391 565.244,34.978 565.378,37.899C565.522,41.056 565.552,42.003 565.552,50C565.552,57.996 565.522,58.943 565.378,62.101M570.82,37.631C570.674,34.438 570.167,32.258 569.425,30.349C568.659,28.377 567.633,26.702 565.965,25.035C564.297,23.368 562.623,22.342 560.652,21.575C558.743,20.834 556.562,20.326 553.369,20.18C550.169,20.033 549.148,20 541,20C532.853,20 531.831,20.033 528.631,20.18C525.438,20.326 523.257,20.834 521.349,21.575C519.376,22.342 517.703,23.368 516.035,25.035C514.368,26.702 513.342,28.377 512.574,30.349C511.834,32.258 511.326,34.438 511.181,37.631C511.035,40.831 511,41.851 511,50C511,58.147 511.035,59.17 511.181,62.369C511.326,65.562 511.834,67.743 512.574,69.651C513.342,71.625 514.368,73.296 516.035,74.965C517.703,76.634 519.376,77.658 521.349,78.425C523.257,79.167 525.438,79.673 528.631,79.82C531.831,79.965 532.853,80.001 541,80.001C549.148,80.001 550.169,79.965 553.369,79.82C556.562,79.673 558.743,79.167 560.652,78.425C562.623,77.658 564.297,76.634 565.965,74.965C567.633,73.296 568.659,71.625 569.425,69.651C570.167,67.743 570.674,65.562 570.82,62.369C570.966,59.17 571,58.147 571,50C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top:8px"><div style="color:#3897f0;font-family:Arial,sans-serif;font-size:14px;font-style:normal;font-weight:550;line-height:18px">View this post on Instagram</div></div><div style="padding:30px 0"></div><div style="display:flex;flex-direction:row;margin-bottom:14px;align-items:center"><div><div style="background-color:#F4F4F4;border-radius:50%;height:12.5px;width:12.5px;transform:translateX(0px) translateY(7px)"></div><div style="background-color:#F4F4F4;height:12.5px;transform:rotate(-45deg) translateX(3px) translateY(1px);width:12.5px;flex-grow:0;margin-right:14px;margin-left:2px"></div><div style="background-color:#F4F4F4;border-radius:50%;height:12.5px;width:12.5px;transform:translateX(9px) translateY(-18px)"></div></div><div style="margin-left:8px"><div style="background-color:#F4F4F4;border-radius:50%;flex-grow:0;height:20px;width:20px"></div><div style="width:0;height:0;border-top:2px solid transparent;border-left:6px solid #f4f4f4;border-bottom:2px solid transparent;transform:translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left:auto"><div style="width:0;border-top:8px solid #F4F4F4;border-right:8px solid transparent;transform:translateY(16px)"></div><div style="background-color:#F4F4F4;flex-grow:0;height:12px;width:16px;transform:translateY(-4px)"></div><div style="width:0;height:0;border-top:8px solid #F4F4F4;border-left:8px solid transparent;transform:translateY(-4px) translateX(8px)"></div></div></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;margin-bottom:24px"><div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:224px"></div><div style="background-color:#F4F4F4;border-radius:4px;flex-grow:0;height:14px;width:144px"></div></div></a></div></blockquote>
+            <div style="overflow:auto;position:absolute;height:0;width:0"><a href="https://www.poper.ai/tools/embed-instagram-feed/">Embed Instagram Post</a></div>
+            <style>.instagram-media:before{display:none!important} .instagram-media{max-width:100%;}</style>
+            <script src="https://www.instagram.com/embed.js"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-logo">
-        <img src="images/wasabeelogo .PNG" alt="Wasabee Logo" style="width: 200px; height: auto; margin-bottom: 0.5rem;">
-        <div class="brand-tagline" style="color: #ffffff; opacity: 0.9; border-color: rgba(250, 247, 242, 0.3);">A UNIT OF SUPERB RECIPES</div>
+        <img src="images/wasabeelogo.png?v=4" alt="Wasabee Logo" class="footer-logo-img">
+        <div class="footer-logo-tagline">A Unit of Superb Recipes</div>
+        <p class="footer-logo-address">New Bypass, Kolkata · 700099</p>
       </div>
       <div class="footer-nav">
-        <div class="footer-nav-col"><h5>Explore</h5><ul><li><a href="#about">About</a></li><li><a href="#menu">Menu</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#features">Experience</a></li></ul></div>
-        <div class="footer-nav-col"><h5>Visit</h5><ul><li><a href="#contact">Locations</a></li><li><a href="#reservation">Reservations</a></li><li><a href="http://zoma.to/r/22188" target="_blank">Zomato</a></li><li><a href="https://www.swiggy.com/city/kolkata/wasabee-kalikapur-ruby-area-rest33209" target="_blank">Swiggy</a></li></ul></div>
-        <div class="footer-nav-col"><h5>Contact</h5><ul><li><a href="tel:+919163764444">Bypass: 9163764444</a></li><li><a href="tel:+919073948146">Deshapriya: 9073948146</a></li><li><a href="tel:+918981359413">Events: 89813 59413</a></li><li><a href="https://wasabee.in" target="_blank">wasabee.in</a></li></ul></div>
+        <div class="footer-nav-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#features">Experience</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h5>Visit</h5>
+          <ul>
+            <li><a href="#contact">Find Us</a></li>
+            <li><a href="#reservation">Reservations</a></li>
+            <li><a href="#order">Order Online</a></li>
+            <li><a href="#menu">WhatsApp Order</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="tel:+919163764444">9163764444</a></li>
+            <li><a href="tel:+918981359413">Events: 8981359413</a></li>
+            <li><a href="https://wasabee.in" target="_blank">wasabee.in</a></li>
+            <li><a href="https://www.instagram.com/wasabeekolkata/" target="_blank">@wasabeekolkata</a></li>
+          </ul>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/wasabeekolkata/" target="_blank" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://wa.me/919163764444" target="_blank" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="https://www.zomato.com/kolkata" target="_blank" aria-label="Zomato">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Wasabee Oriental Cuisine. All rights reserved.</p>
-      <div class="footer-bottom-links"><a href="https://wasabee.in" target="_blank">www.wasabee.in</a></div>
+      <div class="footer-bottom-links">
+        <a href="https://wasabee.in" target="_blank">wasabee.in</a>
+        <a href="#menu">Order Now</a>
+        <a href="#reservation">Reserve a Table</a>
+      </div>
     </div>
   </footer>
 
   <!-- Lightbox -->
-  <div class="lightbox" id="lightbox"><div class="lightbox-close"></div><img src="" alt="Gallery preview"></div>
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-close"></div><img src="" alt="Gallery preview">
+  </div>
   <div class="page-transition"></div>
-  
+
+  <!-- Mini Cart Summary Box -->
+  <div class="mini-cart-toast" id="miniCartToast">
+    <button class="mini-cart-close" id="miniCartClose" aria-label="Close order preview">&times;</button>
+    <div class="mini-cart-content">
+      <span class="mini-cart-title">Your Order</span>
+      <span class="mini-cart-summary" id="miniCartSummary">0 items · ₹0</span>
+    </div>
+    <button class="mini-cart-btn" id="miniCartViewBtn">View Cart</button>
+  </div>
+
   <!-- Floating WhatsApp Cart Widget -->
   <div class="floating-cart-widget" id="waCartWidget">
     <div class="cart-widget-header">
       <span class="cart-widget-title">Your Order</span>
       <button class="cart-widget-close" aria-label="Close cart">&times;</button>
     </div>
+    <!-- Cart Offer Banner at the Top -->
+    <div class="cart-offer-banner" id="waCartOfferBanner">
+      Add items to unlock special offers!
+    </div>
+    <!-- Celebration Toast -->
+    <div class="cart-celebration-toast" id="waCartCelebration">
+      Offer Unlocked!
+    </div>
     <div class="cart-items-container" id="waCartItems">
       <!-- Cart items injected here via JS -->
     </div>
     <div class="cart-widget-footer">
-      <div class="cart-total-row">
-        <span>Total:</span>
-        <span id="waCartTotal">₹0</span>
+      <div class="cart-summary-calculations">
+        <div class="cart-summary-row">
+          <span>Subtotal:</span>
+          <span id="waCartSubtotal">₹0</span>
+        </div>
+        <div class="cart-summary-row discount-row" id="waCartDiscountRow" style="display: none; color: #4caf50; font-weight: 500;">
+          <span>Discount:</span>
+          <span id="waCartDiscount">-₹0</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Delivery:</span>
+          <span style="color: #4caf50; font-weight: 500;">FREE</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Total:</span>
+          <span id="waCartTotal">₹0</span>
+        </div>
       </div>
-      <div class="cart-offer-notice" id="waCartOfferNotice"></div>
       <button class="btn-wa-checkout" id="waCheckoutBtn">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.005-5.074 4.141-9.211 9.219-9.211 2.461.002 4.776.96 6.516 2.7 1.739 1.74 2.697 4.053 2.695 6.513-.005 5.076-4.142 9.21-9.218 9.213z"/></svg>
+        <img src="images/whatsapp-logo.png?v=19" alt="WhatsApp" width="20" height="20" style="object-fit: contain;">
         Order on WhatsApp
       </button>
     </div>
   </div>
-  
-  <!-- Floating Cart Toggle Button -->
-  <button class="cart-toggle-btn" id="waCartToggle" aria-label="Open cart">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+
+  <!-- Floating WhatsApp Toggle Button -->
+  <button class="cart-toggle-btn has-items" id="waCartToggle" aria-label="Order on WhatsApp">
+    <img src="images/whatsapp-logo.png?v=19" alt="WhatsApp" width="64" height="64">
     <span class="cart-badge" id="waCartBadge">0</span>
   </button>
 
-  <script src="script.js"></script>
-  <script type="module" src="pretext-effects.js"></script>
-  <script src="wa-cart.js"></script>
+  <!-- Cart Backdrop for mobile -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+
+  <!-- Premium Booking Modal -->
+  <div class="booking-modal-overlay" id="bookingModal">
+    <div class="booking-modal-card">
+      <button class="booking-modal-close" id="closeBookingModal" aria-label="Close modal">&times;</button>
+      <div class="booking-modal-header">
+        <h3 class="booking-modal-title">Book a Table</h3>
+        <p class="booking-modal-subtitle">Direct pricing · No booking fees · Confirm via WhatsApp</p>
+      </div>
+      <form class="booking-modal-form" id="bookingModalForm">
+        <!-- Date Selector -->
+        <div class="booking-form-group">
+          <label for="bookingDate">Select Date</label>
+          <input type="date" id="bookingDate" required>
+        </div>
+        
+        <!-- Time Selector -->
+        <div class="booking-form-group">
+          <label for="bookingTime">Select Time Slot</label>
+          <select id="bookingTime" required>
+            <option value="" disabled selected>Choose a time slot</option>
+            <option value="12:00 PM">12:00 PM (Lunch)</option>
+            <option value="12:30 PM">12:30 PM</option>
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="1:30 PM">1:30 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="2:30 PM">2:30 PM</option>
+            <option value="3:00 PM">3:00 PM</option>
+            <option value="7:00 PM">7:00 PM (Dinner)</option>
+            <option value="7:30 PM">7:30 PM</option>
+            <option value="8:00 PM">8:00 PM</option>
+            <option value="8:30 PM">8:30 PM</option>
+            <option value="9:00 PM">9:00 PM</option>
+            <option value="9:30 PM">9:30 PM</option>
+            <option value="10:00 PM">10:00 PM</option>
+            <option value="10:30 PM">10:30 PM</option>
+          </select>
+        </div>
+
+        <!-- Party Size (Guests) -->
+        <div class="booking-form-group">
+          <label>Number of Guests</label>
+          <div class="guests-selector">
+            <input type="radio" name="guests" value="1 Guest" id="g1">
+            <label for="g1">1</label>
+            
+            <input type="radio" name="guests" value="2 Guests" id="g2" checked>
+            <label for="g2">2</label>
+            
+            <input type="radio" name="guests" value="3 Guests" id="g3">
+            <label for="g3">3</label>
+            
+            <input type="radio" name="guests" value="4 Guests" id="g4">
+            <label for="g4">4</label>
+            
+            <input type="radio" name="guests" value="5 Guests" id="g5">
+            <label for="g5">5</label>
+            
+            <input type="radio" name="guests" value="6+ Guests" id="g6">
+            <label for="g6">6+</label>
+          </div>
+        </div>
+
+        <!-- Customer Name -->
+        <div class="booking-form-group">
+          <label for="bookingName">Your Name</label>
+          <input type="text" id="bookingName" placeholder="Enter your name" required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-wa-booking-submit">
+          <img src="images/whatsapp-logo.png?v=18" alt="WhatsApp" width="20" height="20" style="object-fit: contain;">
+          Confirm Booking on WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js?v=20"></script>
+  <script src="wa-cart.js?v=20"></script>
 </body>
+
 </html>

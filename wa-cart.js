@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const updateOfferTexts = (group) => {
     const text = group === 'A' 
-      ? 'Be honored with <strong>15% OFF</strong> on your savory servings of <strong>₹799</strong> or more.' 
-      : 'Be honored with <strong>₹200 OFF</strong> on your savory servings of <strong>₹999</strong> or more.';
+      ? 'Enjoy <strong>15% OFF</strong> on all orders of <strong>₹799</strong> or more.' 
+      : 'Enjoy <strong>₹200 OFF</strong> on all orders of <strong>₹999</strong> or more.';
     
-    const marqueeText = group === 'A' ? 'BE HONORED WITH 15% OFF' : 'BE HONORED WITH ₹200 OFF';
+    const marqueeText = group === 'A' ? 'ENJOY 15% OFF ON ₹799+' : 'ENJOY ₹200 OFF ON ₹999+';
 
     if (offerElement) offerElement.innerHTML = text;
     marqueeOffers.forEach(el => el.textContent = marqueeText);
@@ -76,16 +76,65 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartTotalEl = document.getElementById('waCartTotal');
   const cartBadge = document.getElementById('waCartBadge');
   const checkoutBtn = document.getElementById('waCheckoutBtn');
-  const offerNoticeEl = document.getElementById('waCartOfferNotice');
+  const cartBackdrop = document.getElementById('cartBackdrop');
 
-  // Toggle Cart visibility
-  cartToggleBtn.addEventListener('click', () => {
-    cartWidget.classList.toggle('open');
-  });
+  // Mini-cart toast elements
+  const miniCartToast = document.getElementById('miniCartToast');
+  const miniCartClose = document.getElementById('miniCartClose');
+  const miniCartSummary = document.getElementById('miniCartSummary');
+  const miniCartViewBtn = document.getElementById('miniCartViewBtn');
+  
+  // New UI Elements for Calculations & Offers
+  const cartOfferBanner = document.getElementById('waCartOfferBanner');
+  const cartCelebration = document.getElementById('waCartCelebration');
+  const cartSubtotalEl = document.getElementById('waCartSubtotal');
+  const cartDiscountRow = document.getElementById('waCartDiscountRow');
+  const cartDiscountEl = document.getElementById('waCartDiscount');
 
-  cartCloseBtn.addEventListener('click', () => {
+  let lastDiscountState = 'none';
+
+  // Open full cart panel (not auto — only on explicit user action)
+  function openCart() {
+    cartWidget.classList.add('open');
+    if (cartBackdrop) cartBackdrop.style.display = 'block';
+    miniCartToast.classList.remove('show'); // hide mini-toast when full panel opens
+  }
+
+  function closeCart() {
     cartWidget.classList.remove('open');
+    if (cartBackdrop) cartBackdrop.style.display = '';
+  }
+
+  // Toggle Cart via floating WhatsApp button
+  cartToggleBtn.addEventListener('click', () => {
+    if (cartWidget.classList.contains('open')) {
+      closeCart();
+    } else {
+      openCart();
+    }
   });
+
+  // Close full panel
+  cartCloseBtn.addEventListener('click', closeCart);
+
+  // Backdrop click closes full panel
+  if (cartBackdrop) {
+    cartBackdrop.addEventListener('click', closeCart);
+  }
+
+  // Mini-cart: View Cart opens full panel
+  if (miniCartViewBtn) {
+    miniCartViewBtn.addEventListener('click', () => {
+      openCart();
+    });
+  }
+
+  // Mini-cart: close just the toast (not the full panel)
+  if (miniCartClose) {
+    miniCartClose.addEventListener('click', () => {
+      miniCartToast.classList.remove('show');
+    });
+  }
 
   // Core Cart Functions
   function addToCart(name, price) {
@@ -96,12 +145,14 @@ document.addEventListener('DOMContentLoaded', () => {
       cart.push({ name, price, qty: 1 });
     }
     updateCartUI();
-    
-    // Open widget briefly on first add if it's closed
-    if (!cartWidget.classList.contains('open')) {
-       cartWidget.classList.add('open');
+
+    // Show mini-cart toast on add — do NOT auto-open full panel
+    if (!cartWidget.classList.contains('open') && miniCartToast) {
+      miniCartToast.classList.add('show');
     }
   }
+
+  window.addToCart = addToCart;
 
   window.removeFromCart = function(name) { // accessible from inline HTML string
     const existingItem = cart.find(i => i.name === name);
@@ -113,16 +164,25 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     updateCartUI();
+    // Auto-hide mini toast if cart is empty
+    if (cart.length === 0 && miniCartToast) {
+      miniCartToast.classList.remove('show');
+    }
+  }
+
+  function updateMiniCartToast(itemCount, total) {
+    if (!miniCartSummary) return;
+    miniCartSummary.textContent = `${itemCount} item${itemCount !== 1 ? 's' : ''} · ₹${total}`;
   }
 
   function updateCartUI() {
-    // 1. Calculate Total
-    let total = 0;
+    // 1. Calculate Subtotal
+    let subtotal = 0;
     let itemCount = 0;
     cartItemsContainer.innerHTML = '';
     
     cart.forEach(item => {
-      total += (item.price * item.qty);
+      subtotal += (item.price * item.qty);
       itemCount += item.qty;
       
       const itemRow = document.createElement('div');
@@ -148,35 +208,77 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Update Headers/Badges
-    cartTotalEl.textContent = `₹${total}`;
     cartBadge.textContent = itemCount;
-    
     if (itemCount > 0) {
       cartToggleBtn.classList.add('has-items');
     } else {
       cartToggleBtn.classList.remove('has-items');
     }
 
-    // 3. Highlight Applicable Offers
-    let appliedOffersText = [];
-    const grp = localStorage.getItem('wasabee_offer_test');
+    // Update mini-cart toast summary
+    updateMiniCartToast(itemCount, subtotal);
 
-    if (total >= 1299) {
-      appliedOffersText.push('15% Off + Free Dessert applied!');
-    } else if (grp === 'A' && total >= 799) {
-      appliedOffersText.push('15% Off applied!');
-    } else if (grp === 'B' && total >= 999) {
-      appliedOffersText.push('₹200 Off applied!');
-    } else {
-       // Show what they can unlock
-       if (grp === 'A' && total < 799) {
-          appliedOffersText.push(`Add ₹${799 - total} more for 15% Off`);
-       } else if (grp === 'B' && total < 999) {
-          appliedOffersText.push(`Add ₹${999 - total} more for ₹200 Off`);
-       }
+    // 3. Calculate discount based on experiment group
+    let currentDiscountState = 'none';
+    let discount = 0;
+    const grp = localStorage.getItem('wasabee_offer_test') || 'A';
+
+    if (subtotal >= 1299) {
+      currentDiscountState = 'dessert';
+      discount = Math.round(subtotal * 0.15);
+    } else if (grp === 'A' && subtotal >= 799) {
+      currentDiscountState = 'discount';
+      discount = Math.round(subtotal * 0.15);
+    } else if (grp === 'B' && subtotal >= 999) {
+      currentDiscountState = 'discount';
+      discount = 200;
     }
-    
-    offerNoticeEl.textContent = appliedOffersText.join(' | ');
+
+    // 4. Update offer banner text
+    if (subtotal === 0) {
+      cartOfferBanner.innerHTML = "Add items to unlock special offers!";
+    } else if (currentDiscountState === 'dessert') {
+      cartOfferBanner.innerHTML = "<strong>15% OFF + Free Dessert</strong> applied!";
+    } else if (currentDiscountState === 'discount') {
+      const nextAmount = 1299 - subtotal;
+      const discountName = grp === 'A' ? '15% OFF' : '₹200 OFF';
+      cartOfferBanner.innerHTML = `<strong>${discountName}</strong> applied! Add <strong>₹${nextAmount}</strong> more for a <strong>Free Dessert</strong>!`;
+    } else {
+      // none state
+      if (grp === 'A') {
+        cartOfferBanner.innerHTML = `Add <strong>₹${799 - subtotal}</strong> more to unlock <strong>15% OFF</strong>!`;
+      } else {
+        cartOfferBanner.innerHTML = `Add <strong>₹${999 - subtotal}</strong> more to unlock <strong>₹200 OFF</strong>!`;
+      }
+    }
+
+    // 5. Trigger celebration toast on state transition (e.g. none -> discount / discount -> dessert)
+    const statePriority = { 'none': 0, 'discount': 1, 'dessert': 2 };
+    if (statePriority[currentDiscountState] > statePriority[lastDiscountState]) {
+      if (currentDiscountState === 'dessert') {
+        cartCelebration.textContent = "Free Dessert & 15% Discount Unlocked!";
+      } else {
+        const discountText = grp === 'A' ? "15% OFF" : "₹200 OFF";
+        cartCelebration.textContent = `${discountText} Discount Unlocked!`;
+      }
+      cartCelebration.classList.add('show');
+      
+      if (window.celebrationTimeout) clearTimeout(window.celebrationTimeout);
+      window.celebrationTimeout = setTimeout(() => {
+        cartCelebration.classList.remove('show');
+      }, 3000);
+    }
+    lastDiscountState = currentDiscountState;
+
+    // 6. Update Calculations UI
+    cartSubtotalEl.textContent = `₹${subtotal}`;
+    if (discount > 0) {
+      cartDiscountEl.textContent = `-₹${discount}`;
+      cartDiscountRow.style.display = 'flex';
+    } else {
+      cartDiscountRow.style.display = 'none';
+    }
+    cartTotalEl.textContent = `₹${subtotal - discount}`;
   }
 
   // Initial UI Render
@@ -189,26 +291,37 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     
-    let total = 0;
-    let message = "Hon'ble Wasabee! I am craving your authentic oriental repertoire and wish to experience your savory servings at my humble abode:\n\n";
+    let subtotal = 0;
+    let message = "Hi Wasabee! I would like to order the following items from your menu:\n\n";
     
     cart.forEach(item => {
       const lineTotal = item.price * item.qty;
-      total += lineTotal;
-      message += `${item.qty}x ${item.name} (- ₹${lineTotal})\n`;
+      subtotal += lineTotal;
+      message += `${item.qty}x ${item.name} (₹${item.price} each - ₹${lineTotal})\n`;
     });
     
-    message += `\n*Subtotal: ₹${total}*\n`;
+    message += `\n*Subtotal: ₹${subtotal}*\n`;
     
-    // Note the applied offer to the restaurant staff
-    const grp = localStorage.getItem('wasabee_offer_test');
-    if (total >= 1299) {
-      message += `*Offer Claimed:* 15% Off + Free Dessert (Orders ₹1299+)\n`;
-    } else if (grp === 'A' && total >= 799) {
-      message += `*Offer Claimed:* 15% Off (Orders ₹799+)\n`;
-    } else if (grp === 'B' && total >= 999) {
-      message += `*Offer Claimed:* ₹200 Off (Orders ₹999+)\n`;
+    let discount = 0;
+    let claimedOffer = "";
+    const grp = localStorage.getItem('wasabee_offer_test') || 'A';
+    
+    if (subtotal >= 1299) {
+      discount = Math.round(subtotal * 0.15);
+      claimedOffer = "15% Off + Free Dessert (Orders ₹1299+)";
+    } else if (grp === 'A' && subtotal >= 799) {
+      discount = Math.round(subtotal * 0.15);
+      claimedOffer = "15% Off (Orders ₹799+)";
+    } else if (grp === 'B' && subtotal >= 999) {
+      discount = 200;
+      claimedOffer = "₹200 Off (Orders ₹999+)";
     }
+    
+    if (discount > 0) {
+      message += `*Discount:* -₹${discount} (${claimedOffer})\n`;
+    }
+    message += `*Delivery:* FREE\n`;
+    message += `*Total Amount:* ₹${subtotal - discount}\n`;
     
     message += `\nPlease confirm my order.`;
     

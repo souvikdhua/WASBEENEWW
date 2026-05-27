@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wasabee - Admin Dashboard</title>
+  <link rel="icon" type="image/png" href="images/wasabeelogo.png">
+  <style>
+    :root {
+      --color-brand: #82066A;
+      --color-accent: #d4af37;
+      --color-bg: #0c0b09;
+      --color-card: #151412;
+      --color-text: #FAF7F2;
+      --color-text-muted: #a39e93;
+      --color-border: rgba(250, 247, 242, 0.1);
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Password Modal */
+    #loginOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-box {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      padding: 3rem;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 400px;
+      width: 80%;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    .login-box h2 {
+      color: var(--color-accent);
+      margin-bottom: 2rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .login-box input:focus {
+      border-color: var(--color-accent);
+    }
+
+    .login-box button {
+      background: var(--color-brand);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #9c0b80;
+    }
+
+    .error-msg {
+      color: #ff4a4a;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    /* Main Dashboard Layout */
+    .dashboard-container {
+      max-width: 1200px;
+      width: 90%;
+      margin: 3rem auto;
+      display: none; /* hidden until logged in */
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px dashed var(--color-border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      color: var(--color-accent);
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .logout-btn {
+      background: transparent;
+      border: 1px solid var(--color-brand);
+      color: var(--color-brand);
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .logout-btn:hover {
+      background: var(--color-brand);
+      color: #fff;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .item-card {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .item-name {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-accent);
+    }
+
+    .item-cat {
+      font-size: 0.75rem;
+      background: rgba(250, 247, 242, 0.05);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      color: var(--color-text-muted);
+    }
+
+    .image-preview-box {
+      width: 100%;
+      height: 150px;
+      border-radius: 6px;
+      background: #201f1c;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed var(--color-border);
+      position: relative;
+    }
+
+    .image-preview-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .preview-placeholder {
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .input-group label {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .input-group input[type="text"] {
+      padding: 0.6rem 0.8rem;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      color: var(--color-text);
+      outline: none;
+      font-size: 0.9rem;
+    }
+
+    .input-group input[type="text"]:focus {
+      border-color: var(--color-brand);
+    }
+
+    .upload-btn-wrapper {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .upload-btn {
+      border: 1px dashed var(--color-brand);
+      color: var(--color-brand);
+      background-color: transparent;
+      padding: 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      width: 100%;
+      cursor: pointer;
+      text-align: center;
+      box-sizing: border-box;
+      transition: all 0.3s;
+    }
+
+    .upload-btn-wrapper:hover .upload-btn {
+      background: rgba(130, 6, 106, 0.05);
+    }
+
+    .upload-btn-wrapper input[type=file] {
+      font-size: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .save-indicator {
+      font-size: 0.8rem;
+      color: #4caf50;
+      text-align: right;
+      height: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .login-box {
+        padding: 2.2rem 1.5rem;
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Modal -->
+  <div id="loginOverlay">
+    <div class="login-box">
+      <h2>WASABEE ADMIN</h2>
+      <input type="password" id="adminPassword" placeholder="Enter Admin Password" autofocus>
+      <button id="loginBtn">Access Dashboard</button>
+      <div class="error-msg" id="loginError">Incorrect Password. Please try again.</div>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="dashboard-container" id="dashboard">
+    <header>
+      <div>
+        <h1>Menu Image Manager</h1>
+        <p style="color: var(--color-text-muted); margin: 0.4rem 0 0 0; font-size: 0.95rem;">Upload or assign custom appetizing food images to each dish on the menu.</p>
+      </div>
+      <button class="logout-btn" id="logoutBtn">Lock Console</button>
+    </header>
+
+    <div class="menu-grid" id="menuGrid">
+      <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--color-text-muted);">
+        Loading menu structure from website...
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const adminPass = 'wasabeeadmin';
+
+    // Check login state
+    if (sessionStorage.getItem('wasabee_admin_logged') === 'true') {
+      document.getElementById('loginOverlay').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+      loadMenuData();
+    }
+
+    document.getElementById('loginBtn').addEventListener('click', attemptLogin);
+    document.getElementById('adminPassword').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') attemptLogin();
+    });
+
+    function attemptLogin() {
+      const pass = document.getElementById('adminPassword').value;
+      if (pass === adminPass) {
+        sessionStorage.setItem('wasabee_admin_logged', 'true');
+        document.getElementById('loginOverlay').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+        loadMenuData();
+      } else {
+        document.getElementById('loginError').style.display = 'block';
+      }
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      sessionStorage.removeItem('wasabee_admin_logged');
+      window.location.reload();
+    });
+
+    // Fetch and parse index.html to list all menu items dynamically
+    async function loadMenuData() {
+      const grid = document.getElementById('menuGrid');
+      try {
+        const response = await fetch('index.html');
+        if (!response.ok) throw new Error('Could not load menu.');
+        
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        
+        const categoryGroups = doc.querySelectorAll('.unified-category-group');
+        let htmlCards = '';
+
+        categoryGroups.forEach(group => {
+          const categoryTitle = group.querySelector('.unified-title').textContent.trim();
+          const items = group.querySelectorAll('.popup-item');
+          
+          items.forEach(item => {
+            const nameEl = item.querySelector('.pi-name');
+            if (!nameEl) return;
+            const itemName = nameEl.textContent.trim();
+            const storageKey = 'menu_image_' + itemName;
+            const savedUrl = localStorage.getItem(storageKey) || '';
+            const displayUrl = savedUrl ? savedUrl : 'images/placeholder-food.jpg';
+
+            htmlCards += `
+              <div class="item-card" data-item="${itemName}">
+                <div class="item-header">
+                  <span class="item-name">${itemName}</span>
+                  <span class="item-cat">${categoryTitle}</span>
+                </div>
+                <div class="image-preview-box">
+                  <img id="preview-${itemName}" src="${displayUrl}" alt="${itemName}">
+                </div>
+                <div class="input-group">
+                  <label>Image URL</label>
+                  <input type="text" id="url-${itemName}" value="${savedUrl.startsWith('data:') ? '[Uploaded File]' : savedUrl}" placeholder="Paste public image URL here" oninput="updateUrl('${itemName}', this.value)">
+                </div>
+                <div style="text-align: center; color: var(--color-text-muted); font-size: 0.8rem; margin: -0.2rem 0;">OR</div>
+                <div class="upload-btn-wrapper">
+                  <button class="upload-btn">Upload Local File</button>
+                  <input type="file" accept="image/*" onchange="uploadFile('${itemName}', this)">
+                </div>
+                <div class="save-indicator" id="saved-${itemName}">Saved Automatically</div>
+              </div>
+            `;
+          });
+        });
+
+        if (htmlCards === '') {
+          grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--color-text-muted);">No menu items found.</div>';
+        } else {
+          grid.innerHTML = htmlCards;
+        }
+
+      } catch (err) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #ff4a4a;">Failed to load menu list: ${err.message}</div>`;
+      }
+    }
+
+    // Update with input URL
+    function updateUrl(name, url) {
+      const storageKey = 'menu_image_' + name;
+      const preview = document.getElementById('preview-' + name);
+      const indicator = document.getElementById('saved-' + name);
+
+      if (url.trim() === '') {
+        localStorage.removeItem(storageKey);
+        preview.src = 'images/placeholder-food.jpg';
+      } else {
+        localStorage.setItem(storageKey, url.trim());
+        preview.src = url.trim();
+      }
+
+      showSavedIndicator(indicator);
+    }
+
+    // Convert local file to Base64 and save
+    function uploadFile(name, input) {
+      if (!input.files || !input.files[0]) return;
+      
+      const file = input.files[0];
+      const reader = new FileReader();
+      const preview = document.getElementById('preview-' + name);
+      const urlInput = document.getElementById('url-' + name);
+      const indicator = document.getElementById('saved-' + name);
+
+      reader.onload = function(e) {
+        const base64Data = e.target.result;
+        const storageKey = 'menu_image_' + name;
+
+        // Try storing base64 image (safely handling localStorage storage limits)
+        try {
+          localStorage.setItem(storageKey, base64Data);
+          preview.src = base64Data;
+          urlInput.value = '[Uploaded File]';
+          showSavedIndicator(indicator);
+        } catch (error) {
+          alert('Local storage is full or file size is too large. Please compress the image or use a public Image URL instead.');
+          console.error(error);
+        }
+      };
+
+      reader.readAsDataURL(file);
+    }
+
+    function showSavedIndicator(indicator) {
+      indicator.style.opacity = '1';
+      setTimeout(() => {
+        indicator.style.opacity = '0';
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>

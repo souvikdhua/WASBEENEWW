@@ -4,6 +4,21 @@
    ======================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // === INJECT MENU IMAGES ===
+  const popupItems = document.querySelectorAll('.popup-item');
+  popupItems.forEach(item => {
+    const nameEl = item.querySelector('.pi-name');
+    if (!nameEl) return;
+    const itemName = nameEl.textContent.trim();
+    const savedImg = localStorage.getItem('menu_image_' + itemName);
+    const imgSrc = savedImg ? savedImg : 'images/placeholder-food.jpg?v=19';
+
+    const imgContainer = document.createElement('div');
+    imgContainer.className = 'pi-image-container';
+    imgContainer.innerHTML = `<img class="pi-image" src="${imgSrc}" alt="${itemName}" loading="lazy">`;
+    item.prepend(imgContainer);
+  });
+
   // Start animations
   setTimeout(initAnimations, 100);
 
@@ -17,11 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyTheme(theme) {
     if (theme === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
-      if (navLogoImg) navLogoImg.src = 'images/brand identity and logo .JPG';
+      if (navLogoImg) navLogoImg.src = 'images/wasabeelogo.png';
       if (heroLogoImg) heroLogoImg.src = 'images/graphic 5.jpg';
     } else {
       document.documentElement.removeAttribute('data-theme');
-      if (navLogoImg) navLogoImg.src = 'images/brand identity and logo .JPG';
+      if (navLogoImg) navLogoImg.src = 'images/wasabeelogo.png';
       if (heroLogoImg) heroLogoImg.src = 'images/graphic 5.jpg';
     }
   }
@@ -161,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const el = entry.target;
-          const target = parseInt(el.dataset.count);
+          const target = parseFloat(el.dataset.count);
           const suffix = el.dataset.suffix || '';
           const duration = 2000;
           const start = performance.now();
@@ -172,7 +187,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Ease out expo
             const ease = 1 - Math.pow(2, -10 * progress);
-            const current = Math.floor(ease * target);
+            
+            const isDecimal = target % 1 !== 0;
+            const current = isDecimal 
+              ? (ease * target).toFixed(1) 
+              : Math.floor(ease * target);
             
             el.textContent = current + suffix;
             
@@ -198,11 +217,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const petal = document.createElement('div');
         petal.className = 'sakura-petal';
         
-        const size = 8 + Math.random() * 14;
+        const size = 6 + Math.random() * 8; /* Smaller, delicate petals */
         const startX = Math.random() * 100;
-        const duration = 8 + Math.random() * 12;
+        const duration = 10 + Math.random() * 14; /* Slower, gentler fall */
         const delay = Math.random() * 15;
-        const drift = -80 + Math.random() * 160;
+        const drift = -60 + Math.random() * 120;
         
         petal.style.cssText = `
           left: ${startX}%;
@@ -223,8 +242,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }, (delay + duration) * 1000);
       }
 
-      // Create initial batch of petals
-      const petalCount = window.innerWidth < 768 ? 12 : 25;
+      // Create initial batch of petals - rarer for a delicate atmosphere
+      const petalCount = window.innerWidth < 768 ? 6 : 14;
       for (let i = 0; i < petalCount; i++) {
         createPetal();
       }
@@ -564,6 +583,80 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+  // === PREMIUM TABLE BOOKING MODAL HANDLERS ===
+  const bookingModal = document.getElementById('bookingModal');
+  const closeBookingModalBtn = document.getElementById('closeBookingModal');
+  const bookingForm = document.getElementById('bookingModalForm');
+  const bookingDateInput = document.getElementById('bookingDate');
+
+  // Trigger modal display on clicking any "Book a Table" button
+  const bookTableButtons = document.querySelectorAll('a[href="#reservation"]');
+  bookTableButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Initialize Date restrictions on click
+      if (bookingDateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        bookingDateInput.setAttribute('min', today);
+        if (!bookingDateInput.value) {
+          bookingDateInput.value = today;
+        }
+      }
+      
+      if (bookingModal) {
+        bookingModal.classList.add('open');
+        document.body.style.overflow = 'hidden'; // Lock body scrolling
+      }
+    });
+  });
+
+  // Close modal logic
+  function closeBookingModal() {
+    if (bookingModal) {
+      bookingModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (closeBookingModalBtn) {
+    closeBookingModalBtn.addEventListener('click', closeBookingModal);
+  }
+
+  if (bookingModal) {
+    bookingModal.addEventListener('click', (e) => {
+      if (e.target === bookingModal) {
+        closeBookingModal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && bookingModal && bookingModal.classList.contains('open')) {
+      closeBookingModal();
+    }
+  });
+
+  // WhatsApp form checkout logic
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const date = document.getElementById('bookingDate').value;
+      const time = document.getElementById('bookingTime').value;
+      const guests = document.querySelector('input[name="guests"]:checked')?.value || '2 Guests';
+      const name = document.getElementById('bookingName').value;
+      
+      // Beautiful direct booking summary for WhatsApp
+      const message = `Hi Wasabee! 🍣\nI would like to book a table at your restaurant.\n\n👤 *Name:* ${name}\n👥 *Party Size:* ${guests}\n📅 *Date:* ${date}\n⏰ *Time Slot:* ${time}\n\nPlease confirm my reservation. Thank you!`;
+      
+      const waUrl = `https://wa.me/919163764444?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, '_blank');
+      
+      closeBookingModal();
+    });
+  }
+
 });
 
 // === FADE IN UP KEYFRAME (used by JS) ===
@@ -582,101 +675,222 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// === WEBGL SAKURA ANIMATION ===
-function initWebGL() {
-  const canvas = document.getElementById('webgl-canvas');
-  if (!canvas || typeof THREE === 'undefined') return;
+// (WebGL point animation removed)
 
-  try {
-    const scene = new THREE.Scene();
-    
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 5;
+// === OPEN/CLOSED STATUS BADGE ===
+(function() {
+  const badge = document.getElementById('statusBadge');
+  if (!badge) return;
 
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  function updateStatus() {
+    // Use IST (UTC+5:30)
+    const now = new Date();
+    const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+    const ist = new Date(utc + 5.5 * 3600000);
+    const h = ist.getHours();
+    const m = ist.getMinutes();
+    const t = h * 60 + m; // minutes since midnight IST
 
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 200;
-    
-    const posArray = new Float32Array(particlesCount * 3);
-    const randomArray = new Float32Array(particlesCount);
+    // Restaurant hours: 12:00-15:00 and 18:00-22:30
+    const isOpen = (t >= 720 && t < 900) || (t >= 1080 && t < 1350);
 
-    for (let i = 0; i < particlesCount * 3; i++) {
-      posArray[i] = (Math.random() - 0.5) * 15;
+    if (isOpen) {
+      badge.className = 'status-badge open';
+      badge.textContent = 'Open Now';
+      badge.style.display = 'inline-flex';
+    } else {
+      badge.style.display = 'none';
     }
-    for (let i = 0; i < particlesCount; i++) {
-      randomArray[i] = Math.random();
-    }
-
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    particlesGeometry.setAttribute('aRandom', new THREE.BufferAttribute(randomArray, 1));
-
-    // Use a simple PointsMaterial instead of ShaderMaterial to avoid WebGL errors
-    const particleMaterial = new THREE.PointsMaterial({
-      color: new THREE.Color('#82066A'),
-      size: 0.08,
-      transparent: true,
-      opacity: 0.5,
-      depthWrite: false,
-      blending: THREE.NormalBlending
-    });
-
-    const particlesMesh = new THREE.Points(particlesGeometry, particleMaterial);
-    scene.add(particlesMesh);
-
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-
-    let mouseX = 0;
-    let mouseY = 0;
-    const windowHalfX = window.innerWidth / 2;
-    const windowHalfY = window.innerHeight / 2;
-
-    document.addEventListener('mousemove', (event) => {
-      mouseX = (event.clientX - windowHalfX) * 0.0005;
-      mouseY = (event.clientY - windowHalfY) * 0.0005;
-    });
-
-    const clock = new THREE.Clock();
-    const positions = particlesGeometry.attributes.position.array;
-    const randoms = particlesGeometry.attributes.aRandom.array;
-
-    function animate() {
-      requestAnimationFrame(animate);
-      const elapsedTime = clock.getElapsedTime();
-
-      // Animate particle positions for falling effect
-      for (let i = 0; i < particlesCount; i++) {
-        const ix = i * 3;
-        const iy = i * 3 + 1;
-        const r = randoms[i];
-        positions[iy] -= r * 0.008 + 0.003;
-        if (positions[iy] < -7.5) positions[iy] = 7.5;
-        positions[ix] += Math.sin(elapsedTime * r + positions[iy]) * 0.003;
-      }
-      particlesGeometry.attributes.position.needsUpdate = true;
-
-      // Smooth camera drift
-      camera.position.x += (mouseX * 0.5 - camera.position.x) * 0.05;
-      camera.position.y += (-mouseY * 0.5 - camera.position.y) * 0.05;
-      camera.lookAt(scene.position);
-
-      renderer.render(scene, camera);
-    }
-
-    animate();
-  } catch (e) {
-    // WebGL not supported or failed - gracefully degrade
-    console.log('WebGL particle effect unavailable, continuing without it.');
-    const canvas = document.getElementById('webgl-canvas');
-    if (canvas) canvas.style.display = 'none';
   }
-}
 
-// Call initWebGL
-initWebGL();
+  updateStatus();
+  setInterval(updateStatus, 60000); // Update every minute
+})();
+
+// === CART BACKDROP HANDLER ===
+(function() {
+  const backdrop = document.getElementById('cartBackdrop');
+  const cartWidget = document.getElementById('waCartWidget');
+  if (!backdrop || !cartWidget) return;
+
+  // Watch for cart open/close and toggle backdrop & body shift
+  const observer = new MutationObserver(function() {
+    if (cartWidget.classList.contains('open')) {
+      backdrop.classList.add('active');
+      document.body.classList.add('cart-open');
+    } else {
+      backdrop.classList.remove('active');
+      document.body.classList.remove('cart-open');
+    }
+  });
+
+  observer.observe(cartWidget, { attributes: true, attributeFilter: ['class'] });
+
+  // Close cart when clicking backdrop
+  backdrop.addEventListener('click', function() {
+    cartWidget.classList.remove('open');
+    backdrop.classList.remove('active');
+  });
+})();
+
+// === HORIZONTAL SCROLL BUTTONS ===
+(function() {
+  const groups = document.querySelectorAll('.unified-category-group');
+  groups.forEach(group => {
+    const list = group.querySelector('.unified-items-list');
+    if (!list) return;
+
+    // Create Left Button
+    const leftBtn = document.createElement('button');
+    leftBtn.className = 'category-scroll-btn left';
+    leftBtn.setAttribute('aria-label', 'Scroll left');
+    leftBtn.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>`;
+    
+    // Create Right Button
+    const rightBtn = document.createElement('button');
+    rightBtn.className = 'category-scroll-btn right';
+    rightBtn.setAttribute('aria-label', 'Scroll right');
+    rightBtn.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
+
+    // Click logic
+    leftBtn.addEventListener('click', () => {
+      list.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+    rightBtn.addEventListener('click', () => {
+      list.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+
+    // Append to group
+    group.appendChild(leftBtn);
+    group.appendChild(rightBtn);
+
+    // Toggle visibility based on scroll position
+    function updateBtnVisibility() {
+      const scrollLeft = list.scrollLeft;
+      const maxScroll = list.scrollWidth - list.clientWidth;
+      
+      leftBtn.style.opacity = scrollLeft > 10 ? '1' : '0';
+      leftBtn.style.pointerEvents = scrollLeft > 10 ? 'auto' : 'none';
+      
+      rightBtn.style.opacity = scrollLeft < maxScroll - 10 ? '1' : '0';
+      rightBtn.style.pointerEvents = scrollLeft < maxScroll - 10 ? 'auto' : 'none';
+    }
+
+    list.addEventListener('scroll', updateBtnVisibility);
+    window.addEventListener('resize', updateBtnVisibility);
+    // Initial check after content loads
+    setTimeout(updateBtnVisibility, 600);
+  });
+})();
+
+// === UNIFIED MENU TAB SWITCHING ===
+(function() {
+  const navLinks = document.querySelectorAll('.unified-nav-link');
+  const categories = document.querySelectorAll('.unified-category-group');
+  if (navLinks.length === 0 || categories.length === 0) return;
+
+  function switchTab(targetId) {
+    // Hide all categories
+    categories.forEach(cat => {
+      cat.style.display = 'none';
+    });
+
+    // Show selected category
+    const activeCat = document.getElementById(targetId);
+    if (activeCat) {
+      activeCat.style.display = 'block';
+    }
+
+    // Update active class on nav links
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === '#' + targetId) {
+        link.classList.add('active');
+        link.style.color = 'var(--color-brand)';
+      } else {
+        link.classList.remove('active');
+        link.style.removeProperty('color');
+      }
+    });
+
+    // Reset horizontal scroll button visibilities inside the newly shown category
+    const list = activeCat ? activeCat.querySelector('.unified-items-list') : null;
+    if (list) {
+      const leftBtn = activeCat.querySelector('.category-scroll-btn.left');
+      const rightBtn = activeCat.querySelector('.category-scroll-btn.right');
+      if (leftBtn && rightBtn) {
+        // Delay slightly to allow element display to layout before checking dimensions
+        setTimeout(() => {
+          const scrollLeft = list.scrollLeft;
+          const maxScroll = list.scrollWidth - list.clientWidth;
+          leftBtn.style.opacity = scrollLeft > 10 ? '1' : '0';
+          leftBtn.style.pointerEvents = scrollLeft > 10 ? 'auto' : 'none';
+          rightBtn.style.opacity = scrollLeft < maxScroll - 10 ? '1' : '0';
+          rightBtn.style.pointerEvents = scrollLeft < maxScroll - 10 ? 'auto' : 'none';
+        }, 50);
+      }
+    }
+  }
+
+  // Bind clicks
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      switchTab(targetId);
+      
+      // Scroll the menu container into view smoothly
+      const menuSection = document.getElementById('menu');
+      if (menuSection) {
+        menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Initialize: activate the default active category from HTML markup
+  const activeLink = document.querySelector('.unified-nav-link.active');
+  const firstId = activeLink ? activeLink.getAttribute('href').substring(1) : navLinks[0].getAttribute('href').substring(1);
+  switchTab(firstId);
+})();
+
+// === AUTO-SCROLL GALLERY ===
+(function() {
+  const gallery = document.querySelector('.gallery-grid');
+  if (!gallery) return;
+
+  const speed = 0.8; // Speed in pixels per frame (~50px per second)
+  let scrollPos = gallery.scrollLeft; // Accumulate sub-pixel updates
+  let autoScrollActive = true;
+
+  function startAutoScroll() {
+    setInterval(() => {
+      if (!autoScrollActive) {
+        scrollPos = gallery.scrollLeft; // Keep synced when manual scrolling
+        return;
+      }
+      
+      scrollPos += speed;
+      gallery.scrollLeft = Math.round(scrollPos);
+      
+      // Reset scroll when reaching the end of contents
+      const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+      if (gallery.scrollLeft >= maxScroll - 5) {
+        scrollPos = 0;
+        gallery.scrollLeft = 0;
+      }
+    }, 16); // ~60fps smooth rendering
+  }
+
+  // Intercept and pause auto-scroll during hover or manual touch scroll
+  gallery.addEventListener('mouseenter', () => { autoScrollActive = false; });
+  gallery.addEventListener('mouseleave', () => { 
+    autoScrollActive = true; 
+    scrollPos = gallery.scrollLeft; // Reset position pointer on exit
+  });
+  gallery.addEventListener('touchstart', () => { autoScrollActive = false; }, { passive: true });
+  gallery.addEventListener('touchend', () => { 
+    autoScrollActive = true; 
+    scrollPos = gallery.scrollLeft; // Reset position pointer on exit
+  });
+
+  startAutoScroll();
+})();
