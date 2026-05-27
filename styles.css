@@ -7919,6 +7919,9 @@ html, body {
     transform: rotate(0deg) !important; /* Reset rotation to prevent clipping */
     padding: 8px !important;
   }
+  .hero-graphic-frame .hero-tape {
+    display: none !important; /* Hide ugly/cluttery postcard tapes on mobile */
+  }
   .hero-graphic-container {
     height: 240px !important;
   }
@@ -8028,11 +8031,17 @@ html, body {
     margin-bottom: 2rem !important;
   }
 
-  /* Washi Cards general mobile adjustments */
+  /* Washi Cards general mobile adjustments - Disable clip-path on mobile to prevent text cutoffs and ensure premium presentation */
   .washi-card {
     padding: 1.8rem 1.4rem !important;
-    box-shadow: none !important;
-    border-radius: 4px !important;
+    clip-path: none !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(250, 247, 242, 0.15) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+  }
+  .washi-card-cream {
+    border: 1px solid rgba(130, 6, 106, 0.12) !important;
+    box-shadow: 0 10px 30px rgba(130, 6, 106, 0.05) !important;
   }
 
   /* About Section Google Reviews & Content stacking */
