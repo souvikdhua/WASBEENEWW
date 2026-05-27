@@ -7850,7 +7850,7 @@ html, body {
 @media (max-width: 768px) {
   /* Global viewport safety & scroll overrides */
   html {
-    scroll-padding-top: 65px !important;
+    scroll-padding-top: 94px !important;
   }
   html, body {
     overflow-x: hidden !important;
@@ -7889,6 +7889,22 @@ html, body {
   }
   .hamburger {
     display: flex !important;
+    z-index: 10002 !important;
+  }
+
+  /* Fullscreen Menu Overlay Mobile Optimization */
+  .menu-overlay {
+    z-index: 10001 !important;
+    overflow-y: auto !important;
+    align-items: flex-start !important;
+    padding: 100px 2rem 3rem !important;
+    box-sizing: border-box !important;
+  }
+  .menu-overlay-links a {
+    font-size: 1.8rem !important;
+  }
+  .menu-overlay-info {
+    margin-top: 2rem !important;
   }
 
   /* Promo Banner */
@@ -8225,33 +8241,33 @@ html, body {
   /* Left Side Details */
   .unified-items-list .popup-item .pi-info {
     grid-column: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.25rem !important;
+    display: block !important;
     text-align: left !important;
     padding: 0 !important;
   }
   .unified-items-list .popup-item .diet-icon {
-    margin-right: 0.3rem !important;
+    margin-right: 0.4rem !important;
     width: 12px !important;
     height: 12px !important;
     min-width: 12px !important;
-    display: inline-flex !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    margin-top: -2px !important;
   }
   .unified-items-list .popup-item .pi-name {
     font-size: 1.02rem !important;
     font-weight: 600 !important;
-    color: #FAF7F2 !important;
+    color: var(--color-text) !important;
     margin: 0 !important;
     line-height: 1.3 !important;
-    display: flex !important;
-    align-items: center !important;
+    display: inline !important;
+    vertical-align: middle !important;
   }
   .unified-items-list .popup-item .pi-desc {
-    display: block !important; /* Show short description on mobile list */
+    display: block !important;
     font-size: 0.78rem !important;
-    color: rgba(250, 247, 242, 0.55) !important;
-    margin: 0 !important;
+    color: var(--color-text-muted) !important;
+    margin: 0.35rem 0 0 0 !important;
     line-height: 1.35 !important;
     white-space: normal !important;
     display: -webkit-box !important;
@@ -8263,9 +8279,13 @@ html, body {
     grid-column: 1 !important;
     font-size: 1rem !important;
     font-weight: 700 !important;
-    color: #FAF7F2 !important;
+    color: var(--color-brand) !important;
     margin: 0.4rem 0 0 0 !important;
     text-align: left !important;
+    display: block !important;
+  }
+  [data-theme="dark"] .unified-items-list .popup-item .pi-price {
+    color: var(--color-gold) !important;
   }
 
   /* Right Side Image Container */
@@ -8278,7 +8298,7 @@ html, body {
     margin: 0 !important;
     border-radius: 8px !important;
     position: relative !important;
-    overflow: visible !important; /* Critical to let the ADD button hang over */
+    overflow: visible !important;
   }
   .unified-items-list .popup-item .pi-image {
     width: 100% !important;
@@ -8292,8 +8312,9 @@ html, body {
     grid-column: 2 !important;
     position: absolute !important;
     bottom: -10px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    left: auto !important;
+    right: 16px !important;
+    transform: none !important;
     width: 74px !important;
     height: 28px !important;
     min-width: 74px !important;
@@ -8328,21 +8349,43 @@ html, body {
   .unified-offers-sidebar {
     grid-column: span 1 !important;
     width: 100% !important;
-    padding: 1.8rem 1.2rem !important;
-    margin-top: 1rem !important;
+    padding: 2.2rem 1.4rem !important;
+    margin-top: 1.5rem !important;
     border-left: none !important;
-    border-top: 1px dashed rgba(250, 247, 242, 0.15) !important;
+    border: 1px solid rgba(250, 247, 242, 0.12) !important;
     box-sizing: border-box !important;
-    background: rgba(130, 6, 106, 0.05) !important;
-    border-radius: 6px !important;
+    background: var(--color-brand) !important; /* Rich Dark Plum background */
+    border-radius: 8px !important;
   }
   .offers-sidebar-title {
-    font-size: 1.15rem !important;
+    font-size: 1.25rem !important;
     text-align: center !important;
+    color: #FAF7F2 !important;
+  }
+  .offers-sidebar-text {
+    color: rgba(250, 247, 242, 0.8) !important;
+    text-align: center !important;
+    font-size: 0.82rem !important;
+    margin-bottom: 1.2rem !important;
   }
   .offers-sidebar-banner {
-    max-width: 240px !important;
-    margin: 0 auto 1rem !important;
+    max-width: 320px !important;
+    margin: 0 auto 1.2rem !important;
+  }
+  .unified-offers-sidebar .offers-sidebar-card {
+    background: rgba(250, 247, 242, 0.05) !important;
+    border: 1px solid rgba(250, 247, 242, 0.15) !important;
+    border-radius: 6px !important;
+    padding: 1.2rem !important;
+  }
+  .unified-offers-sidebar .btn-claim-offer {
+    background: #FAF7F2 !important;
+    color: var(--color-brand) !important;
+    border: 1px solid rgba(250, 247, 242, 0.15) !important;
+  }
+  .unified-offers-sidebar .btn-claim-offer:hover {
+    background-color: var(--color-gold) !important;
+    color: var(--color-brand-dark) !important;
   }
 
   /* Reservation Section */
@@ -8440,12 +8483,17 @@ html, body {
   .cart-items-container {
     max-height: 38vh !important;
   }
+  .booking-modal-overlay {
+    overflow-y: auto !important;
+    align-items: flex-start !important;
+  }
   .booking-modal-card {
     width: 95vw !important;
     max-width: 95vw !important;
-    padding: 1.5rem 1rem !important;
+    padding: 1.8rem 1.2rem !important;
     border-radius: 12px !important;
     clip-path: none !important;
+    margin: 2rem auto !important;
   }
 }
 
@@ -8497,6 +8545,9 @@ html, body {
     min-width: 64px !important;
     min-height: 25px !important;
     bottom: -8px !important;
+    left: auto !important;
+    right: 11px !important;
+    transform: none !important;
   }
   .unified-items-list .popup-item .btn-add-cart::before {
     font-size: 0.65rem !important;

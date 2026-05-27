@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!nameEl) return;
     const itemName = nameEl.textContent.trim();
     const savedImg = localStorage.getItem('menu_image_' + itemName);
-    const imgSrc = savedImg ? savedImg : 'images/placeholder-food.jpg?v=19';
+    const imgSrc = savedImg ? savedImg : 'images/placeholder-food.jpg?v=21';
 
     const imgContainer = document.createElement('div');
     imgContainer.className = 'pi-image-container';
