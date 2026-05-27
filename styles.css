@@ -8187,12 +8187,11 @@ html, body {
     font-size: 0.7rem !important;
   }
 
-  /* Premium Editorial Grid Menu Cards - Highly intuitive, structured 1-column layout */
+  /* Premium Editorial 2-Column Grid Menu Cards - Space-saving, highly structured, clean */
   .unified-items-list {
-    display: flex !important;
-    flex-direction: column !important;
-    overflow-x: visible !important;
-    gap: 1.2rem !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.8rem !important;
     padding: 0 !important;
     width: 100% !important;
   }
@@ -8203,62 +8202,64 @@ html, body {
   .unified-items-list .popup-item {
     flex: none !important;
     width: 100% !important;
-    min-height: auto !important;
-    height: auto !important;
     display: grid !important;
     grid-template-areas: 
       "image image"
       "info info"
       "price button" !important;
     grid-template-columns: 1fr auto !important;
+    grid-template-rows: 95px auto auto !important;
     align-items: center !important;
-    padding: 1.1rem !important;
-    gap: 0.9rem !important;
+    padding: 0.6rem !important;
+    gap: 0.4rem !important;
     box-sizing: border-box !important;
     background: var(--color-brand) !important;
     border: 1px solid rgba(250, 247, 242, 0.08) !important;
-    border-radius: 12px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
     position: relative !important;
+    min-height: 195px !important;
+    overflow: hidden !important;
   }
   .unified-items-list .popup-item .pi-image-container {
     grid-area: image !important;
     width: 100% !important;
-    height: 160px !important;
+    height: 95px !important;
     margin: 0 !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
   }
   .unified-items-list .popup-item .pi-info {
     grid-area: info !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.3rem !important;
+    gap: 0.15rem !important;
     text-align: left !important;
     padding: 0 !important;
   }
   .unified-items-list .popup-item .diet-icon {
-    margin-right: 0.3rem !important;
-    width: 13px !important;
-    height: 13px !important;
-    min-width: 13px !important;
+    margin-right: 0.25rem !important;
+    width: 11px !important;
+    height: 11px !important;
+    min-width: 11px !important;
     display: inline-flex !important;
   }
   .unified-items-list .popup-item .pi-name {
-    font-size: 1.05rem !important;
+    font-size: 0.82rem !important;
     font-weight: 600 !important;
     color: #FAF7F2 !important;
     margin: 0 !important;
+    line-height: 1.2 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
   .unified-items-list .popup-item .pi-desc {
-    font-size: 0.78rem !important;
-    color: rgba(250, 247, 242, 0.75) !important;
-    margin: 0 !important;
-    line-height: 1.4 !important;
-    white-space: normal !important;
+    display: none !important; /* Fully hide description on mobile grid to eliminate clutter and keep grid cards aligned */
   }
   .unified-items-list .popup-item .pi-price {
     grid-area: price !important;
-    font-size: 1.05rem !important;
+    font-size: 0.82rem !important;
     font-weight: 700 !important;
     color: #FAF7F2 !important;
     margin: 0 !important;
@@ -8272,11 +8273,11 @@ html, body {
     right: auto !important;
     bottom: auto !important;
     left: auto !important;
-    width: 38px !important;
-    height: 38px !important;
-    min-width: 38px !important;
-    min-height: 38px !important;
-    font-size: 1.2rem !important;
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    min-height: 30px !important;
+    font-size: 1rem !important;
     margin: 0 !important;
     border-radius: 50% !important;
     background: #FAF7F2 !important;
@@ -8285,7 +8286,7 @@ html, body {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15) !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
   }
 
   /* Offers Sidebar stacked below */
@@ -8432,27 +8433,28 @@ html, body {
     flex: 0 0 250px !important;
     height: 180px !important;
   }
-  .unified-items-list .popup-item {
-    padding: 0.8rem !important;
+  /* Remove conflicting old overrides for cards on small screens to maintain 2-column grid layout */
+  .unified-items-list {
     gap: 0.6rem !important;
   }
+  .unified-items-list .popup-item {
+    padding: 0.5rem !important;
+    min-height: 175px !important;
+  }
   .unified-items-list .popup-item .pi-image-container {
-    height: 140px !important;
+    height: 80px !important;
   }
   .unified-items-list .popup-item .pi-name {
-    font-size: 0.95rem !important;
-  }
-  .unified-items-list .popup-item .pi-desc {
-    font-size: 0.72rem !important;
+    font-size: 0.76rem !important;
   }
   .unified-items-list .popup-item .pi-price {
-    font-size: 0.95rem !important;
+    font-size: 0.76rem !important;
   }
   .unified-items-list .popup-item .btn-add-cart {
-    width: 34px !important;
-    height: 34px !important;
-    min-width: 34px !important;
-    min-height: 34px !important;
-    font-size: 1.1rem !important;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+    font-size: 0.9rem !important;
   }
 }
