@@ -7859,6 +7859,14 @@ html, body {
     position: relative !important;
   }
 
+  /* Reset aggressive Washi Card clip-path on mobile to prevent text cutoffs */
+  .washi-card {
+    clip-path: none !important;
+    border-radius: 12px !important;
+    padding: 1.8rem 1.4rem !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  }
+
   /* Navigation Bar */
   .nav {
     padding: 0.6rem 1rem !important;
@@ -7874,7 +7882,7 @@ html, body {
     display: none !important;
   }
   .nav-cta {
-    display: none !important; /* Hide CTA button in header, use overlay button */
+    display: none !important;
   }
   .nav-kanji-left, .nav-kanji-right {
     display: none !important;
@@ -7883,7 +7891,7 @@ html, body {
     display: flex !important;
   }
 
-  /* Promo Banner (ESTD. 2012 / Kolkata's first...) */
+  /* Promo Banner */
   .promo-banner {
     font-size: 0.58rem !important;
     padding: 0.35rem 0 !important;
@@ -7916,14 +7924,14 @@ html, body {
     width: 100% !important;
     max-width: 480px !important;
     margin: 0 auto !important;
-    transform: rotate(0deg) !important; /* Reset rotation to prevent clipping */
+    transform: rotate(0deg) !important;
     padding: 8px !important;
-  }
-  .hero-graphic-frame .hero-tape {
-    display: none !important; /* Hide ugly/cluttery postcard tapes on mobile */
+    border-radius: 8px !important;
+    clip-path: none !important;
   }
   .hero-graphic-container {
     height: 240px !important;
+    border-radius: 6px !important;
   }
 
   /* Hero Info Panel / Branding Card */
@@ -7933,12 +7941,12 @@ html, body {
     margin: 0 auto !important;
   }
   .hero-info-panel {
-    padding: 1.8rem 1.4rem !important;
+    padding: 2rem 1.4rem !important;
     align-items: center !important;
     text-align: center !important;
   }
   .hero-info-panel img {
-    max-width: 180px !important; /* Scale down the main Wasabee logo */
+    max-width: 180px !important;
     margin: 0 auto 1.2rem !important;
   }
   .hero-promo-text {
@@ -7998,7 +8006,7 @@ html, body {
     width: 100% !important;
     margin-top: 2rem !important;
     padding: 1.2rem 0 !important;
-    clip-path: none !important; /* Remove complex torn edge on mobile to avoid layout clipping */
+    clip-path: none !important;
     border-top: 1px solid rgba(250, 247, 242, 0.15) !important;
     border-bottom: 1px solid rgba(250, 247, 242, 0.15) !important;
   }
@@ -8031,41 +8039,29 @@ html, body {
     margin-bottom: 2rem !important;
   }
 
-  /* Washi Cards general mobile adjustments - Disable clip-path on mobile to prevent text cutoffs and ensure premium presentation */
-  .washi-card {
-    padding: 1.8rem 1.4rem !important;
-    clip-path: none !important;
-    border-radius: 12px !important;
-    border: 1px solid rgba(250, 247, 242, 0.15) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
-  }
-  .washi-card-cream {
-    border: 1px solid rgba(130, 6, 106, 0.12) !important;
-    box-shadow: 0 10px 30px rgba(130, 6, 106, 0.05) !important;
-  }
-
-  /* About Section Google Reviews & Content stacking */
+  /* About Section */
   .about-grid {
     display: flex !important;
-    flex-direction: column !important; /* Reviews first, then description is a neat standard */
+    flex-direction: column !important;
     gap: 2.2rem !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
   .about-reviews-container {
     width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
     box-sizing: border-box !important;
   }
   .about-content {
     text-align: center !important;
-    padding: 1.8rem 1.4rem !important;
   }
   .about-content .founder-signature {
     text-align: center !important;
   }
   .about-stats {
     display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr !important; /* Stack stats or make them a small row */
+    grid-template-columns: 1fr 1fr 1fr !important;
     gap: 0.8rem !important;
     margin-top: 2rem !important;
     border-top: 1px dashed rgba(130, 6, 106, 0.15) !important;
@@ -8082,7 +8078,7 @@ html, body {
     line-height: 1.2 !important;
   }
 
-  /* Gallery Section - Masonry turns into horizontal scroll slider */
+  /* Gallery Section */
   .gallery-grid {
     display: flex !important;
     flex-direction: row !important;
@@ -8097,7 +8093,7 @@ html, body {
     flex: 0 0 280px !important;
     height: 210px !important;
     scroll-snap-align: center !important;
-    border-radius: 6px !important;
+    border-radius: 8px !important;
     overflow: hidden !important;
     transform: none !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
@@ -8108,7 +8104,7 @@ html, body {
     object-fit: cover !important;
   }
   .gallery-plate {
-    display: none !important; /* Hide plate overlays on mobile gallery */
+    display: none !important;
   }
 
   /* Unified Menu Section */
@@ -8125,11 +8121,11 @@ html, body {
   /* Menu Nav Sidebar -> turns into horizontal chips bar */
   .unified-sidebar {
     position: sticky !important;
-    top: 59px !important; /* Right below the fixed nav height */
+    top: 59px !important;
     z-index: 99 !important;
     width: 100% !important;
-    padding: 0.5rem 1rem !important;
-    background: #110310 !important; /* Dark solid backdrop to avoid overlap legibility issues */
+    padding: 0.6rem 1rem !important;
+    background: #110310 !important;
     border-right: none !important;
     border-bottom: 1px solid rgba(250, 247, 242, 0.15) !important;
     box-sizing: border-box !important;
@@ -8152,20 +8148,21 @@ html, body {
     padding: 0.5rem 1rem !important;
     border: 1px solid rgba(250, 247, 242, 0.2) !important;
     border-radius: 30px !important;
-    background: transparent !important;
+    background: rgba(250, 247, 242, 0.05) !important;
     white-space: nowrap !important;
     flex-shrink: 0 !important;
     display: inline-flex !important;
     align-items: center !important;
-    color: #FAF7F2 !important;
+    color: rgba(250, 247, 242, 0.8) !important;
   }
   .unified-nav-link .nav-jp {
-    display: none !important; /* Hide Japanese subtext inside chips on mobile */
+    display: none !important;
   }
   .unified-nav-link.active {
-    background: var(--color-brand) !important;
-    border-color: var(--color-brand) !important;
-    color: #ffffff !important;
+    background: #FAF7F2 !important;
+    border-color: #FAF7F2 !important;
+    color: var(--color-brand) !important;
+    font-weight: 600 !important;
   }
 
   /* Menu Main Area */
@@ -8190,12 +8187,12 @@ html, body {
     font-size: 0.7rem !important;
   }
 
-  /* Vertically Stacked Menu Cards - Premium mobile-first delivery row design */
+  /* Premium Editorial Grid Menu Cards - Highly intuitive, structured 1-column layout */
   .unified-items-list {
     display: flex !important;
     flex-direction: column !important;
     overflow-x: visible !important;
-    gap: 0.8rem !important;
+    gap: 1.2rem !important;
     padding: 0 !important;
     width: 100% !important;
   }
@@ -8208,32 +8205,34 @@ html, body {
     width: 100% !important;
     min-height: auto !important;
     height: auto !important;
-    display: flex !important;
-    flex-direction: row !important;
+    display: grid !important;
+    grid-template-areas: 
+      "image image"
+      "info info"
+      "price button" !important;
+    grid-template-columns: 1fr auto !important;
     align-items: center !important;
-    padding: 0.8rem !important;
-    gap: 0.8rem !important;
+    padding: 1.1rem !important;
+    gap: 0.9rem !important;
     box-sizing: border-box !important;
-    background: var(--color-brand) !important; /* Plum background card */
+    background: var(--color-brand) !important;
     border: 1px solid rgba(250, 247, 242, 0.08) !important;
-    border-radius: 8px !important;
-    transition: transform 0.2s ease, background 0.2s ease !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
     position: relative !important;
   }
   .unified-items-list .popup-item .pi-image-container {
-    width: 75px !important;
-    height: 75px !important;
-    min-width: 75px !important;
-    min-height: 75px !important;
+    grid-area: image !important;
+    width: 100% !important;
+    height: 160px !important;
     margin: 0 !important;
-    border-radius: 6px !important;
-    overflow: hidden !important;
+    border-radius: 8px !important;
   }
   .unified-items-list .popup-item .pi-info {
-    flex: 1 !important;
+    grid-area: info !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.2rem !important;
+    gap: 0.3rem !important;
     text-align: left !important;
     padding: 0 !important;
   }
@@ -8245,40 +8244,39 @@ html, body {
     display: inline-flex !important;
   }
   .unified-items-list .popup-item .pi-name {
-    font-size: 0.92rem !important;
+    font-size: 1.05rem !important;
     font-weight: 600 !important;
-    color: #FAF7F2 !important; /* Clear high contrast */
+    color: #FAF7F2 !important;
     margin: 0 !important;
-    display: flex !important;
-    align-items: center !important;
   }
   .unified-items-list .popup-item .pi-desc {
-    font-size: 0.72rem !important;
-    color: rgba(250, 247, 242, 0.7) !important; /* Dimmed readable text */
+    font-size: 0.78rem !important;
+    color: rgba(250, 247, 242, 0.75) !important;
     margin: 0 !important;
-    line-height: 1.3 !important;
+    line-height: 1.4 !important;
     white-space: normal !important;
   }
   .unified-items-list .popup-item .pi-price {
-    font-size: 0.9rem !important;
+    grid-area: price !important;
+    font-size: 1.05rem !important;
     font-weight: 700 !important;
     color: #FAF7F2 !important;
-    margin: 0 0.4rem 0 0 !important;
-    white-space: nowrap !important;
+    margin: 0 !important;
+    text-align: left !important;
     align-self: center !important;
   }
   .unified-items-list .popup-item .btn-add-cart {
+    grid-area: button !important;
     position: relative !important;
     top: auto !important;
     right: auto !important;
     bottom: auto !important;
     left: auto !important;
-    width: 36px !important;
-    height: 36px !important;
-    min-width: 36px !important;
-    min-height: 36px !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
     font-size: 1.2rem !important;
-    font-weight: 600 !important;
     margin: 0 !important;
     border-radius: 50% !important;
     background: #FAF7F2 !important;
@@ -8287,11 +8285,10 @@ html, body {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    cursor: pointer !important;
     box-shadow: 0 3px 8px rgba(0,0,0,0.15) !important;
   }
 
-  /* Offers Sidebar stacked cleanly below menu categories */
+  /* Offers Sidebar stacked below */
   .unified-offers-sidebar {
     grid-column: span 1 !important;
     width: 100% !important;
@@ -8326,7 +8323,7 @@ html, body {
   }
   .side-graphic-container {
     min-height: 220px !important;
-    border-radius: 6px !important;
+    border-radius: 8px !important;
   }
   .omotenashi-tag {
     font-size: 0.65rem !important;
@@ -8334,6 +8331,8 @@ html, body {
   }
   .reservation-form-container {
     padding: 1.8rem 1.2rem !important;
+    border-radius: 12px !important;
+    clip-path: none !important;
   }
 
   /* Heritage Section */
@@ -8345,10 +8344,11 @@ html, body {
   }
   .heritage-card {
     padding: 1.6rem 1.2rem !important;
+    border-radius: 8px !important;
   }
   .heritage-card-image {
     height: 160px !important;
-    border-radius: 4px !important;
+    border-radius: 6px !important;
   }
 
   /* Footer */
@@ -8408,6 +8408,8 @@ html, body {
     width: 95vw !important;
     max-width: 95vw !important;
     padding: 1.5rem 1rem !important;
+    border-radius: 12px !important;
+    clip-path: none !important;
   }
 }
 
@@ -8423,7 +8425,7 @@ html, body {
     font-size: 0.82rem !important;
   }
   .about-stats {
-    grid-template-columns: 1fr !important; /* Stack stats on extremely small screens */
+    grid-template-columns: 1fr !important;
     gap: 1rem !important;
   }
   .gallery-item {
@@ -8431,29 +8433,26 @@ html, body {
     height: 180px !important;
   }
   .unified-items-list .popup-item {
-    padding: 0.7rem !important;
+    padding: 0.8rem !important;
     gap: 0.6rem !important;
   }
   .unified-items-list .popup-item .pi-image-container {
-    width: 65px !important;
-    height: 65px !important;
-    min-width: 65px !important;
-    min-height: 65px !important;
+    height: 140px !important;
   }
   .unified-items-list .popup-item .pi-name {
-    font-size: 0.85rem !important;
+    font-size: 0.95rem !important;
   }
   .unified-items-list .popup-item .pi-desc {
-    font-size: 0.68rem !important;
+    font-size: 0.72rem !important;
   }
   .unified-items-list .popup-item .pi-price {
-    font-size: 0.85rem !important;
+    font-size: 0.95rem !important;
   }
   .unified-items-list .popup-item .btn-add-cart {
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    min-height: 32px !important;
-    font-size: 1rem !important;
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    font-size: 1.1rem !important;
   }
 }
