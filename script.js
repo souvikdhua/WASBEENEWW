@@ -838,6 +838,9 @@ document.head.appendChild(style);
       const targetId = this.getAttribute('href').substring(1);
       switchTab(targetId);
       
+      // Auto-scroll the active chip to the center of the horizontal container for premium mobile UX
+      this.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      
       // Scroll the menu container into view smoothly
       const menuSection = document.getElementById('menu');
       if (menuSection) {

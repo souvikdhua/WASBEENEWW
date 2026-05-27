@@ -7849,6 +7849,9 @@ html, body {
 /* --- COMPREHENSIVE RESPONSIVE STYLING OVERHAUL --- */
 @media (max-width: 768px) {
   /* Global viewport safety & scroll overrides */
+  html {
+    scroll-padding-top: 65px !important;
+  }
   html, body {
     overflow-x: hidden !important;
     max-width: 100% !important;
