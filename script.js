@@ -1027,39 +1027,45 @@ document.head.appendChild(style);
   const gallery = document.querySelector('.gallery-grid');
   if (!gallery) return;
 
-  const speed = 0.8; // Speed in pixels per frame (~50px per second)
-  let scrollPos = gallery.scrollLeft; // Accumulate sub-pixel updates
+  const speed = 0.8; 
+  let scrollPos = gallery.scrollLeft;
   let autoScrollActive = true;
+  let animationId = null;
+
+  function scrollStep() {
+    if (!autoScrollActive) {
+      scrollPos = gallery.scrollLeft;
+      animationId = requestAnimationFrame(scrollStep);
+      return;
+    }
+    
+    scrollPos += speed;
+    gallery.scrollLeft = Math.round(scrollPos);
+    
+    const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+    if (gallery.scrollLeft >= maxScroll - 5) {
+      scrollPos = 0;
+      gallery.scrollLeft = 0;
+    }
+    animationId = requestAnimationFrame(scrollStep);
+  }
 
   function startAutoScroll() {
-    setInterval(() => {
-      if (!autoScrollActive) {
-        scrollPos = gallery.scrollLeft; // Keep synced when manual scrolling
-        return;
-      }
-      
-      scrollPos += speed;
-      gallery.scrollLeft = Math.round(scrollPos);
-      
-      // Reset scroll when reaching the end of contents
-      const maxScroll = gallery.scrollWidth - gallery.clientWidth;
-      if (gallery.scrollLeft >= maxScroll - 5) {
-        scrollPos = 0;
-        gallery.scrollLeft = 0;
-      }
-    }, 16); // ~60fps smooth rendering
+    if (!animationId) {
+      animationId = requestAnimationFrame(scrollStep);
+    }
   }
 
   // Intercept and pause auto-scroll during hover or manual touch scroll
   gallery.addEventListener('mouseenter', () => { autoScrollActive = false; });
   gallery.addEventListener('mouseleave', () => { 
     autoScrollActive = true; 
-    scrollPos = gallery.scrollLeft; // Reset position pointer on exit
+    scrollPos = gallery.scrollLeft;
   });
   gallery.addEventListener('touchstart', () => { autoScrollActive = false; }, { passive: true });
   gallery.addEventListener('touchend', () => { 
     autoScrollActive = true; 
-    scrollPos = gallery.scrollLeft; // Reset position pointer on exit
+    scrollPos = gallery.scrollLeft;
   });
 
   startAutoScroll();
