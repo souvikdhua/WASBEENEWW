@@ -9868,13 +9868,17 @@ html, body {
   position: absolute;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.025;
+  opacity: 0.022;
   transition: opacity 0.5s ease;
 }
 
 .reservation-doodle svg {
   stroke: var(--color-brand);
   transition: transform 1.2s var(--ease-out-expo);
+}
+
+[data-theme="dark"] .reservation-doodle {
+  opacity: 0.016;
 }
 
 [data-theme="dark"] .reservation-doodle svg {
