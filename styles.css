@@ -5619,6 +5619,7 @@ html.lenis body {
   background-image: var(--paper-texture) !important;
   color: #2A2426 !important;
   filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.45)) !important;
+  box-shadow: inset 0 0 0 2.5px rgba(130, 6, 106, 0.24) !important;
   /* Torn paper card clip-path covering the entire menu container */
   clip-path: polygon(
     2% 2%, 8% 0%, 15% 3%, 22% 1%, 29% 3%, 36% 0%, 43% 2%, 50% 1%, 57% 3%, 64% 0%, 71% 2%, 78% 1%, 85% 3%, 92% 0%, 98% 2%, 
@@ -10269,6 +10270,77 @@ html, body {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+/* ══════════════════════════════════════════════════════ */
+/* JAPANESE BAMBOO FENCE STYLE SYSTEM                     */
+/* ══════════════════════════════════════════════════════ */
+.unified-menu-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 4rem auto;
+  padding: 18px !important;
+  box-sizing: border-box;
+  overflow: visible;
+  z-index: 10;
+}
+
+/* Override default container margin when wrapped */
+.unified-menu-wrapper .unified-menu-container {
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+.bamboo-fence {
+  position: absolute;
+  pointer-events: none;
+  z-index: 12;
+  opacity: 0.96;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
+  transition: all 0.4s ease;
+}
+
+.bamboo-fence-top {
+  top: -8px;
+  left: 12px;
+  right: 12px;
+  height: 38px;
+}
+
+.bamboo-fence-bottom {
+  bottom: -8px;
+  left: 12px;
+  right: 12px;
+  height: 38px;
+}
+
+.bamboo-fence-left {
+  top: 12px;
+  bottom: 12px;
+  left: -8px;
+  width: 38px;
+}
+
+.bamboo-fence-right {
+  top: 12px;
+  bottom: 12px;
+  right: -8px;
+  width: 38px;
+}
+
+/* Subtle organic sways when hovering over the menu fence */
+.unified-menu-wrapper:hover .bamboo-fence-top {
+  transform: translateY(-2px);
+}
+.unified-menu-wrapper:hover .bamboo-fence-bottom {
+  transform: translateY(2px);
+}
+.unified-menu-wrapper:hover .bamboo-fence-left {
+  transform: translateX(-2px);
+}
+.unified-menu-wrapper:hover .bamboo-fence-right {
+  transform: translateX(2px);
 }
 
 
