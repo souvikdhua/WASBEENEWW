@@ -9861,3 +9861,33 @@ html, body {
   }
 }
 
+/* ══════════════════════════════════════════════════════ */
+/* RESERVATION BACKGROUND WATERMARK DOODLES               */
+/* ══════════════════════════════════════════════════════ */
+.reservation-doodle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.025;
+  transition: opacity 0.5s ease;
+}
+
+.reservation-doodle svg {
+  stroke: var(--color-brand);
+  transition: transform 1.2s var(--ease-out-expo);
+}
+
+[data-theme="dark"] .reservation-doodle svg {
+  stroke: var(--color-gold);
+}
+
+.reservation:hover .reservation-doodle svg {
+  transform: scale(1.08) rotate(4deg);
+}
+
+/* Ensure reservation content sits on top of the background doodles */
+.reservation .section-narrow {
+  position: relative;
+  z-index: 2;
+}
+
