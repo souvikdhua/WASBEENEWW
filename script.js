@@ -1016,7 +1016,11 @@ document.head.appendChild(style);
     }
   }, { passive: true });
 
-  window.addEventListener('resize', updateScrollSpy);
+  let resizeTimeout = null;
+  window.addEventListener('resize', () => {
+    if (resizeTimeout) clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(updateScrollSpy, 150);
+  });
   
   // Initialize Scroll Spy on load
   setTimeout(updateScrollSpy, 300);
