@@ -783,76 +783,80 @@ document.head.appendChild(style);
   });
 })();
 
-// === UNIFIED MENU TAB SWITCHING ===
+// === UNIFIED MENU TAB SWITCHING & SCROLL SPY ===
 (function() {
   const navLinks = document.querySelectorAll('.unified-nav-link');
   const categories = document.querySelectorAll('.unified-category-group');
   if (navLinks.length === 0 || categories.length === 0) return;
 
-  function switchTab(targetId) {
-    // Hide all categories
-    categories.forEach(cat => {
-      cat.style.display = 'none';
-    });
-
-    // Show selected category
-    const activeCat = document.getElementById(targetId);
-    if (activeCat) {
-      activeCat.style.display = 'block';
-    }
-
-    // Update active class on nav links
-    navLinks.forEach(link => {
-      if (link.getAttribute('href') === '#' + targetId) {
-        link.classList.add('active');
-        link.style.color = 'var(--color-brand)';
-      } else {
-        link.classList.remove('active');
-        link.style.removeProperty('color');
-      }
-    });
-
-    // Reset horizontal scroll button visibilities inside the newly shown category
-    const list = activeCat ? activeCat.querySelector('.unified-items-list') : null;
-    if (list) {
-      const leftBtn = activeCat.querySelector('.category-scroll-btn.left');
-      const rightBtn = activeCat.querySelector('.category-scroll-btn.right');
-      if (leftBtn && rightBtn) {
-        // Delay slightly to allow element display to layout before checking dimensions
-        setTimeout(() => {
-          const scrollLeft = list.scrollLeft;
-          const maxScroll = list.scrollWidth - list.clientWidth;
-          leftBtn.style.opacity = scrollLeft > 10 ? '1' : '0';
-          leftBtn.style.pointerEvents = scrollLeft > 10 ? 'auto' : 'none';
-          rightBtn.style.opacity = scrollLeft < maxScroll - 10 ? '1' : '0';
-          rightBtn.style.pointerEvents = scrollLeft < maxScroll - 10 ? 'auto' : 'none';
-        }, 50);
-      }
-    }
-  }
-
-  // Bind clicks
+  // Smooth scroll to category
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const targetId = this.getAttribute('href').substring(1);
-      switchTab(targetId);
-      
-      // Auto-scroll the active chip to the center of the horizontal container for premium mobile UX
-      this.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      
-      // Scroll the menu container into view smoothly
-      const menuSection = document.getElementById('menu');
-      if (menuSection) {
-        menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        // Calculate offset position (account for sticky header + category navigation bar)
+        const headerHeight = window.innerWidth <= 768 ? 144 : 140;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     });
   });
 
-  // Initialize: activate the default active category from HTML markup
-  const activeLink = document.querySelector('.unified-nav-link.active');
-  const firstId = activeLink ? activeLink.getAttribute('href').substring(1) : navLinks[0].getAttribute('href').substring(1);
-  switchTab(firstId);
+  // Scroll Spy to highlight and auto-scroll active chip
+  let isSpying = false;
+  function updateScrollSpy() {
+    let activeId = "";
+    // Offset threshold: sticky navigation height + buffer
+    const threshold = window.innerWidth <= 768 ? 150 : 160;
+    
+    categories.forEach(cat => {
+      const rect = cat.getBoundingClientRect();
+      if (rect.top <= threshold) {
+        activeId = cat.id;
+      }
+    });
+
+    // Fallback: if scrolled near top, select first category
+    if (window.scrollY < 200) {
+      activeId = categories[0].id;
+    }
+
+    if (activeId) {
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === '#' + activeId) {
+          if (!link.classList.contains('active')) {
+            link.classList.add('active');
+            // Center the active link in the horizontal scrollbar
+            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          }
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!isSpying) {
+      window.requestAnimationFrame(() => {
+        updateScrollSpy();
+        isSpying = false;
+      });
+      isSpying = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', updateScrollSpy);
+  
+  // Initialize Scroll Spy on load
+  setTimeout(updateScrollSpy, 300);
 })();
 
 // === AUTO-SCROLL GALLERY ===

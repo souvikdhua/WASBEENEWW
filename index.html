@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Michroma&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=21">
+  <link rel="stylesheet" href="styles.css?v=24">
   <style>
     :root {
       --font-display: 'Michroma', sans-serif;
@@ -95,7 +95,9 @@
     <!-- Floating Sakura Petals -->
     <div class="sakura-container" id="sakuraContainer" aria-hidden="true"></div>
 
-    <!-- Vertical Japanese text on sides -->
+    <!-- Vertical Japanese text on sides for premium visual depth -->
+    <div class="hero-depth-kanji hero-depth-left" aria-hidden="true">東洋の美学</div>
+    <div class="hero-depth-kanji hero-depth-right" aria-hidden="true">本物の味わい</div>
 
     <div class="hero-content">
       <div class="hero-graphic-frame reveal">
@@ -113,15 +115,19 @@
       </div>
       <div class="hero-info-panel-wrapper washi-card-wrapper reveal">
         <div class="hero-info-panel washi-card">
+          <!-- Premium Kanji Watermark Bookends -->
+          <span class="hero-kanji-bg-left" aria-hidden="true">美</span>
+          <span class="hero-kanji-bg-right" aria-hidden="true">味</span>
+          
           <div class="hero-promo-header reveal" data-delay="0.05">
             <img src="images/wasabeelogo.png?v=4" alt="Wasabee Oriental Cuisine" style="width: 240px; height: auto; margin: 0.5rem auto 1rem auto; display: block;">
           </div>
           <p class="hero-promo-text reveal" data-delay="0.1">Get exclusive discounts on table booking and online ordering only on our website</p>
           <div class="hero-trust-list reveal" data-delay="0.15">
-            <span class="hero-trust-item"><svg class="trust-icon" viewBox="0 0 24 24" width="14" height="14" style="fill: none; stroke: #FAF7F2; opacity: 0.8; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"><polyline points="20 6 9 17 4 12"></polyline></svg> No Hidden Costs</span>
-            <span class="hero-trust-item"><svg class="trust-icon" viewBox="0 0 24 24" width="14" height="14" style="fill: none; stroke: #FAF7F2; opacity: 0.8; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"><polyline points="20 6 9 17 4 12"></polyline></svg> Zero Convenience Fees</span>
-            <span class="hero-trust-item"><svg class="trust-icon" viewBox="0 0 24 24" width="14" height="14" style="fill: none; stroke: #FAF7F2; opacity: 0.8; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"><polyline points="20 6 9 17 4 12"></polyline></svg> Zero Delivery Charges</span>
-            <span class="hero-trust-item"><svg class="trust-icon" viewBox="0 0 24 24" width="14" height="14" style="fill: none; stroke: #FAF7F2; opacity: 0.8; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;"><polyline points="20 6 9 17 4 12"></polyline></svg> Honest Direct Pricing</span>
+            <span class="hero-trust-item">No Hidden Costs</span>
+            <span class="hero-trust-item">Zero Convenience Fees</span>
+            <span class="hero-trust-item">Zero Delivery Charges</span>
+            <span class="hero-trust-item">Honest Direct Pricing</span>
           </div>
           <div class="hero-actions">
             <a href="#menu" class="hero-explore-cta">
@@ -1336,8 +1342,8 @@
     </div>
   </div>
 
-  <script src="script.js?v=21"></script>
-  <script src="wa-cart.js?v=21"></script>
+  <script src="script.js?v=23"></script>
+  <script src="wa-cart.js?v=23"></script>
 </body>
 
 </html>
