@@ -3414,6 +3414,8 @@ body.popup-open { overflow: hidden; }
 .reservation-content {
   max-width: 600px;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
 .reservation .section-label {
@@ -3434,6 +3436,8 @@ body.popup-open { overflow: hidden; }
   justify-content: center;
   gap: 1.2rem;
   margin: 1.2rem 0;
+  position: relative;
+  z-index: 10;
 }
 
 .reservation-emblem::before,
@@ -3455,6 +3459,8 @@ body.popup-open { overflow: hidden; }
   height: 64px;
   object-fit: contain;
   transition: transform 0.6s var(--ease-out-expo);
+  position: relative;
+  z-index: 11;
 }
 
 .reservation-emblem-logo:hover {
@@ -9892,6 +9898,6 @@ html, body {
 /* Ensure reservation content sits on top of the background doodles */
 .reservation .section-narrow {
   position: relative;
-  z-index: 2;
+  z-index: 15;
 }
 
