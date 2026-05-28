@@ -9924,3 +9924,61 @@ html, body {
   z-index: 15;
 }
 
+/* ══════════════════════════════════════════════════════ */
+/* WASABEE EXPERIENCE - SAKURA BRANCH STYLING            */
+/* ══════════════════════════════════════════════════════ */
+.experience-sakura {
+  transition: transform 1.5s var(--ease-out-expo), opacity 0.5s ease;
+  transform-origin: bottom center;
+}
+
+.sakura-left {
+  animation: sakuraSwayLeft 10s ease-in-out infinite alternate;
+}
+
+.sakura-right {
+  animation: sakuraSwayRight 10s ease-in-out infinite alternate;
+}
+
+@keyframes sakuraSwayLeft {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(-3deg) scale(1.02) translate(-4px, 2px);
+  }
+}
+
+@keyframes sakuraSwayRight {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(3deg) scale(1.02) translate(4px, 2px);
+  }
+}
+
+/* Interactivity: soft expand and angle tilt when parent header is hovered */
+[style*="text-align:center; margin-bottom:4rem"]:hover .sakura-left {
+  transform: rotate(-6deg) scale(1.05);
+}
+
+[style*="text-align:center; margin-bottom:4rem"]:hover .sakura-right {
+  transform: rotate(6deg) scale(1.05);
+}
+
+/* Responsive adjustment: scale down/hide on very small mobile devices to prevent layout shifts */
+@media (max-width: 600px) {
+  .experience-sakura {
+    width: 90px !important;
+    height: 90px !important;
+    top: -20px !important;
+  }
+  .sakura-left {
+    left: calc(50% - 145px) !important;
+  }
+  .sakura-right {
+    right: calc(50% - 145px) !important;
+  }
+}
+
