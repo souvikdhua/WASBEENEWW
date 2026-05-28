@@ -2230,9 +2230,42 @@
     </div>
   </footer>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-close"></div><img src="" alt="Gallery preview">
+  <!-- Premium Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+    <div class="lightbox-backdrop"></div>
+    
+    <!-- Close Button -->
+    <button class="lightbox-close-btn" aria-label="Close Lightbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    
+    <!-- Navigation Buttons -->
+    <button class="lightbox-nav-btn prev" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button class="lightbox-nav-btn next" aria-label="Next image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+    
+    <!-- Content Area -->
+    <div class="lightbox-content">
+      <div class="lightbox-image-wrapper">
+        <img src="" alt="Gallery preview" class="lightbox-main-img">
+        <div class="lightbox-frame-glow" aria-hidden="true"></div>
+      </div>
+      <!-- Premium Caption bar -->
+      <div class="lightbox-caption-bar">
+        <span class="lightbox-plate-number">図 01</span>
+        <span class="lightbox-title">Signature Appetizers</span>
+      </div>
+    </div>
   </div>
   <div class="page-transition"></div>
 
