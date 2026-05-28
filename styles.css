@@ -10350,9 +10350,31 @@ html, body {
   }
 }
 
+/* ══════════════════════════════════════════════════════ */
+/* HIGH-PERFORMANCE RENDERING ENGINE OPTIMIZATIONS        */
+/* ══════════════════════════════════════════════════════ */
 
+/* 1. content-visibility: auto for offscreen sections to prevent layout reflow thrashing */
+.about,
+.gallery,
+.menu-section,
+.reservation,
+.features,
+.contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1000px;
+}
 
-
-
-
-
+/* 2. GPU layer promotions to eliminate repaint lags for sways and parallax */
+.menu-bamboo-doodle,
+.reservation-doodle,
+.reservation-doodle svg,
+.experience-bg-sakura,
+.gallery-sakura,
+.sakura-interactive-wrap,
+.hero-scroll-text,
+.hero-graphic-frame,
+.hero-info-panel-wrapper,
+.hero-enso-group {
+  will-change: transform, opacity;
+}

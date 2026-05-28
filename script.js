@@ -158,32 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
       revealObserver.observe(el);
     });
 
-    // === PARALLAX (rAF-throttled) ===
-    const parallaxElements = document.querySelectorAll('[data-parallax]');
-    let parallaxTicking = false;
-    
-    function updateParallax() {
-      const scrollY = window.scrollY;
-      
-      parallaxElements.forEach(el => {
-        const speed = parseFloat(el.dataset.parallax) || 0.3;
-        const rect = el.getBoundingClientRect();
-        const centerY = rect.top + rect.height / 2;
-        const offset = (centerY - window.innerHeight / 2) * speed;
-        el.style.setProperty('--parallax-y', offset + 'px');
-      });
-    }
-    
-    window.addEventListener('scroll', () => {
-      if (!parallaxTicking) {
-        requestAnimationFrame(() => {
-          updateParallax();
-          parallaxTicking = false;
-        });
-        parallaxTicking = true;
-      }
-    }, { passive: true });
-    updateParallax();
+
 
     // === COUNTER ANIMATION ===
     const counters = document.querySelectorAll('[data-count]');
@@ -471,8 +446,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroInfoPanel = document.querySelector('#hero .hero-info-panel-wrapper');
   const heroArtsySvg = document.querySelector('#hero .hero-artsy-svg');
 
+  let lastScrollY = 0;
   function updateHeroScrollEffects() {
     const scrollY = window.scrollY;
+    
+    // Performance optimization: skip computations completely when hero is fully offscreen
+    if (scrollY > 900 && lastScrollY > 900) return;
+    lastScrollY = scrollY;
     
     // 1. Text sliding parallax scroll
     if (heroScrollText) {
