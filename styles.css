@@ -3471,6 +3471,17 @@ body.popup-open { overflow: hidden; }
   transform: scale(1.08) rotate(-3deg);
 }
 
+.experience-emblem-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.experience-emblem-logo:hover {
+  transform: scale(1.08) rotate(-3deg);
+}
+
 .reservation .section-text {
   max-width: 100%;
   text-align: center;
