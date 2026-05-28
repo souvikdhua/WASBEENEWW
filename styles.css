@@ -10273,74 +10273,86 @@ html, body {
 }
 
 /* ══════════════════════════════════════════════════════ */
-/* JAPANESE BAMBOO FENCE STYLE SYSTEM                     */
+/* PREMIUM GREEN BAMBOO WATERMARK DOODLES FOR MENU BG    */
 /* ══════════════════════════════════════════════════════ */
-.unified-menu-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 1400px;
-  margin: 4rem auto;
-  padding: 18px !important;
-  box-sizing: border-box;
-  overflow: visible;
-  z-index: 10;
-}
-
-/* Override default container margin when wrapped */
-.unified-menu-wrapper .unified-menu-container {
-  margin: 0 auto !important;
-  width: 100% !important;
-}
-
-.bamboo-fence {
+.menu-bamboo-doodle {
   position: absolute;
+  bottom: 0;
+  width: 380px;
+  height: 420px;
   pointer-events: none;
-  z-index: 12;
-  opacity: 0.96;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
-  transition: all 0.4s ease;
+  z-index: 2;
+  opacity: 0.85; /* Combined with internal SVG opacity to stay highly aesthetic and subtle */
+  transition: opacity 0.8s ease, transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease;
+  overflow: visible;
 }
 
-.bamboo-fence-top {
-  top: -8px;
-  left: 12px;
-  right: 12px;
-  height: 38px;
+.menu-bamboo-left {
+  left: 3%;
+  transform-origin: bottom left;
+  animation: bambooSwayLeft 12s ease-in-out infinite alternate;
 }
 
-.bamboo-fence-bottom {
-  bottom: -8px;
-  left: 12px;
-  right: 12px;
-  height: 38px;
+.menu-bamboo-right {
+  right: 3%;
+  transform-origin: bottom right;
+  animation: bambooSwayRight 14s ease-in-out infinite alternate;
 }
 
-.bamboo-fence-left {
-  top: 12px;
-  bottom: 12px;
-  left: -8px;
-  width: 38px;
+/* Subtle organic sways and enhanced glow when hovering over the menu section */
+.menu-section:hover .menu-bamboo-left {
+  transform: scale(1.05) rotate(2.5deg);
+  filter: drop-shadow(0 0 15px rgba(142, 170, 96, 0.32));
 }
 
-.bamboo-fence-right {
-  top: 12px;
-  bottom: 12px;
-  right: -8px;
-  width: 38px;
+.menu-section:hover .menu-bamboo-right {
+  transform: scale(1.05) rotate(-2.5deg);
+  filter: drop-shadow(0 0 15px rgba(142, 170, 96, 0.32));
 }
 
-/* Subtle organic sways when hovering over the menu fence */
-.unified-menu-wrapper:hover .bamboo-fence-top {
-  transform: translateY(-2px);
+/* Gentle wind swaying animations simulating organic leaves and stalks moving in a garden breeze */
+@keyframes bambooSwayLeft {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(1.8deg) translate(3px, -1px) scale(0.985);
+  }
+  100% {
+    transform: rotate(-1.2deg) translate(-2px, 1px) scale(1.015);
+  }
 }
-.unified-menu-wrapper:hover .bamboo-fence-bottom {
-  transform: translateY(2px);
+
+@keyframes bambooSwayRight {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(-1.8deg) translate(-3px, -1px) scale(0.985);
+  }
+  100% {
+    transform: rotate(1.2deg) translate(2px, 1px) scale(1.015);
+  }
 }
-.unified-menu-wrapper:hover .bamboo-fence-left {
-  transform: translateX(-2px);
+
+/* Responsive layout scaling for modern screens */
+@media (max-width: 1200px) {
+  .menu-bamboo-doodle {
+    width: 300px;
+    height: 340px;
+    opacity: 0.7;
+  }
 }
-.unified-menu-wrapper:hover .bamboo-fence-right {
-  transform: translateX(2px);
+
+@media (max-width: 768px) {
+  .menu-bamboo-doodle {
+    width: 220px;
+    height: 260px;
+    opacity: 0.45;
+    left: 1%;
+    right: 1%;
+  }
 }
+
 
 
