@@ -1366,6 +1366,18 @@ button {
   transform: rotate(5deg) scale(1.05);
 }
 
+/* Menu Specific background doodles position overrides */
+.menu-sheet-doodle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 1.2s var(--ease-out-expo);
+}
+
+.unified-menu-container:hover .menu-sheet-doodle {
+  transform: scale(1.08) rotate(4deg);
+}
+
 .about-content .section-text {
   margin-bottom: 2rem;
 }
