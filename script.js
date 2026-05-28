@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyTheme(theme) {
     if (theme === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
-      if (navLogoImg) navLogoImg.src = 'images/wasabeelogo.png';
+      if (navLogoImg) navLogoImg.src = 'images/Untitled design.png.png';
       if (heroLogoImg) heroLogoImg.src = 'images/graphic 5.jpg';
     } else {
       document.documentElement.removeAttribute('data-theme');
-      if (navLogoImg) navLogoImg.src = 'images/wasabeelogo.png';
+      if (navLogoImg) navLogoImg.src = 'images/Untitled design.png.png';
       if (heroLogoImg) heroLogoImg.src = 'images/graphic 5.jpg';
     }
   }
@@ -77,14 +77,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Scroll Detection for Waveline
+  // Scroll Detection for Waveline (rAF-throttled)
+  let navScrollTicking = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      nav.classList.add('nav--scrolled');
-    } else {
-      nav.classList.remove('nav--scrolled');
+    if (!navScrollTicking) {
+      requestAnimationFrame(() => {
+        if (window.scrollY > 20) {
+          nav.classList.add('nav--scrolled');
+        } else {
+          nav.classList.remove('nav--scrolled');
+        }
+        navScrollTicking = false;
+      });
+      navScrollTicking = true;
     }
-  });
+  }, { passive: true });
   
   // Close overlay on link click
   menuLinks.forEach(link => {
@@ -111,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // === SMOOTH SCROLL FOR NAV LINKS ===
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  document.querySelectorAll('a[href^="#"]:not(.unified-nav-link)').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
@@ -151,8 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
       revealObserver.observe(el);
     });
 
-    // === PARALLAX ===
+    // === PARALLAX (rAF-throttled) ===
     const parallaxElements = document.querySelectorAll('[data-parallax]');
+    let parallaxTicking = false;
     
     function updateParallax() {
       const scrollY = window.scrollY;
@@ -166,7 +174,15 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
     
-    window.addEventListener('scroll', updateParallax, { passive: true });
+    window.addEventListener('scroll', () => {
+      if (!parallaxTicking) {
+        requestAnimationFrame(() => {
+          updateParallax();
+          parallaxTicking = false;
+        });
+        parallaxTicking = true;
+      }
+    }, { passive: true });
     updateParallax();
 
     // === COUNTER ANIMATION ===
@@ -242,8 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }, (delay + duration) * 1000);
       }
 
-      // Create initial batch of petals - rarer for a delicate atmosphere
-      const petalCount = window.innerWidth < 768 ? 6 : 14;
+      // Create initial batch of petals - increased for a richer, more artistic floral shower
+      const petalCount = window.innerWidth < 768 ? 16 : 36;
       for (let i = 0; i < petalCount; i++) {
         createPetal();
       }
@@ -359,21 +375,69 @@ document.addEventListener('DOMContentLoaded', () => {
     heroSlide.classList.add('active');
   }
 
-  // === BRANDING SCROLL MOTION ===
+  // === BRANDING & HERO SCROLL CINEMATICS ===
   const heroScrollText = document.querySelector('.hero-scroll-text');
-  function updateBrandingScroll() {
+  const heroGraphicFrame = document.querySelector('#hero .hero-graphic-frame');
+  const heroInfoPanel = document.querySelector('#hero .hero-info-panel-wrapper');
+  const heroArtsySvg = document.querySelector('#hero .hero-artsy-svg');
+
+  function updateHeroScrollEffects() {
     const scrollY = window.scrollY;
     
-    // Parallax branding text: slides left as user scrolls down
+    // 1. Text sliding parallax scroll
     if (heroScrollText) {
       const xOffset = scrollY * 0.35;
       heroScrollText.style.transform = `translate(calc(-50% - ${xOffset}px), -55%)`;
     }
+
+    // 2. 3D Sinking Receding Parallax (elements scale down and recede into depth rather than fading)
+    const scaleFactor = Math.max(0.85, 1 - (scrollY * 0.0004)); // Subtle depth recession down to 0.85
+
+    if (heroGraphicFrame) {
+      // Photo frame sinks back, scales down, and rotates slightly
+      const rotAngle = -1.5 + (scrollY * 0.003);
+      heroGraphicFrame.style.transform = `translateY(${scrollY * 0.18}px) scale(${scaleFactor}) rotate(${rotAngle}deg)`;
+      heroGraphicFrame.style.opacity = '1'; // Solid physical presence, no fade
+      heroGraphicFrame.style.willChange = 'transform';
+    }
+
+    if (heroInfoPanel) {
+      // Plum info card drifts, scales down, and undergoes matching rotational depth
+      const rotAngle = 0.5 - (scrollY * 0.002);
+      const cardScale = Math.max(0.88, 1 - (scrollY * 0.0003)); // Slightly slower depth shrink for layered look
+      heroInfoPanel.style.transform = `translateY(${scrollY * 0.1}px) scale(${cardScale}) rotate(${rotAngle}deg)`;
+      heroInfoPanel.style.opacity = '1'; // Solid physical presence, no fade
+      heroInfoPanel.style.willChange = 'transform';
+    }
+
+    // 3. Stable background recession
+    if (heroArtsySvg) {
+      heroArtsySvg.style.opacity = '1'; // Always solid, relying on next-section overlap cover
+      
+      const ensoCircle = heroArtsySvg.querySelector('.hero-enso-group');
+      if (ensoCircle) {
+        // Enso circle sinks into background, slowly rotating and shrinking
+        const rotAngle = scrollY * 0.04;
+        const ensoScale = Math.max(0.95, 1.15 - (scrollY * 0.0002));
+        ensoCircle.style.transform = `translate(720px, ${390 + scrollY * 0.12}px) scale(${ensoScale}) rotate(${rotAngle}deg)`;
+        ensoCircle.style.willChange = 'transform';
+      }
+    }
   }
 
+  let heroScrollTicking = false;
   window.addEventListener('scroll', () => {
-    requestAnimationFrame(updateBrandingScroll);
+    if (!heroScrollTicking) {
+      requestAnimationFrame(() => {
+        updateHeroScrollEffects();
+        heroScrollTicking = false;
+      });
+      heroScrollTicking = true;
+    }
   }, { passive: true });
+
+  // Initial trigger for load state
+  updateHeroScrollEffects();
 
 
   // === ADVANCED MENU SYSTEM (TABS & SEARCH) ===
@@ -783,49 +847,138 @@ document.head.appendChild(style);
   });
 })();
 
-// === UNIFIED MENU TAB SWITCHING & SCROLL SPY ===
+// === UNIFIED MENU TAB SWITCHING & SCROLL SPY & FILTERING ===
 (function() {
   const navLinks = document.querySelectorAll('.unified-nav-link');
   const categories = document.querySelectorAll('.unified-category-group');
-  if (navLinks.length === 0 || categories.length === 0) return;
+  const menuMain = document.querySelector('.unified-menu-main');
+  if (navLinks.length === 0 || categories.length === 0 || !menuMain) return;
 
-  // Smooth scroll to category
+  let isClickScrolling = false;
+  let clickScrollTimeout;
+
+  // Smooth scroll to category inside the scrollable card
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const targetId = this.getAttribute('href').substring(1);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        // Calculate offset position (account for sticky header + category navigation bar)
-        const headerHeight = window.innerWidth <= 768 ? 144 : 140;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-        
-        window.scrollTo({
-          top: offsetPosition,
+        // Set clicked item active instantly for perfect visual responsiveness
+        navLinks.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        isClickScrolling = true;
+        clearTimeout(clickScrollTimeout);
+
+        const relativeTop = targetElement.getBoundingClientRect().top - menuMain.getBoundingClientRect().top + menuMain.scrollTop;
+        menuMain.scrollTo({
+          top: relativeTop - 15, // subtle top padding buffer
           behavior: 'smooth'
         });
+
+        // Re-enable scroll spy calculations after smooth scroll finishes
+        clickScrollTimeout = setTimeout(() => {
+          isClickScrolling = false;
+          updateScrollSpy();
+        }, 850);
       }
     });
   });
 
-  // Scroll Spy to highlight and auto-scroll active chip
+  // Search and Veg/Non-Veg Filter Logic
+  const searchInput = document.getElementById('unified-menu-search');
+  const filterBtns = document.querySelectorAll('.diet-filter .filter-btn');
+
+  function filterUnifiedMenu() {
+    const searchVal = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    let dietFilter = 'all';
+    const activeBtn = document.querySelector('.diet-filter .filter-btn.active');
+    if (activeBtn) {
+      dietFilter = activeBtn.getAttribute('data-filter');
+    }
+
+    categories.forEach(group => {
+      const items = group.querySelectorAll('.popup-item');
+      let visibleItemsCount = 0;
+
+      items.forEach(item => {
+        const name = item.querySelector('.pi-name').textContent.toLowerCase();
+        const desc = item.querySelector('.pi-desc') ? item.querySelector('.pi-desc').textContent.toLowerCase() : '';
+        const dietIcon = item.querySelector('.diet-icon');
+        
+        // Determine diet type
+        let isVeg = false;
+        if (dietIcon) {
+          isVeg = dietIcon.classList.contains('veg');
+        }
+
+        const matchesSearch = name.includes(searchVal) || desc.includes(searchVal);
+        
+        let matchesDiet = true;
+        if (dietFilter === 'veg') {
+          matchesDiet = isVeg;
+        } else if (dietFilter === 'non-veg') {
+          matchesDiet = !isVeg;
+        }
+
+        if (matchesSearch && matchesDiet) {
+          item.style.setProperty('display', '', 'important');
+          visibleItemsCount++;
+        } else {
+          item.style.setProperty('display', 'none', 'important');
+        }
+      });
+
+      // Show/hide category group container based on visible items inside it
+      if (visibleItemsCount > 0) {
+        group.style.setProperty('display', '', 'important');
+      } else {
+        group.style.setProperty('display', 'none', 'important');
+      }
+    });
+
+    // Re-trigger scroll spy update to align active link with visible category groups
+    updateScrollSpy();
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterUnifiedMenu);
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      filterUnifiedMenu();
+    });
+  });
+
+  // Scroll Spy to highlight and auto-scroll active chip based on card container scroll position
   let isSpying = false;
   function updateScrollSpy() {
+    if (isClickScrolling) return; // Skip updating scroll spy classes if we are smoothly transitioning on user click
+
     let activeId = "";
-    // Offset threshold: sticky navigation height + buffer
-    const threshold = window.innerWidth <= 768 ? 150 : 160;
     
     categories.forEach(cat => {
-      const rect = cat.getBoundingClientRect();
-      if (rect.top <= threshold) {
+      if (cat.style.display === 'none') return; // Skip hidden category groups
+      const relativeTop = cat.getBoundingClientRect().top - menuMain.getBoundingClientRect().top;
+      // If the top of the category group has scrolled into view at the top of the container
+      if (relativeTop <= 80) {
         activeId = cat.id;
       }
     });
 
-    // Fallback: if scrolled near top, select first category
-    if (window.scrollY < 200) {
-      activeId = categories[0].id;
+    // Fallback: if scrolled to the absolute bottom, select the last visible category (e.g. Desserts)
+    if (menuMain.scrollTop + menuMain.clientHeight >= menuMain.scrollHeight - 100) {
+      const visibleCats = Array.from(categories).filter(cat => cat.style.display !== 'none');
+      if (visibleCats.length > 0) {
+        activeId = visibleCats[visibleCats.length - 1].id;
+      }
+    } else if (menuMain.scrollTop < 30) {
+      const firstVisible = Array.from(categories).find(cat => cat.style.display !== 'none');
+      activeId = firstVisible ? firstVisible.id : (categories[0] ? categories[0].id : "");
     }
 
     if (activeId) {
@@ -833,8 +986,17 @@ document.head.appendChild(style);
         if (link.getAttribute('href') === '#' + activeId) {
           if (!link.classList.contains('active')) {
             link.classList.add('active');
-            // Center the active link in the horizontal scrollbar
-            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            // Center the active link in the horizontal scrollbar (mobile/horizontal view only)
+            const navContainer = link.parentElement;
+            if (navContainer && window.innerWidth <= 900) {
+              const containerWidth = navContainer.clientWidth;
+              const linkOffsetLeft = link.offsetLeft;
+              const linkWidth = link.clientWidth;
+              navContainer.scrollTo({
+                left: linkOffsetLeft - (containerWidth / 2) + (linkWidth / 2),
+                behavior: 'smooth'
+              });
+            }
           }
         } else {
           link.classList.remove('active');
@@ -843,7 +1005,8 @@ document.head.appendChild(style);
     }
   }
 
-  window.addEventListener('scroll', () => {
+  // Monitor the menu card scroll instead of window scroll
+  menuMain.addEventListener('scroll', () => {
     if (!isSpying) {
       window.requestAnimationFrame(() => {
         updateScrollSpy();

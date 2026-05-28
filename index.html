@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Michroma&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=24">
+  <link rel="stylesheet" href="styles.css?v=52">
   <style>
     :root {
       --font-display: 'Michroma', sans-serif;
@@ -51,7 +51,7 @@
   <nav class="nav" id="navbar">
     <span class="nav-kanji-left" aria-hidden="true">美</span>
     <a href="#" class="nav-logo" aria-label="Wasabee Home">
-      <img src="images/wasabeelogo.png?v=4" alt="Wasabee Oriental Cuisine" class="nav-logo-img" id="navLogoImg"
+      <img src="images/Untitled design.png.png" alt="Wasabee Oriental Cuisine" class="nav-logo-img" id="navLogoImg"
         style="width: 140px; height: auto;">
     </a>
     <ul class="nav-links">
@@ -89,6 +89,64 @@
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="hero-bg" style="background-color: var(--color-bg);">
+      <svg class="hero-artsy-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#b8874c" />
+            <stop offset="40%" stop-color="#ebd1a8" />
+            <stop offset="70%" stop-color="#d4a574" />
+            <stop offset="100%" stop-color="#9e7039" />
+          </linearGradient>
+          <linearGradient id="cloudGradLeft" x1="0%" y1="0%" x2="100%" y2="80%">
+            <stop offset="0%" stop-color="#FAF7F2" stop-opacity="0.95" />
+            <stop offset="60%" stop-color="#FAF7F2" stop-opacity="0.85" />
+            <stop offset="100%" stop-color="#ebd1a8" stop-opacity="0.4" />
+          </linearGradient>
+          <linearGradient id="cloudGradRight" x1="100%" y1="0%" x2="0%" y2="80%">
+            <stop offset="0%" stop-color="#FAF7F2" stop-opacity="0.95" />
+            <stop offset="60%" stop-color="#FAF7F2" stop-opacity="0.85" />
+            <stop offset="100%" stop-color="#ebd1a8" stop-opacity="0.4" />
+          </linearGradient>
+          <filter id="cloudShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="2" dy="5" stdDeviation="6" flood-color="#82066A" flood-opacity="0.05" />
+          </filter>
+          <pattern id="seigaiha" width="60" height="30" patternUnits="userSpaceOnUse">
+            <path d="M 0 30 A 30 30 0 0 1 60 30 M 5 30 A 25 25 0 0 1 55 30 M 10 30 A 20 20 0 0 1 50 30 M 15 30 A 15 15 0 0 1 45 30 M 20 30 A 10 10 0 0 1 40 30 M 25 30 A 5 5 0 0 1 35 30" fill="none" stroke="#d4a574" stroke-width="1" opacity="0.1" />
+            <path d="M 30 15 A 30 30 0 0 1 90 15 M 35 15 A 25 25 0 0 1 85 15 M 40 15 A 20 20 0 0 1 80 15 M 45 15 A 15 15 0 0 1 75 15 M 50 15 A 10 10 0 0 1 70 15 M 55 15 A 5 5 0 0 1 65 15" fill="none" stroke="#d4a574" stroke-width="1" opacity="0.1" />
+          </pattern>
+        </defs>
+
+        <!-- Subtle Background Seigaiha Waves -->
+        <rect width="100%" height="100%" fill="url(#seigaiha)" />
+
+        <!-- Zen Enso Brushed Circle (Center Behind Logo Card) -->
+        <g transform="translate(720, 390) scale(1.15)" opacity="0.09" class="hero-enso-group">
+          <!-- Brushed stylized paint stroke path representing Zen Enso Circle -->
+          <path d="M 120 -80 C 180 -20, 200 60, 160 130 C 110 200, -10 220, -90 180 C -170 130, -200 20, -160 -60 C -120 -130, -20 -180, 60 -160 C 110 -150, 140 -120, 150 -100" 
+                fill="none" stroke="var(--color-brand)" stroke-width="28" stroke-linecap="round" />
+          <path d="M 100 -90 C 150 -40, 170 30, 140 90 C 100 150, 0 170, -60 140 C -120 100, -140 10, -110 -50 C -80 -100, 0 -140, 60 -120" 
+                fill="none" stroke="#d4a574" stroke-width="6" stroke-linecap="round" opacity="0.5" />
+        </g>
+
+        <!-- Artistic Sun / Hinomaru Soft Backdrop -->
+        <circle cx="720" cy="390" r="230" fill="var(--color-brand)" opacity="0.015" />
+
+        <!-- Stylized Top Left Cloud Scroll (Kumo) -->
+        <g class="hero-cloud hero-cloud-left" filter="url(#cloudShadow)">
+          <path d="M -80 -40 L 420 -40 C 420 20, 390 60, 340 70 C 320 70, 300 60, 290 40 C 270 70, 220 90, 170 90 C 130 90, 90 70, 80 40 C 60 70, 10 70, -30 50 C -50 70, -80 60, -100 30 Z" 
+                fill="url(#cloudGradLeft)" stroke="url(#goldGradient)" stroke-width="1.8" />
+          <path d="M 50 10 C 80 20, 120 20, 150 10 M 200 20 C 230 35, 270 35, 300 20" 
+                fill="none" stroke="url(#goldGradient)" stroke-width="1.2" opacity="0.6" stroke-linecap="round" />
+        </g>
+
+        <!-- Stylized Top Right Cloud Scroll (Kumo) -->
+        <g class="hero-cloud hero-cloud-right" filter="url(#cloudShadow)">
+          <path d="M 1520 -40 L 1020 -40 C 1020 20, 1050 60, 1100 70 C 1120 70, 1140 60, 1150 40 C 1170 70, 1220 90, 1270 90 C 1310 90, 1350 70, 1360 40 C 1380 70, 1430 70, 1470 50 C 1490 70, 1520 60, 1540 30 Z" 
+                fill="url(#cloudGradRight)" stroke="url(#goldGradient)" stroke-width="1.8" />
+          <path d="M 1390 10 C 1360 20, 1320 20, 1290 10 M 1240 20 C 1210 35, 1170 35, 1140 20" 
+                fill="none" stroke="url(#goldGradient)" stroke-width="1.2" opacity="0.6" stroke-linecap="round" />
+        </g>
+      </svg>
     </div>
     <div class="hero-overlay" style="background: transparent;"></div>
 
@@ -120,14 +178,16 @@
           <span class="hero-kanji-bg-right" aria-hidden="true">味</span>
           
           <div class="hero-promo-header reveal" data-delay="0.05">
-            <img src="images/wasabeelogo.png?v=4" alt="Wasabee Oriental Cuisine" style="width: 240px; height: auto; margin: 0.5rem auto 1rem auto; display: block;">
+            <img src="images/Wasabee-_-New-Logo Converted Without BG (1).png" alt="Wasabee Oriental Cuisine" style="width: 240px; height: auto; margin: 0.5rem auto 1rem auto; display: block;">
           </div>
           <p class="hero-promo-text reveal" data-delay="0.1">Get exclusive discounts on table booking and online ordering only on our website</p>
           <div class="hero-trust-list reveal" data-delay="0.15">
-            <span class="hero-trust-item">No Hidden Costs</span>
-            <span class="hero-trust-item">Zero Convenience Fees</span>
-            <span class="hero-trust-item">Zero Delivery Charges</span>
-            <span class="hero-trust-item">Honest Direct Pricing</span>
+            <div class="hero-trust-grid">
+              <span class="hero-trust-item"><span class="trust-diamond">♦</span> No Hidden Costs</span>
+              <span class="hero-trust-item"><span class="trust-diamond">♦</span> Zero Convenience Fees</span>
+              <span class="hero-trust-item"><span class="trust-diamond">♦</span> Zero Delivery Charges</span>
+              <span class="hero-trust-item"><span class="trust-diamond">♦</span> Honest Direct Pricing</span>
+            </div>
           </div>
           <div class="hero-actions">
             <a href="#menu" class="hero-explore-cta">
@@ -166,10 +226,26 @@
   <!-- About Section -->
   <section class="section about" id="about">
     <span class="section-kanji-bg" aria-hidden="true">食</span>
+    
+    <!-- Floating Japanese Kumo Clouds for Artistic Depth -->
+    <div class="about-cloud about-cloud-left" aria-hidden="true">
+      <svg viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 40 C 20 20, 50 20, 60 35 C 70 15, 110 15, 120 30 C 135 10, 175 15, 185 40 C 195 50, 190 70, 170 70 L 30 70 C 10 70, 0 55, 10 40 Z" fill="var(--color-brand)" fill-opacity="0.025" stroke="var(--color-brand)" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="3 3"/>
+      </svg>
+    </div>
+    <div class="about-cloud about-cloud-right" aria-hidden="true">
+      <svg viewBox="0 0 240 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 50 C 35 25, 75 25, 85 45 C 100 20, 150 20, 165 40 C 185 15, 230 20, 235 55 C 240 70, 230 90, 200 90 L 40 90 C 15 90, 5 70, 20 50 Z" fill="var(--color-gold)" fill-opacity="0.02" stroke="var(--color-gold)" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="3 3"/>
+      </svg>
+    </div>
     <div class="section-narrow">
       <div class="about-grid">
         <!-- Left: Google Reviews Widget -->
         <div id="reviews" class="about-reviews-container reveal-left" style="width: 100%;">
+          <span class="section-label" style="margin-bottom:1rem;">口コミ · TESTIMONIALS</span>
+          <div class="reservation-emblem">
+            <img src="images/Untitled design.png.png" alt="Wasabee Emblem" class="reservation-emblem-logo">
+          </div>
           <script src="https://elfsightcdn.com/platform.js" async></script>
           <div class="elfsight-app-55571e57-f90e-4b3c-bbec-2ee01480d44e" data-elfsight-app-lazy></div>
         </div>
@@ -177,6 +253,9 @@
           <div class="about-content washi-card washi-card-cream">
           <div class="reveal" data-delay="0.2">
             <span class="section-label">ようこそ · OUR STORY</span>
+            <div class="reservation-emblem">
+              <img src="images/Untitled design.png.png" alt="Wasabee Emblem" class="reservation-emblem-logo">
+            </div>
             <h2 class="section-title">Welcome to <span class="accent">Wasabee</span></h2>
           </div>
           <p class="section-text reveal" data-delay="0.3"
@@ -234,10 +313,16 @@
     <div class="cliche-tanzaku" aria-hidden="true">芸術</div>
 
     <span class="section-kanji-bg" aria-hidden="true">美</span>
-    <div class="gallery-header reveal">
-      <span class="section-label">ギャラリー · GALLERY</span>
-      <h2 class="section-title">The <span class="accent">Gallery</span><span class="cliche-hanko"
-          aria-hidden="true">和</span></h2>
+    <div class="gallery-header reveal-right">
+      <div class="gallery-header-composition">
+        <div class="gallery-header-line" aria-hidden="true"></div>
+        <div class="gallery-header-emblem">
+          <img src="images/Untitled design.png.png" alt="Wasabee" class="gallery-emblem-logo">
+        </div>
+        <div class="gallery-header-line" aria-hidden="true"></div>
+      </div>
+      <h2 class="gallery-title-text">GALLERY</h2>
+      <span class="gallery-subtitle">ギャラリー · 美食の芸術</span>
     </div>
     <div class="gallery-grid">
       <!-- Row 1 -->
@@ -325,19 +410,100 @@
   <!-- MENU: 4×2 Artbook Catalogue                      -->
   <!-- ══════════════════════════════════════════════════ -->
   <section class="section menu-section" id="menu">
+    <!-- Decorative Japanese Kumo Clouds in the Dark BG -->
+    <svg class="menu-kumo menu-kumo-tr" viewBox="0 0 500 120" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="menuCloudGrad1" x1="100%" y1="0%" x2="0%" y2="80%">
+          <stop offset="0%" stop-color="#FAF7F2" stop-opacity="0.25" />
+          <stop offset="100%" stop-color="#d4a574" stop-opacity="0.08" />
+        </linearGradient>
+      </defs>
+      <path d="M 520 -20 L 80 -20 C 80 30, 110 60, 150 70 C 170 70, 185 60, 195 40 C 210 65, 250 80, 290 80 C 320 80, 350 65, 360 40 C 375 65, 415 65, 445 50 C 460 65, 490 55, 520 30 Z"
+            fill="url(#menuCloudGrad1)" stroke="#d4a574" stroke-width="0.8" opacity="0.65" />
+      <path d="M 190 15 C 220 25, 260 25, 290 15 M 330 22 C 355 35, 390 35, 415 22"
+            fill="none" stroke="#d4a574" stroke-width="0.6" opacity="0.3" stroke-linecap="round" />
+    </svg>
+    <svg class="menu-kumo menu-kumo-bl" viewBox="0 0 500 120" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="menuCloudGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#FAF7F2" stop-opacity="0.22" />
+          <stop offset="100%" stop-color="#d4a574" stop-opacity="0.06" />
+        </linearGradient>
+      </defs>
+      <path d="M -20 130 L 420 130 C 420 80, 390 50, 340 40 C 320 40, 300 50, 290 70 C 270 45, 220 30, 170 30 C 130 30, 90 45, 80 70 C 60 45, 10 45, -30 60 C -50 45, -80 50, -100 80 Z"
+            fill="url(#menuCloudGrad2)" stroke="#d4a574" stroke-width="0.8" opacity="0.55" />
+      <path d="M 100 90 C 130 80, 170 80, 200 90 M 250 82 C 280 70, 320 70, 350 82"
+            fill="none" stroke="#d4a574" stroke-width="0.6" opacity="0.25" stroke-linecap="round" />
+    </svg>
+    <!-- Floating Japanese food line art watermarks in the dark background -->
+    <svg class="menu-deco-item menu-deco-ramen" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M20 50 C20 75, 80 75, 80 50 Z" fill="none" stroke="#d4a574" stroke-width="2.5" opacity="0.45" />
+      <path d="M25 50 L75 50" fill="none" stroke="#d4a574" stroke-width="2" opacity="0.45" />
+      <path d="M35 70 C35 80, 65 80, 65 70" fill="none" stroke="#d4a574" stroke-width="2.5" opacity="0.45" />
+      <path d="M15 35 L85 45 M15 30 L85 40" fill="none" stroke="#d4a574" stroke-width="2" opacity="0.5" stroke-linecap="round" />
+      <path d="M40 25 Q45 15 40 10 M50 25 Q55 15 50 10 M60 25 Q65 15 60 10" fill="none" stroke="#d4a574" stroke-width="1.5" opacity="0.3" stroke-linecap="round" />
+    </svg>
+    <svg class="menu-deco-item menu-deco-sushi" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M30 65 C25 60, 25 50, 40 45 C55 40, 75 45, 70 55 C65 65, 35 70, 30 65 Z" fill="none" stroke="#d4a574" stroke-width="2.5" opacity="0.45" />
+      <path d="M45 44 L53 62 M50 43 L58 60" fill="none" stroke="#d4a574" stroke-width="3" opacity="0.5" />
+      <path d="M20 45 C40 30, 65 30, 80 40 C75 48, 45 42, 20 45 Z" fill="none" stroke="#d4a574" stroke-width="2.5" opacity="0.45" />
+      <path d="M5 75 L95 25" fill="none" stroke="#d4a574" stroke-width="2.5" opacity="0.3" stroke-linecap="round" />
+    </svg>
+    <svg class="menu-deco-item menu-deco-teapot" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M35 65 C35 80, 65 80, 65 65 C65 55, 35 55, 35 65 Z" fill="none" stroke="#d4a574" stroke-width="2.5" opacity="0.4" />
+      <path d="M35 60 C25 60, 20 50, 20 45 L25 45 C25 50, 30 55, 35 55" fill="none" stroke="#d4a574" stroke-width="2" opacity="0.4" />
+      <path d="M65 55 C75 55, 80 65, 75 70 C70 75, 65 70, 65 68" fill="none" stroke="#d4a574" stroke-width="2" opacity="0.4" />
+      <path d="M42 55 C42 48, 58 48, 58 55 Z" fill="none" stroke="#d4a574" stroke-width="2" opacity="0.4" />
+      <circle cx="50" cy="46" r="3" fill="none" stroke="#d4a574" stroke-width="2" opacity="0.4" />
+    </svg>
+    <svg class="menu-deco-item menu-deco-dimsum" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="50" cy="65" rx="30" ry="12" fill="none" stroke="#d4a574" stroke-width="2.5" opacity="0.4" />
+      <ellipse cx="50" cy="60" rx="30" ry="12" fill="none" stroke="#d4a574" stroke-width="2.5" opacity="0.4" />
+      <path d="M25 62 L25 65 M35 63 L35 66 M45 64 L45 67 M55 64 L55 67 M65 63 L65 66 M75 62 L75 65" fill="none" stroke="#d4a574" stroke-width="1.5" opacity="0.4" />
+      <path d="M35 52 C35 48, 42 48, 45 52 C48 48, 55 48, 55 52" fill="none" stroke="#d4a574" stroke-width="2" opacity="0.35" />
+    </svg>
+    <svg class="menu-deco-item menu-deco-sake" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Sake Bottle -->
+      <path d="M42 35 L42 20 C42 18, 48 18, 48 20 L48 35 C42 42, 35 50, 35 65 C35 75, 65 75, 65 65 C65 50, 58 42, 52 35 Z" fill="none" stroke="#d4a574" stroke-width="2.5" opacity="0.4" />
+      <!-- Sake Cup -->
+      <path d="M72 65 C72 72, 88 72, 88 65 Z" fill="none" stroke="#d4a574" stroke-width="2" opacity="0.4" />
+      <path d="M74 65 L86 65" fill="none" stroke="#d4a574" stroke-width="1.5" opacity="0.3" />
+    </svg>
+    <svg class="menu-deco-item menu-deco-chopsticks" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Crossed Chopsticks -->
+      <path d="M10 85 L90 15 M15 85 L95 15" fill="none" stroke="#d4a574" stroke-width="2" opacity="0.4" stroke-linecap="round" />
+      <!-- Sushi Roll -->
+      <circle cx="50" cy="50" r="14" fill="none" stroke="#d4a574" stroke-width="2.5" opacity="0.4" />
+      <circle cx="50" cy="50" r="7" fill="none" stroke="#d4a574" stroke-width="1.5" opacity="0.35" />
+    </svg>
     <div class="menu-section-header-wrapper washi-card-wrapper reveal">
       <div class="menu-section-header washi-card washi-card-cream">
-        <span class="section-label">お品書き · MENU & ORDERING</span>
-        <h2 class="section-title">Our Pan-Asian Menu &amp; <span class="accent">Online Ordering</span></h2>
-        <p class="section-subline">Choose from over 100 freshly prepared Asian favorites, from hand-rolled Sushi to hot Dim Sums &amp; Momos. Enjoy quick delivery straight to your doorstep.</p>
+        <!-- Left Side: Brand Visuals -->
+        <div class="menu-header-left">
+          <div class="menu-header-logo-container">
+            <img src="images/Untitled design.png.png" alt="Wasabee" class="menu-header-logo">
+          </div>
+          <span class="section-label">お品書き · MENU &amp; ORDERING</span>
+        </div>
+        <!-- Right Side: Marketing/Intro Copy -->
+        <div class="menu-header-right">
+          <h2 class="section-title">Our Pan-Asian Menu &amp; <span class="accent">Online Ordering</span></h2>
+          <p class="section-subline">Choose from over 100 freshly prepared Asian favorites, from hand-rolled Sushi to hot Dim Sums &amp; Momos. Enjoy quick delivery straight to your doorstep.</p>
+        </div>
       </div>
     </div>
     <!-- Unified 3-Column Menu Container -->
     <div class="unified-menu-container">
+      <!-- Japanese Kanji Watermark Brush Strokes -->
+      <div class="menu-kanji-watermark watermark-left" aria-hidden="true">お品書き</div>
+      <div class="menu-kanji-watermark watermark-right" aria-hidden="true">一期一会</div>
 
       <aside class="unified-sidebar reveal">
+        <div class="sidebar-header">
+          <span class="sidebar-label">ITEMS <span class="sidebar-label-jp">品目</span></span>
+        </div>
         <nav class="unified-nav">
-          <a href="#cat-dumplings" class="unified-nav-link active" style="color: var(--color-brand);">Dim Sums &amp; Momos <span class="nav-jp">点心</span></a>
+          <a href="#cat-dumplings" class="unified-nav-link active">Dim Sums &amp; Momos <span class="nav-jp">点心</span></a>
           <a href="#cat-sushi" class="unified-nav-link">Sushi &amp; Rolls <span class="nav-jp">寿司</span></a>
           <a href="#cat-soup" class="unified-nav-link">Soup <span class="nav-jp">汁物</span></a>
           <a href="#cat-appetizers" class="unified-nav-link">Appetizers <span class="nav-jp">前菜</span></a>
@@ -349,6 +515,18 @@
       </aside>
 
       <div class="unified-menu-main">
+        <!-- Search & Filter Bar -->
+        <div class="menu-filter-bar">
+          <div class="search-box">
+            <input type="text" id="unified-menu-search" placeholder="Search dishes...">
+            <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          </div>
+          <div class="diet-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="veg">Veg <span class="diet-icon veg"></span></button>
+            <button class="filter-btn" data-filter="non-veg">Non-Veg <span class="diet-icon non-veg"></span></button>
+          </div>
+        </div>
 
         <!-- 01: DUMPLINGS -->
         <div class="unified-category-group" id="cat-dumplings">
@@ -986,6 +1164,9 @@
     <div class="section-narrow">
       <div class="split-section-grid">
         <div class="reservation-content reveal-left">
+          <div class="reservation-emblem">
+            <img src="images/Untitled design.png.png" alt="Wasabee Emblem" class="reservation-emblem-logo">
+          </div>
           <span class="section-label">ご予約 · RESERVATION</span>
           <h2 class="section-title">Book a <span class="accent">Table</span></h2>
           <p class="section-text">Planning a family get-together, kitty party, or date night? Call us to book the best
@@ -1012,6 +1193,9 @@
     <div class="asanoha-border-top" aria-hidden="true"></div>
     <div class="section-narrow">
       <div class="reveal" style="text-align:center; margin-bottom:4rem;">
+        <div class="reservation-emblem">
+          <img src="images/Untitled design.png.png" alt="Wasabee Emblem" class="reservation-emblem-logo">
+        </div>
         <span class="section-label" style="justify-content:center;">体験 · EXPERIENCE</span>
         <h2 class="section-title">The Wasabee <span class="accent">Experience</span></h2>
       </div>
@@ -1025,7 +1209,7 @@
           <div class="heritage-card-image">
             <img src="images/graphic 1.jpg" alt="Wasabee Founders Ambiance">
           </div>
-          <p class="heritage-quote">"Building Kolkata's first standalone Japanese dining destination in 2012 wasn't just about food—it was about introducing a philosophy of pure, honest culinary art."</p>
+          <p class="heritage-quote">"Building Kolkata's first standalone Japanese dining destination in 2012 wasn't just about food, it was about introducing a philosophy of pure, honest culinary art."</p>
           <div class="heritage-card-divider"></div>
           <p class="heritage-text">
             From importing genuine ingredients to crafting a space that feels like a quiet sanctuary, we wanted Wasabee to be a direct channel to Tokyo and Seoul. Our journey started over a decade ago with a simple mission: Zero convenience fees, zero delivery charges, honest direct pricing, and a culinary experience without any compromises.
@@ -1074,8 +1258,8 @@
           </div>
           <div class="contact-info">
             <div class="contact-block">
-              <h4>Bypass · South City Connector</h4>
-              <p>30, Arya Vidyalaya Road<br>Kolkata 700 078<br>(Opposite National Furniture)</p>
+              <h4>Kalikapur · Bypass Connect</h4>
+              <p>30, Arya Vidyalaya Road, Sahid Nagar,<br>Kalikapur, Kolkata - 700078.<br><span style="font-size:0.75rem; color:var(--color-text-dim);">(Located on the South City-Bypass Connect, right next to Union Bank)</span></p>
               <div class="phone-list">
                 <a href="tel:+919163764444" class="phone-link">
                   <svg class="phone-icon" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.57a1.003 1.003 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.36 11.36 0 008.5 3.7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
@@ -1141,9 +1325,9 @@
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-logo">
-        <img src="images/wasabeelogo.png?v=4" alt="Wasabee Logo" class="footer-logo-img">
+        <img src="images/Wasabee-_-New-Logo Converted Without BG (1).png" alt="Wasabee Logo" class="footer-logo-img">
         <div class="footer-logo-tagline">A Unit of Superb Recipes</div>
-        <p class="footer-logo-address">New Bypass, Kolkata · 700099</p>
+        <p class="footer-logo-address">30, Arya Vidyalaya Road, Kalikapur, Kolkata - 700078</p>
       </div>
       <div class="footer-nav">
         <div class="footer-nav-col">
@@ -1342,8 +1526,8 @@
     </div>
   </div>
 
-  <script src="script.js?v=23"></script>
-  <script src="wa-cart.js?v=23"></script>
+  <script src="script.js?v=47"></script>
+  <script src="wa-cart.js?v=44"></script>
 </body>
 
 </html>

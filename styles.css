@@ -409,7 +409,17 @@ button {
 }
 
 .nav::before {
-  display: none; /* Removed the previous dynamic Hanko tracker */
+  display: block !important;
+  content: "";
+  position: absolute;
+  top: -38px; /* Extends behind the promo banner to the very top */
+  left: 0;
+  right: 0;
+  height: 38px;
+  background-color: var(--color-bg);
+  background-image: var(--paper-texture);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .nav.nav--scrolled::after {
@@ -442,21 +452,9 @@ button {
 }
 
 .nav-logo-img {
-  height: 54px; /* Reduced for a more delicate artbook look */
+  height: 54px;
   width: auto;
   transition: all 0.6s var(--ease-out-expo);
-  border: 1px solid rgba(130, 6, 106, 0.12); /* Delicate brand border */
-  padding: 6px 12px;
-  background: var(--color-surface);
-  background-image: var(--paper-texture);
-  box-shadow: 0 2px 8px rgba(130, 6, 106, 0.04);
-  /* Premium hand-torn jagged Washi paper clip-path edges */
-  clip-path: polygon(
-    2% 6%, 10% 2%, 20% 5%, 30% 1%, 40% 4%, 50% 2%, 60% 5%, 70% 2%, 80% 6%, 90% 3%, 98% 7%,
-    97% 18%, 99% 32%, 96% 48%, 98% 65%, 97% 82%, 99% 94%,
-    91% 97%, 82% 95%, 71% 98%, 62% 96%, 50% 98%, 38% 95%, 29% 97%, 18% 95%, 8% 98%, 2% 95%,
-    3% 84%, 1% 68%, 2% 51%, 1% 33%, 3% 18%
-  );
 }
 
 /* === KANJI BOOKENDS === */
@@ -1056,8 +1054,9 @@ button {
 /* === SCROLL REVEAL ANIMATIONS === */
 .reveal {
   opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  will-change: opacity, transform;
 }
 
 .reveal.visible {
@@ -1067,8 +1066,9 @@ button {
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-80px);
-  transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+  transform: translateX(-40px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  will-change: opacity, transform;
 }
 
 .reveal-left.visible {
@@ -1078,8 +1078,9 @@ button {
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(80px);
-  transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+  transform: translateX(40px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  will-change: opacity, transform;
 }
 
 .reveal-right.visible {
@@ -1089,8 +1090,9 @@ button {
 
 .reveal-scale {
   opacity: 0;
-  transform: scale(0.85);
-  transition: opacity 1.2s var(--ease-out-expo), transform 1.2s var(--ease-out-expo);
+  transform: scale(0.92);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  will-change: opacity, transform;
 }
 
 .reveal-scale.visible {
@@ -1225,6 +1227,54 @@ button {
 /* === ABOUT SECTION === */
 .about {
   background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Massive background calligraphy brushstroke sweeping behind the entire about grid */
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" opacity="0.08" fill="none"><path d="M-100,200 C300,50 600,600 1300,100" stroke="%2382066A" stroke-width="80" stroke-linecap="round" filter="blur(10px)"/><path d="M200,650 C500,450 800,800 1400,500" stroke="%23d4a574" stroke-width="120" stroke-linecap="round" filter="blur(15px)"/><circle cx="150" cy="550" r="100" fill="%2382066A" opacity="0.3" filter="blur(8px)"/><circle cx="1050" cy="200" r="150" fill="%23d4a574" opacity="0.2" filter="blur(12px)"/></svg>');
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Second overlay layer of micro splatters and hand-painted wash effects */
+.about::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" opacity="0.05" fill="none"><path d="M-50,400 Q200,550 500,300 T1000,500" stroke="%2382066A" stroke-width="40" stroke-linecap="round" stroke-dasharray="10 30"/><circle cx="450" cy="150" r="60" fill="%2382066A"/><circle cx="520" cy="180" r="30" fill="%2382066A"/><circle cx="400" cy="210" r="20" fill="%2382066A"/></svg>');
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --- Floating Kumo Clouds for About Section --- */
+.about-cloud {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.about-cloud-left {
+  top: 8%;
+  left: 2%;
+  width: 280px;
+  animation: kumoFloatLeft 22s ease-in-out infinite alternate;
+}
+
+.about-cloud-right {
+  bottom: 12%;
+  right: 4%;
+  width: 320px;
+  animation: kumoFloatRight 26s ease-in-out infinite alternate;
 }
 
 .about-grid {
@@ -1232,6 +1282,8 @@ button {
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
   align-items: center;
+  position: relative;
+  z-index: 2; /* Sit cleanly above the background strokes */
 }
 
 .about-image {
@@ -1450,7 +1502,7 @@ button {
   padding: 6rem 0;
   background: var(--color-bg);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .menu-cinematic-bg {
@@ -2514,7 +2566,7 @@ body.popup-open { overflow: hidden; }
   background: var(--color-bg);
   padding: 3rem 0; /* Highly compact section padding */
   border-top: 1px solid var(--color-brand);
-  border-bottom: 1px solid var(--color-brand);
+  border-bottom: none; /* Seamless white-to-black section transition */
   position: relative;
 }
 
@@ -2588,16 +2640,89 @@ body.popup-open { overflow: hidden; }
 
 .gallery-header {
   text-align: center;
-  padding: 0 3rem;
-  margin-bottom: 2rem; /* Compact header margin */
+  padding: 0 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 5;
 }
 
-.gallery-header .section-label {
+/* --- Composition: Logo flanked by decorative lines --- */
+.gallery-header-composition {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 0;
+  margin-bottom: 1.2rem;
 }
 
-.gallery-header .section-label::before {
-  display: none;
+.gallery-header-line {
+  flex: 1;
+  max-width: 180px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-brand) 50%,
+    transparent 100%
+  );
+  opacity: 0.35;
+}
+
+.gallery-header-emblem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin: 0 1.5rem;
+  position: relative;
+}
+
+/* Subtle radial glow behind the logo */
+.gallery-header-emblem::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(130, 6, 106, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.gallery-emblem-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.gallery-emblem-logo:hover {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+/* --- "GALLERY" display title --- */
+.gallery-title-text {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: 0.55em;
+  text-indent: 0.55em; /* optical centering for letter-spacing */
+  color: var(--color-heading);
+  margin: 0 0 0.6rem 0;
+  text-transform: uppercase;
+}
+
+/* --- Japanese subtitle --- */
+.gallery-subtitle {
+  display: block;
+  font-family: var(--font-jp);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--color-text-dim);
+  opacity: 0.7;
 }
 
 .gallery-grid {
@@ -3275,6 +3400,39 @@ body.popup-open { overflow: hidden; }
 
 .reservation .section-title {
   margin-bottom: 1rem;
+}
+
+.reservation-emblem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 1.2rem 0;
+}
+
+.reservation-emblem::before,
+.reservation-emblem::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-brand) 50%,
+    transparent
+  );
+  opacity: 0.25;
+}
+
+.reservation-emblem-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.reservation-emblem-logo:hover {
+  transform: scale(1.08) rotate(-3deg);
 }
 
 .reservation .section-text {
@@ -3976,9 +4134,12 @@ body.popup-open { overflow: hidden; }
   background-repeat: repeat;
   background-blend-mode: soft-light;
   position: relative;
+  z-index: 12;
+  margin-top: 3.5rem; /* Shipped down to bridge the transition */
+  margin-bottom: -3.5rem; /* Negate the offset so the next section overlaps cleanly */
   /* High-Detail Asymmetric Torn Edge */
   clip-path: polygon(0 4.2%, 2.1% 0.5%, 5.3% 3.8%, 8.2% 0.1%, 11.5% 4.1%, 15.6% 0.7%, 19.3% 4.4%, 23.4% 0.2%, 27.2% 3.9%, 31.5% 0.1%, 35.8% 4.6%, 40.2% 0.3%, 44.5% 4.2%, 48.3% 0.6%, 52.6% 3.7%, 57.1% 0.1%, 61.4% 4.3%, 65.2% 0.8%, 69.5% 3.9%, 74.1% 0.1%, 78.4% 4.2%, 82.3% 0.7%, 86.9% 3.8%, 91.2% 0.1%, 95.5% 4.3%, 100% 0.5%, 100% 96.2%, 97.4% 100%, 94.2% 95.7%, 91.1% 99.4%, 87.2% 96.1%, 83.5% 99.1%, 79.4% 95.8%, 75.3% 99.4%, 71.2% 96.2%, 67.1% 99.5%, 63% 95.7%, 58.2% 99.2%, 54.1% 95.9%, 49.3% 99.4%, 45.2% 96.1%, 41.1% 99.2%, 37% 95.7%, 32.2% 99.6%, 28.1% 96.1%, 23.3% 99.3%, 19.2% 95.8%, 15.1% 99.4%, 11.2% 96.2%, 7.1% 99.4%, 3.2% 95.7%, 0 100%);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.08); 
+  box-shadow: none; /* Removed borders and shadow edges */
 }
 
 .marquee-section .marquee-track::before {
@@ -3994,7 +4155,7 @@ body.popup-open { overflow: hidden; }
   font-size: 0.7rem;
   font-weight: 700;
   margin-right: 2rem;
-  border: 1px solid var(--color-brand);
+  border: none; /* Removed border */
   opacity: 0.2;
   flex-shrink: 0;
 }
@@ -5232,9 +5393,28 @@ html.lenis body {
   grid-template-columns: 240px 1fr 320px;
   align-items: flex-start;
   gap: 2.5rem;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 2rem 2rem 6rem;
+  max-width: 1360px;
+  margin: 4rem auto;
+  padding: 4rem 3.5rem;
+  position: relative;
+  z-index: 10;
+  background-color: #FAF7F2 !important;
+  background-image: var(--paper-texture) !important;
+  color: #2A2426 !important;
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.45)) !important;
+  /* Torn paper card clip-path covering the entire menu container */
+  clip-path: polygon(
+    2% 2%, 8% 0%, 15% 3%, 22% 1%, 29% 3%, 36% 0%, 43% 2%, 50% 1%, 57% 3%, 64% 0%, 71% 2%, 78% 1%, 85% 3%, 92% 0%, 98% 2%, 
+    97% 8%, 99% 15%, 98% 22%, 99% 29%, 97% 36%, 98% 43%, 99% 50%, 97% 57%, 99% 64%, 98% 71%, 99% 78%, 97% 85%, 98% 92%, 97% 98%, 
+    92% 99%, 85% 97%, 78% 98%, 71% 99%, 64% 97%, 57% 98%, 50% 99%, 43% 97%, 36% 98%, 29% 99%, 22% 97%, 15% 98%, 8% 99%, 2% 98%, 
+    3% 92%, 1% 85%, 2% 78%, 1% 71%, 3% 64%, 2% 57%, 1% 50%, 2% 43%, 1% 36%, 3% 29%, 2% 22%, 1% 15%, 2% 8%
+  ) !important;
+}
+
+[data-theme="dark"] .unified-menu-container {
+  background-color: #141414 !important;
+  background-image: none !important;
+  color: #FAF7F2 !important;
 }
 
 /* Sidebar Anchor Navi */
@@ -5254,14 +5434,14 @@ html.lenis body {
 
 .unified-nav-link {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 0.9rem !important; /* Compact size to fit all categories */
   font-weight: 500;
   text-decoration: none;
   color: var(--color-text);
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  padding: 0.85rem 1rem;
+  padding: 0.6rem 0.8rem !important; /* Compact padding */
   border-radius: 4px;
   transition: all 0.4s var(--ease-out-expo);
   position: relative;
@@ -5313,6 +5493,94 @@ html.lenis body {
   flex-direction: column;
   gap: 2.5rem;
   min-width: 0;
+  height: 600px; /* Sits perfectly inside the padded paper sheet */
+  overflow-y: auto;
+  background: transparent !important;
+  color: #2A2426 !important;
+  padding: 0 1.5rem 8rem 0 !important; /* Large bottom padding so final sections scroll up and trigger scroll spy */
+  position: relative;
+  z-index: 1;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(130, 6, 106, 0.4) transparent;
+  scroll-behavior: smooth;
+}
+
+/* Explicit light-theme typography overrides for high contrast on cream background */
+.unified-menu-main .unified-title {
+  color: var(--color-brand) !important;
+}
+.unified-menu-main .unified-plate {
+  color: var(--color-text-dim) !important;
+}
+.unified-menu-main .unified-jp {
+  color: var(--color-brand) !important;
+  opacity: 0.15 !important;
+}
+.unified-menu-main .pi-name {
+  color: #2A2426 !important;
+}
+.unified-menu-main .pi-desc {
+  color: #5e5559 !important;
+}
+.unified-menu-main .pi-price {
+  color: var(--color-brand) !important;
+}
+
+[data-theme="dark"] .unified-menu-main {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .unified-menu-main .unified-title {
+  color: var(--color-gold) !important;
+}
+[data-theme="dark"] .unified-menu-main .unified-plate {
+  color: var(--color-text-muted) !important;
+}
+[data-theme="dark"] .unified-menu-main .unified-jp {
+  color: var(--color-gold) !important;
+}
+[data-theme="dark"] .unified-menu-main .pi-name {
+  color: #FAF7F2 !important;
+}
+[data-theme="dark"] .unified-menu-main .pi-desc {
+  color: var(--color-text-muted) !important;
+}
+[data-theme="dark"] .unified-menu-main .pi-price {
+  color: var(--color-gold) !important;
+}
+
+/* Reset jagged clip-path on mobile for readability and to prevent scroll cutoffs */
+@media (max-width: 900px) {
+  .unified-menu-container {
+    clip-path: none !important;
+    border-radius: 12px !important;
+    padding: 2.2rem 1.5rem !important;
+    margin: 2rem 1rem !important;
+  }
+  .unified-menu-main {
+    height: 520px !important;
+    padding-right: 0 !important;
+  }
+}
+
+
+
+
+.unified-menu-main::-webkit-scrollbar {
+  width: 6px;
+}
+
+.unified-menu-main::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.unified-menu-main::-webkit-scrollbar-thumb {
+  background: rgba(212, 165, 116, 0.3);
+  border-radius: 4px;
+}
+
+.unified-menu-main::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
 }
 
 .unified-category-group {
@@ -5670,32 +5938,38 @@ html.lenis body {
   font-weight: 500;
   font-size: 0.7rem;
   letter-spacing: 0.15em;
-  padding: 0.45rem 0;
+  padding: 0.6rem 0 1rem 0;
   overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1001; /* Above nav */
   white-space: nowrap;
+  
+  /* Premium hand-torn jagged Washi paper clip-path bottom edge */
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 74%, 
+    98% 82%, 96% 75%, 94% 84%, 92% 76%, 90% 84%, 88% 75%, 86% 83%, 84% 74%, 82% 82%, 80% 75%, 78% 83%, 76% 76%, 74% 84%, 72% 75%, 70% 83%, 68% 74%, 66% 82%, 64% 75%, 62% 84%, 60% 76%, 58% 83%, 56% 74%, 54% 82%, 52% 75%, 50% 84%, 48% 76%, 46% 83%, 44% 74%, 42% 82%, 40% 75%, 38% 84%, 36% 76%, 34% 83%, 32% 74%, 30% 82%, 28% 75%, 26% 84%, 24% 76%, 22% 83%, 20% 74%, 18% 82%, 16% 75%, 14% 84%, 12% 76%, 10% 83%, 8% 74%, 6% 82%, 4% 75%, 2% 84%, 0% 76%
+  );
 }
 
 .promo-banner-track {
   display: inline-flex;
-  animation: scroll-marquee 25s linear infinite;
+  animation: scroll-marquee-reverse 25s linear infinite;
 }
 
 .promo-banner-track span {
   padding: 0 3rem;
 }
 
-@keyframes scroll-marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes scroll-marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
-/* Adjust Nav to accommodate the banner */
+/* Adjust Nav to accommodate the washi banner */
 .nav {
-  top: 32px;
+  top: 38px;
 }
 
 /* Offer Cards */
@@ -6261,7 +6535,9 @@ html.lenis body {
 }
 
 .hero-explore-cta:active {
-  transform: scale(0.96) translateY(-1px);
+  transform: scale(0.97) translateY(-1px) !important;
+  box-shadow: 0 0 0 3px #ffffff, 0 8px 25px rgba(0, 0, 0, 0.25) !important;
+  border-color: #ffffff !important;
 }
 
 /* Secondary CTA: Transparent leaf capsule with brand-plum outline and text */
@@ -6499,18 +6775,6 @@ html.lenis body {
   width: 320px !important;
   max-width: 100% !important;
   height: auto !important;
-  border: 1px solid rgba(130, 6, 106, 0.15) !important;
-  padding: 24px 48px !important;
-  background: var(--color-surface) !important;
-  background-image: var(--paper-texture) !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
-  /* Premium hand-torn jagged Washi paper clip-path edges */
-  clip-path: polygon(
-    2% 6%, 10% 2%, 20% 5%, 30% 1%, 40% 4%, 50% 2%, 60% 5%, 70% 2%, 80% 6%, 90% 3%, 98% 7%,
-    97% 18%, 99% 32%, 96% 48%, 98% 65%, 97% 82%, 99% 94%,
-    91% 97%, 82% 95%, 71% 98%, 62% 96%, 50% 98%, 38% 95%, 29% 97%, 18% 95%, 8% 98%, 2% 95%,
-    3% 84%, 1% 68%, 2% 51%, 1% 33%, 3% 18%
-  ) !important;
 }
 
 .hero-promo-header .section-label {
@@ -6854,17 +7118,16 @@ html.lenis body {
 
 .heritage-card {
   position: relative;
-  background: var(--color-surface) url("data:image/svg+xml,%3Csvg width='40' height='20' viewBox='0 0 40 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20c4.42 0 8-3.58 8-8s-3.58-8-8-8 8-3.58 8-8m0 20c4.42 0 8-3.58 8-8s-3.58-8-8-8 8-3.58 8-8m16 20c4.42 0 8-3.58 8-8s-3.58-8-8-8 8-3.58 8-8m0 20c4.42 0 8-3.58 8-8s-3.58-8-8-8 8-3.58 8-8m16 20c4.42 0 8-3.58 8-8s-3.58-8-8-8 8-3.58 8-8m0 20c4.42 0 8-3.58 8-8s-3.58-8-8-8 8-3.58 8-8' fill='%2382066A' fill-opacity='0.16'/%3E%3C/svg%3E") repeat-x top left;
-  background-size: 20px 6px;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 4px;
-  padding: 2.5rem 3.5rem; /* Wider, less tall */
-  box-shadow: 0 10px 30px rgba(130, 6, 106, 0.03);
+  border-radius: 8px;
+  padding: 3rem;
+  box-shadow: 0 10px 40px rgba(130, 6, 106, 0.02);
   will-change: transform;
   transition: all 0.6s var(--ease-out-expo);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   overflow: hidden;
   z-index: 1;
 }
@@ -6887,15 +7150,15 @@ html.lenis body {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 3px;
+  width: 4px;
   background: linear-gradient(to bottom, var(--color-brand), var(--color-gold));
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
 .heritage-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(130, 6, 106, 0.08);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(130, 6, 106, 0.07);
   border-color: rgba(130, 6, 106, 0.25);
 }
 
@@ -6906,11 +7169,14 @@ html.lenis body {
 .heritage-card-badge {
   font-family: var(--font-display);
   font-size: 0.6rem;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--color-gold);
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(130, 6, 106, 0.08);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  align-self: start;
 }
 
 .heritage-kanji-watermark {
@@ -6918,9 +7184,9 @@ html.lenis body {
   right: 1.5rem;
   top: 1rem;
   font-family: var(--font-jp);
-  font-size: 5rem;
+  font-size: 6rem;
   color: var(--color-brand);
-  opacity: 0.035;
+  opacity: 0.03;
   font-weight: 900;
   pointer-events: none;
   line-height: 1;
@@ -6928,75 +7194,75 @@ html.lenis body {
 }
 
 .heritage-card:hover .heritage-kanji-watermark {
-  opacity: 0.07;
-  transform: scale(1.05);
+  opacity: 0.06;
+  transform: scale(1.05) rotate(3deg);
 }
 
 .heritage-card-title {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 500;
   color: var(--color-text);
-  margin: 0 0 1.5rem 0;
+  margin: 0;
   letter-spacing: 0.05em;
+  line-height: 1.2;
 }
 
 .heritage-quote {
   font-family: var(--font-jp);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1.1rem;
+  line-height: 1.8;
   color: var(--color-brand);
   font-weight: 500;
-  font-style: italic;
-  margin: 0 0 1.5rem 0;
+  margin: 0;
   letter-spacing: 0.02em;
+  border-left: 2px solid var(--color-gold);
+  padding-left: 1.2rem;
 }
 
 .heritage-card-divider {
-  width: 40px;
-  height: 1px;
-  background: var(--color-gold);
-  margin-bottom: 1.5rem;
-  opacity: 0.6;
+  display: none;
 }
 
 .heritage-text {
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  line-height: 1.7;
+  font-size: 0.88rem;
+  line-height: 1.8;
   color: var(--color-text-muted);
-  margin: 0 0 2rem 0;
+  margin: 0;
 }
 
 .heritage-signature {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.3rem;
   border-top: 1px dashed rgba(130, 6, 106, 0.1);
-  padding-top: 1.5rem;
+  padding-top: 1.2rem;
+  margin-top: 0.5rem;
 }
 
 .sig-name {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--color-text);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .sig-title {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--color-text-dim);
   font-weight: 500;
+  letter-spacing: 0.05em;
 }
 
 /* Responsive grid for heritage corners */
 @media screen and (max-width: 900px) {
   .heritage-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
   }
   .heritage-card {
     padding: 2.5rem 2rem;
@@ -7086,6 +7352,7 @@ html.lenis body {
   background: linear-gradient(135deg, #160414 0%, #2a0a24 100%) !important;
   color: #FAF7F2 !important;
   position: relative;
+  overflow: clip !important; /* clip decorative clouds without blocking page scroll */
 }
 
 .menu-section::before {
@@ -7099,33 +7366,404 @@ html.lenis body {
   mix-blend-mode: overlay;
 }
 
+/* Decorative Kumo Clouds for Menu Section - Placed strictly in outer margins */
+.menu-kumo {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1 !important; /* Send to back, behind the card and layout columns */
+  width: 280px;
+  height: auto;
+  opacity: 0.45 !important; /* Subtle floating accent */
+}
+
+/* Ensure content columns sit in front of background decorations */
+.unified-sidebar,
+.unified-menu-main,
+.unified-offers-sidebar {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+.menu-kumo-tr {
+  top: 10px;
+  right: 15px;
+  animation: menuKumoRight 25s ease-in-out infinite alternate;
+}
+
+.menu-kumo-bl {
+  bottom: 20px;
+  left: 15px;
+  animation: menuKumoLeft 30s ease-in-out infinite alternate;
+}
+
+/* Premium Sticky Filter & Search Bar for Unified Menu */
+.menu-filter-bar {
+  position: sticky;
+  top: -1px; /* Sticky lock precisely at top of parent padding */
+  z-index: 20;
+  background-color: #FAF7F2; /* Cream Washi background match */
+  background-image: var(--paper-texture);
+  padding: 1rem 1.5rem 1rem 0;
+  margin: 0;
+  border-bottom: none; /* Removed border */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+[data-theme="dark"] .menu-filter-bar {
+  background-color: #141414;
+  background-image: none;
+}
+
+.menu-filter-bar .search-box {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+  max-width: 360px;
+}
+
+.menu-filter-bar .search-box input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.5rem;
+  border: none !important; /* Removed borders */
+  border-radius: 20px 4px !important; /* Asymmetrical leaf cut */
+  background: rgba(130, 6, 106, 0.05) !important;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  transition: all 0.4s var(--ease-out-expo);
+  box-sizing: border-box;
+}
+
+.menu-filter-bar .search-box input:focus {
+  outline: none;
+  background: #ffffff !important;
+  border-radius: 4px 20px !important; /* Swapped leaf corners on focus */
+  box-shadow: 0 8px 20px rgba(130, 6, 106, 0.08);
+}
+
+[data-theme="dark"] .menu-filter-bar .search-box input {
+  background: rgba(250, 247, 242, 0.08) !important;
+}
+
+[data-theme="dark"] .menu-filter-bar .search-box input:focus {
+  background: #1e1e1e !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.menu-filter-bar .search-box .search-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  fill: var(--color-brand);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .menu-filter-bar .search-box .search-icon {
+  fill: var(--color-gold);
+}
+
+.menu-filter-bar .diet-filter {
+  display: flex;
+  gap: 0.4rem;
+  background: rgba(130, 6, 106, 0.05) !important;
+  padding: 0.25rem;
+  border-radius: 20px 4px !important; /* Asymmetrical leaf cut */
+  border: none !important; /* Removed borders */
+}
+
+[data-theme="dark"] .menu-filter-bar .diet-filter {
+  background: rgba(250, 247, 242, 0.08) !important;
+}
+
+.menu-filter-bar .filter-btn {
+  padding: 0.4rem 1.1rem;
+  border: none !important;
+  background: transparent;
+  border-radius: 20px 4px !important; /* Asymmetrical leaf cut */
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.3s ease;
+}
+
+.menu-filter-bar .filter-btn:hover {
+  border-radius: 4px 20px !important; /* Swapped leaf corners on hover */
+}
+
+.menu-filter-bar .filter-btn.active {
+  background: var(--color-brand) !important;
+  color: #ffffff !important;
+  border-radius: 4px 20px !important; /* Swapped leaf corners for active state */
+}
+
+[data-theme="dark"] .menu-filter-bar .filter-btn.active {
+  background: var(--color-gold) !important;
+  color: #141414 !important;
+}
+
+/* Dots / Rotated diamond diet icons inside filter bar */
+.filter-btn .diet-icon {
+  margin-left: 0.3rem;
+  width: 9px;
+  height: 9px;
+  border: 1px solid currentColor;
+  transform: rotate(45deg);
+  display: inline-block;
+  position: relative;
+}
+
+.filter-btn .diet-icon::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  background: currentColor;
+}
+
+.filter-btn .diet-icon.veg {
+  color: #2e7d32;
+}
+
+.filter-btn .diet-icon.non-veg {
+  color: #c62828;
+}
+
+/* Force all elements inside unified-menu-container to bypass reveal scroll delays */
+.unified-menu-container .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+@keyframes menuKumoRight {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-12px, 6px); }
+  100% { transform: translate(8px, -4px); }
+}
+
+@keyframes menuKumoLeft {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(10px, -5px); }
+  100% { transform: translate(-8px, 4px); }
+}
+
+/* Floating Traditional Japanese Food Sketches in Dark BG */
+.menu-deco-item {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1 !important; /* Sit completely in the background behind content cards */
+  width: 90px;
+  height: 90px;
+  opacity: 0.22 !important; /* Extremely subtle watermark style to create organic depth */
+  transition: transform 0.5s ease;
+}
+
+.menu-deco-ramen {
+  top: 12%;
+  left: 4%;
+  animation: floatDecoRamen 18s ease-in-out infinite alternate;
+}
+
+.menu-deco-sushi {
+  bottom: 15%;
+  right: 4%;
+  animation: floatDecoSushi 22s ease-in-out infinite alternate;
+}
+
+.menu-deco-teapot {
+  top: 48%;
+  right: 3%;
+  animation: floatDecoTeapot 20s ease-in-out infinite alternate;
+}
+
+.menu-deco-dimsum {
+  bottom: 45%;
+  left: 3%;
+  animation: floatDecoDimsum 24s ease-in-out infinite alternate;
+}
+
+.menu-deco-sake {
+  bottom: 12%;
+  left: 5%;
+  animation: floatDecoSake 26s ease-in-out infinite alternate;
+}
+
+.menu-deco-chopsticks {
+  top: 32%;
+  right: 5%;
+  animation: floatDecoChopsticks 21s ease-in-out infinite alternate;
+}
+
+@keyframes floatDecoRamen {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(12px, -8px) rotate(6deg); }
+  100% { transform: translate(-8px, 10px) rotate(-4deg); }
+}
+
+@keyframes floatDecoSushi {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-10px, 12px) rotate(-5deg); }
+  100% { transform: translate(8px, -10px) rotate(6deg); }
+}
+
+@keyframes floatDecoTeapot {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-10px, 10px) rotate(-6deg); }
+  100% { transform: translate(12px, -12px) rotate(7deg); }
+}
+
+@keyframes floatDecoDimsum {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(10px, -12px) rotate(5deg); }
+  100% { transform: translate(-12px, 8px) rotate(-4deg); }
+}
+
+@keyframes floatDecoSake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(15px, -12px) rotate(8deg); }
+  100% { transform: translate(-10px, 15px) rotate(-6deg); }
+}
+
+@keyframes floatDecoChopsticks {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-12px, 15px) rotate(-8deg); }
+  100% { transform: translate(10px, -10px) rotate(5deg); }
+}
+
+@media (max-width: 900px) {
+  .menu-deco-item {
+    width: 60px !important;
+    height: 60px !important;
+    opacity: 0.12 !important; /* Even more subtle on mobile screens */
+  }
+}
+
+/* Kanji watermarks on paper background */
+.menu-kanji-watermark {
+  position: absolute;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 900;
+  font-size: 8rem;
+  line-height: 1.1;
+  color: var(--color-brand) !important;
+  opacity: 0.035 !important; /* Extremely subtle watermark */
+  pointer-events: none;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  z-index: 1;
+}
+
+.watermark-left {
+  left: 8%;
+  top: 15%;
+  transform: translateY(0) rotate(-6deg);
+}
+
+.watermark-right {
+  right: 8%;
+  bottom: 12%;
+  transform: translateY(0) rotate(8deg);
+}
+
+[data-theme="dark"] .menu-kanji-watermark {
+  color: var(--color-gold) !important;
+  opacity: 0.025 !important;
+}
+
+@media (max-width: 900px) {
+  .menu-kumo {
+    width: 160px !important;
+    opacity: 0.45 !important;
+  }
+  .menu-kanji-watermark {
+    display: none !important; /* Hide kanji on mobile to prevent overlaps */
+  }
+}
+
 /* Adjust Section Header on Cream Washi Paper Card (Torn Paper Style & Horizontal Layout) */
 .menu-section-header-wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 0 auto 4rem auto !important;
+  margin: 0 auto 3.5rem auto !important;
+  padding: 0 3.5rem !important; /* Matches container left/right padding */
+  box-sizing: border-box !important;
 }
 
 .menu-section-header {
-  padding: 2rem 5rem !important; /* Slimmer vertically, wider horizontally */
-  width: 90% !important;
-  max-width: 1140px !important; /* Horizontally long */
-  margin: 0 !important;
-  text-align: center;
+  padding: 1.5rem 3.5rem !important; /* Extremely compact vertical padding */
+  width: 100% !important;
+  max-width: 1360px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  display: grid !important;
+  grid-template-columns: 260px 1fr !important;
+  align-items: center !important;
+  gap: 3rem !important;
+  text-align: left !important;
+}
+
+.menu-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px dashed var(--color-border);
+  padding-right: 2.5rem;
+}
+
+[data-theme="dark"] .menu-header-left {
+  border-right: 1px dashed rgba(250, 247, 242, 0.12);
+}
+
+.menu-header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.menu-header-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.3rem; /* Compact margin */
+}
+
+.menu-header-logo {
+  max-width: 175px;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .menu-section-header .section-label {
   color: var(--color-brand) !important;
+  margin-bottom: 0 !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.1em !important;
+  text-align: center;
   justify-content: center;
-  margin-bottom: 0.4rem !important;
 }
 
 .menu-section-header .section-title {
   color: var(--color-text) !important;
-  margin-bottom: 0.6rem !important;
-  font-size: clamp(1.8rem, 3.2vw, 2.5rem) !important;
-  line-height: 1.2 !important;
+  margin: 0 !important;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem) !important; /* Compact premium size */
+  line-height: 1.25 !important;
 }
 
 .menu-section-header .section-title .accent {
@@ -7134,38 +7772,95 @@ html.lenis body {
 
 .menu-section-header .section-subline {
   color: var(--color-text-muted) !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  max-width: 900px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  font-size: 0.85rem !important;
+  line-height: 1.5 !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .menu-section-header-wrapper {
+    padding: 0 1rem !important;
+    margin-bottom: 2rem !important;
+  }
   .menu-section-header {
-    padding: 1.8rem 1.8rem !important;
-    width: 94% !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    padding: 1.5rem 1.5rem !important;
+    text-align: center !important;
+  }
+  .menu-header-left {
+    border-right: none !important;
+    border-bottom: 1px dashed var(--color-border);
+    padding-right: 0 !important;
+    padding-bottom: 1rem !important;
+    width: 100%;
+  }
+  [data-theme="dark"] .menu-header-left {
+    border-bottom: 1px dashed rgba(250, 247, 242, 0.12);
+  }
+  .menu-header-logo {
+    max-width: 140px;
   }
 }
 
 /* Sidebar Overhaul */
 .unified-sidebar {
-  border-right: 1px dashed rgba(250, 247, 242, 0.12) !important;
+  border-right: 1px dashed var(--color-border) !important;
+}
+
+.sidebar-header {
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+[data-theme="dark"] .sidebar-header {
+  border-bottom: 1px dashed rgba(250, 247, 242, 0.12);
+}
+
+.sidebar-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-brand) !important;
+  text-transform: uppercase;
+}
+
+[data-theme="dark"] .sidebar-label {
+  color: #FAF7F2 !important;
+}
+
+.sidebar-label-jp {
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.4;
+  color: var(--color-brand);
+}
+
+[data-theme="dark"] .sidebar-label-jp {
+  color: var(--color-gold) !important;
+  opacity: 0.75 !important;
 }
 
 .unified-nav-link {
-  color: rgba(250, 247, 242, 0.75) !important;
+  color: var(--color-text) !important; /* Charcoal text for high visibility */
   transition: all 0.4s var(--ease-out-expo) !important;
 }
 
 .unified-nav-link .nav-jp {
-  color: var(--color-gold) !important;
-  opacity: 0.55 !important;
+  color: var(--color-brand) !important;
+  opacity: 0.65 !important;
 }
 
 .unified-nav-link:hover {
-  color: #FAF7F2 !important;
-  background: rgba(250, 247, 242, 0.05) !important;
+  color: var(--color-brand) !important;
+  background: rgba(130, 6, 106, 0.05) !important;
   border-radius: 20px 4px !important; /* Asymmetric leaf shape! */
 }
 
@@ -7177,23 +7872,49 @@ html.lenis body {
 }
 
 .unified-nav-link.active .nav-jp {
+  color: var(--color-gold) !important;
   opacity: 0.95 !important;
 }
 
 /* Category Headers */
 .unified-category-header {
-  border-bottom: 1px dashed rgba(250, 247, 242, 0.12) !important;
+  border-bottom: 1px dashed var(--color-border) !important;
 }
 
 .unified-title {
-  color: #FAF7F2 !important;
+  color: var(--color-brand) !important; /* Rich plum heading in light mode */
   font-family: var(--font-display) !important;
   letter-spacing: 0.1em !important;
 }
 
 .unified-plate {
-  color: var(--color-gold) !important;
+  color: var(--color-text-muted) !important;
   font-family: var(--font-display) !important;
+}
+
+/* Dark mode overrides to restore white/gold colors */
+[data-theme="dark"] .unified-sidebar {
+  border-right: 1px dashed rgba(250, 247, 242, 0.12) !important;
+}
+[data-theme="dark"] .unified-nav-link {
+  color: rgba(250, 247, 242, 0.75) !important;
+}
+[data-theme="dark"] .unified-nav-link .nav-jp {
+  color: var(--color-gold) !important;
+  opacity: 0.55 !important;
+}
+[data-theme="dark"] .unified-nav-link:hover {
+  color: #FAF7F2 !important;
+  background: rgba(250, 247, 242, 0.05) !important;
+}
+[data-theme="dark"] .unified-category-header {
+  border-bottom: 1px dashed rgba(250, 247, 242, 0.12) !important;
+}
+[data-theme="dark"] .unified-title {
+  color: #FAF7F2 !important;
+}
+[data-theme="dark"] .unified-plate {
+  color: var(--color-gold) !important;
 }
 
 /* Menu Items List Overhaul */
@@ -7261,7 +7982,7 @@ html.lenis body {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: #FAF7F2 !important;
+  color: var(--color-brand) !important;
   text-transform: uppercase;
 }
 
@@ -7270,7 +7991,7 @@ html.lenis body {
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 700;
-  color: #FAF7F2 !important;
+  color: var(--color-text) !important;
   margin: 0.35rem 0 0 0;
   letter-spacing: 0.05em;
 }
@@ -7279,8 +8000,21 @@ html.lenis body {
   font-family: var(--font-body);
   font-size: 0.9rem;
   line-height: 1.6;
-  color: rgba(250, 247, 242, 0.75) !important;
+  color: var(--color-text-muted) !important;
   margin: 0;
+}
+
+[data-theme="dark"] .offers-sidebar-header .section-label {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .offers-sidebar-title,
+[data-theme="dark"] .offers-sidebar-title .accent {
+  color: #FAF7F2 !important;
+}
+
+[data-theme="dark"] .offers-sidebar-text {
+  color: rgba(250, 247, 242, 0.75) !important;
 }
 
 .offers-sidebar-banner {
@@ -7382,7 +8116,29 @@ html.lenis body {
 @media (max-width: 1199px) {
   .unified-menu-container {
     grid-template-columns: 220px 1fr !important;
-    gap: 1.5rem !important;
+    gap: 2rem !important;
+  }
+  
+  .unified-offers-sidebar {
+    grid-column: span 2 !important;
+    position: static !important;
+    border-left: none !important;
+    border-top: 1px dashed var(--color-border) !important;
+    padding-left: 0 !important;
+    padding-top: 2rem !important;
+    margin-top: 2rem !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 2rem !important;
+  }
+  
+  .unified-offers-sidebar > * {
+    flex: 1;
+  }
+  
+  .offers-sidebar-banner {
+    max-width: 280px !important;
   }
 }
 
@@ -7404,6 +8160,7 @@ html.lenis body {
     align-items: center !important;
     justify-content: space-between !important;
     gap: 2rem !important;
+    margin-bottom: 0 !important;
   }
   
   .unified-offers-sidebar > * {
@@ -7480,12 +8237,12 @@ html.lenis body {
 .btn-claim-offer:active,
 .btn-wa-booking-submit:active,
 .btn-wa-checkout:active {
-  transform: scale(1.02) translateY(-2px) !important;
-  filter: drop-shadow(0 4px 8px rgba(130, 6, 106, 0.2)) !important;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.15) !important;
+  transform: scale(0.97) translateY(-1px) !important;
+  filter: drop-shadow(1.5px 1.5px 0px #ffffff) drop-shadow(-1.5px -1.5px 0px #ffffff) drop-shadow(1.5px -1.5px 0px #ffffff) drop-shadow(-1.5px 1.5px 0px #ffffff) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35)) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) !important;
 }
 
-/* Disable old deckle backings to prevent visual duplication */
+/* Disable old deckle backings to prevent visual duplication, except on active clicks */
 .hero-explore-cta::after,
 .cta-btn::after,
 .nav-cta::after,
@@ -7494,6 +8251,27 @@ html.lenis body {
 .btn-wa-checkout::after {
   display: none !important;
   content: none !important;
+}
+
+/* Premium Washi border outline on click using scaled backing layer */
+.hero-explore-cta:active::after,
+.cta-btn:active::after,
+.nav-cta:active::after,
+.btn-claim-offer:active::after,
+.btn-wa-booking-submit:active::after,
+.btn-wa-checkout:active::after {
+  display: block !important;
+  content: "" !important;
+  position: absolute !important;
+  inset: -3.5px !important;
+  z-index: -2 !important;
+  background-color: #ffffff !important;
+  clip-path: polygon(
+    0% 5%, 10% 1%, 20% 6%, 30% 2%, 40% 5%, 50% 2%, 60% 6%, 70% 3%, 80% 5%, 90% 1%, 100% 4%, 
+    98% 12%, 100% 28%, 97% 43%, 99% 62%, 97% 77%, 98% 92%, 99% 97%, 
+    90% 99%, 80% 96%, 70% 100%, 60% 97%, 50% 99%, 40% 96%, 30% 100%, 20% 97%, 10% 99%, 0% 96%, 
+    2% 92%, 0% 77%, 3% 62%, 1% 47%, 3% 32%, 1% 17%, 2% 5%
+  ) !important;
 }
 
 /* Apply new torn-paper deckle backgrounds to all button pseudo-elements */
@@ -7642,9 +8420,9 @@ html.lenis body {
 
 /* Layout & spacing specific to the hero panel */
 .hero-info-panel {
-  padding: 3rem 3.5rem !important; /* Wider, less tall */
+  padding: 2.2rem 2.8rem !important; /* Shrunk padding */
   margin: 0 auto !important;
-  max-width: 800px !important; /* Significantly wider */
+  max-width: 800px !important;
   width: 100% !important;
   text-align: center !important;
   display: flex !important;
@@ -7652,13 +8430,6 @@ html.lenis body {
   align-items: center !important;
   z-index: 10 !important;
   position: relative !important;
-}
-
-/* Specific theme overrides to match website background and textures */
-.hero-info-panel.washi-card {
-  background-color: var(--color-bg) !important;
-  background-image: var(--paper-texture) !important;
-  border: 1px solid var(--color-border) !important;
 }
 
 /* Kanji watermarks for the hero info card sides */
@@ -7684,23 +8455,23 @@ html.lenis body {
   right: 1.5rem !important;
 }
 
-/* Align and color children inside the Washi card */
+/* Align and color children inside the Plum Washi card */
 .hero-info-panel .hero-promo-header {
   width: 100% !important;
-  margin-bottom: 1.2rem !important;
+  margin-bottom: 0.8rem !important; /* Shrunk from 1.2rem */
 }
 
 .hero-info-panel .section-label {
   color: var(--color-gold) !important;
   justify-content: center !important;
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.3rem !important;
 }
 
 .hero-info-panel .hero-promo-title {
-  color: var(--color-heading) !important;
+  color: #FAF7F2 !important;
   text-align: center !important;
-  font-size: clamp(1.8rem, 3.8vw, 2.8rem) !important;
-  line-height: 1.25 !important;
+  font-size: clamp(1.6rem, 3.4vw, 2.5rem) !important; /* Slightly smaller */
+  line-height: 1.2 !important;
   margin: 0.2rem 0 0 0 !important;
 }
 
@@ -7709,50 +8480,74 @@ html.lenis body {
 }
 
 .hero-info-panel .hero-promo-text {
-  color: var(--color-text-muted) !important;
-  border-left: none !important; /* Remove asymmetric left border */
+  color: rgba(250, 247, 242, 0.9) !important;
+  border-left: none !important;
   padding-left: 0 !important;
   text-align: center !important;
-  margin: 0.6rem auto 1rem auto !important; /* Shrunk margin to pull it up slightly */
-  font-size: 0.85rem !important; /* Slightly smaller to match high prestige tagline specs */
+  margin: 0.4rem auto 0.8rem auto !important; /* Shrunk */
+  font-size: 0.82rem !important; /* Slightly smaller */
   max-width: 480px !important;
-  line-height: 1.7 !important;
-  text-transform: uppercase !important; /* Capitalize */
-  letter-spacing: 0.08em !important; /* Prestige letter-spacing for uppercase tagline */
+  line-height: 1.6 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
   font-weight: 600 !important;
 }
 
 .hero-info-panel .hero-trust-list {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 0.6rem !important;
-  margin: 0 auto 1.8rem auto !important;
+  margin: 0 auto 1.4rem auto !important; /* Shrunk from 2.2rem */
   width: 100% !important;
-  max-width: 400px !important;
+  max-width: 600px !important;
+}
+
+.hero-trust-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 0.5rem 1.8rem !important; /* Shrunk gap */
 }
 
 .hero-info-panel .hero-trust-item {
-  color: var(--color-text) !important;
-  justify-content: center !important;
-  font-size: 0.78rem !important;
+  color: rgba(250, 247, 242, 0.95) !important;
+  font-size: 0.8rem !important; /* Slightly smaller */
+  font-family: var(--font-display) !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: start !important;
+  gap: 0.4rem !important;
+}
+
+.trust-diamond {
+  color: var(--color-gold) !important;
+  font-size: 0.7rem !important;
 }
 
 .hero-info-panel .hero-actions {
   display: flex !important;
   justify-content: center !important;
-  gap: 1.5rem !important;
+  gap: 1.2rem !important; /* Shrunk */
   width: 100% !important;
+  margin-bottom: 1.2rem !important; /* Shrunk */
 }
 
 .hero-info-panel .hero-events-nudge {
-  color: var(--color-text-muted) !important;
+  color: rgba(250, 247, 242, 0.7) !important;
   text-align: center !important;
-  white-space: nowrap !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.04em !important;
 }
 
 .hero-info-panel .hero-events-nudge a {
-  color: var(--color-brand) !important;
+  color: var(--color-gold) !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed var(--color-gold) !important;
+  padding-bottom: 2px !important;
+  transition: color 0.3s ease, border-color 0.3s ease !important;
+}
+
+.hero-info-panel .hero-events-nudge a:hover {
+  color: #ffffff !important;
+  border-color: #ffffff !important;
 }
 
 /* Mobile responsive padding overrides */
@@ -7972,9 +8767,14 @@ html, body {
   /* Navigation Bar */
   .nav {
     padding: 0.6rem 1rem !important;
-    top: 24px !important;
+    top: 30px !important;
     height: 60px !important;
     box-sizing: border-box !important;
+  }
+  .nav::before {
+    display: block !important;
+    top: -30px !important;
+    height: 30px !important;
   }
   .nav-logo-img {
     max-height: 32px !important;
@@ -8110,11 +8910,15 @@ html, body {
   /* Promo Banner */
   .promo-banner {
     font-size: 0.58rem !important;
-    padding: 0.35rem 0 !important;
-    height: 24px !important;
+    padding: 0.4rem 0 0.7rem 0 !important;
+    height: 30px !important;
     display: flex !important;
     align-items: center !important;
     overflow: hidden !important;
+    clip-path: polygon(
+      0% 0%, 100% 0%, 100% 74%, 
+      98% 82%, 96% 75%, 94% 84%, 92% 76%, 90% 84%, 88% 75%, 86% 83%, 84% 74%, 82% 82%, 80% 75%, 78% 83%, 76% 76%, 74% 84%, 72% 75%, 70% 83%, 68% 74%, 66% 82%, 64% 75%, 62% 84%, 60% 76%, 58% 83%, 56% 74%, 54% 82%, 52% 75%, 50% 84%, 48% 76%, 46% 83%, 44% 74%, 42% 82%, 40% 75%, 38% 84%, 36% 76%, 34% 83%, 32% 74%, 30% 82%, 28% 75%, 26% 84%, 24% 76%, 22% 83%, 20% 74%, 18% 82%, 16% 75%, 14% 84%, 12% 76%, 10% 83%, 8% 74%, 6% 82%, 4% 75%, 2% 84%, 0% 76%
+    ) !important;
   }
 
   /* Hero Section Overhaul */
@@ -8191,18 +8995,18 @@ html, body {
     max-width: 100% !important;
     margin: 0.5rem auto 0.8rem auto !important; /* snug margins */
     padding: 0 !important;
-    color: var(--color-text-muted) !important;
+    color: rgba(250, 247, 242, 0.95) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.06em !important;
     font-weight: 600 !important;
   }
   .hero-info-panel .hero-trust-list {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.6rem !important;
-    align-items: center !important;
-    margin: 0 auto 1.8rem auto !important;
+    margin: 0 auto 1.5rem auto !important;
     width: 100% !important;
+  }
+  .hero-trust-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.6rem !important;
   }
   .hero-info-panel .hero-trust-item {
     font-size: 0.76rem !important;
@@ -8210,7 +9014,7 @@ html, body {
     align-items: center !important;
     justify-content: center !important;
     gap: 0.5rem !important;
-    color: var(--color-text) !important;
+    color: rgba(250, 247, 242, 0.9) !important;
     text-align: center !important;
     font-weight: 500 !important;
   }
@@ -8333,6 +9137,30 @@ html, body {
   .gallery-header {
     padding: 0 1.2rem !important;
     text-align: center !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .gallery-header-composition {
+    margin-bottom: 0.8rem !important;
+  }
+  .gallery-header-line {
+    max-width: 80px !important;
+  }
+  .gallery-header-emblem {
+    width: 56px !important;
+    height: 56px !important;
+    margin: 0 1rem !important;
+  }
+  .gallery-emblem-logo {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .gallery-title-text {
+    font-size: 0.85rem !important;
+    letter-spacing: 0.4em !important;
+    text-indent: 0.4em !important;
+  }
+  .gallery-subtitle {
+    font-size: 0.65rem !important;
   }
   .gallery-grid {
     display: flex !important;
@@ -8464,9 +9292,11 @@ html, body {
   /* Menu Main Area */
   .unified-menu-main {
     width: 100% !important;
-    padding: 0 1.2rem !important;
+    padding: 1.5rem !important;
     box-sizing: border-box !important;
     gap: 0 !important;
+    height: 540px !important;
+    overflow-y: auto !important;
   }
   .unified-category-group {
     margin-bottom: 0 !important;
@@ -8900,3 +9730,100 @@ html, body {
     font-size: 0.72rem !important;
   }
 }
+
+/* === PREMIUM ARTSY JAPANESE HERO BACKGROUND & Floating KUMO CLOUDS === */
+.hero-artsy-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Micro-animations for traditional Kumo clouds floating slowly and organically */
+.hero-cloud-left {
+  animation: kumoFloatLeft 24s ease-in-out infinite alternate;
+  transform-origin: left top;
+}
+
+.hero-cloud-right {
+  animation: kumoFloatRight 28s ease-in-out infinite alternate;
+  transform-origin: right top;
+}
+
+@keyframes kumoFloatLeft {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(18px, 6px) scale(1.02);
+  }
+  100% {
+    transform: translate(-10px, -4px) scale(0.99);
+  }
+}
+
+@keyframes kumoFloatRight {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-18px, 8px) scale(1.03);
+  }
+  100% {
+    transform: translate(10px, -6px) scale(0.98);
+  }
+}
+
+/* Pulse animation for the Zen Enso background group to feel alive */
+.hero-enso-group {
+  transform-origin: center center;
+  animation: ensoPulse 12s ease-in-out infinite alternate;
+}
+
+@keyframes ensoPulse {
+  0% {
+    opacity: 0.08;
+    transform: translate(720px, 390px) scale(1.13);
+  }
+  100% {
+    opacity: 0.11;
+    transform: translate(720px, 390px) scale(1.17);
+  }
+}
+
+/* ══════════════════════════════════════════════════════ */
+/* SUBTLE FLOAT ANIMATION — Hero Promo Card             */
+/* ══════════════════════════════════════════════════════ */
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
+  }
+  50% {
+    transform: translateY(-10px) scale(1.005);
+    filter: drop-shadow(0 10px 24px rgba(0,0,0,0.12));
+  }
+}
+
+.washi-card-wrapper {
+  animation: subtleFloat 5.5s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+/* Stagger so adjacent cards don't bob in perfect sync */
+.washi-card-wrapper:nth-child(even) {
+  animation-delay: -2s;
+}
+.washi-card-wrapper:nth-child(3n) {
+  animation-delay: -3.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .washi-card-wrapper {
+    animation: none;
+  }
+}
+
