@@ -158,7 +158,32 @@ document.addEventListener('DOMContentLoaded', () => {
       revealObserver.observe(el);
     });
 
-
+    // === PARALLAX (rAF-throttled) ===
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    let parallaxTicking = false;
+    
+    function updateParallax() {
+      const scrollY = window.scrollY;
+      
+      parallaxElements.forEach(el => {
+        const speed = parseFloat(el.dataset.parallax) || 0.3;
+        const rect = el.getBoundingClientRect();
+        const centerY = rect.top + rect.height / 2;
+        const offset = (centerY - window.innerHeight / 2) * speed;
+        el.style.setProperty('--parallax-y', offset + 'px');
+      });
+    }
+    
+    window.addEventListener('scroll', () => {
+      if (!parallaxTicking) {
+        requestAnimationFrame(() => {
+          updateParallax();
+          parallaxTicking = false;
+        });
+        parallaxTicking = true;
+      }
+    }, { passive: true });
+    updateParallax();
 
     // === COUNTER ANIMATION ===
     const counters = document.querySelectorAll('[data-count]');
@@ -201,16 +226,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     counters.forEach(el => counterObserver.observe(el));
 
-    // === SAKURA PETALS ===
+    // === SAKURA PETALS (Performance-optimized: fewer petals, animationend recycling) ===
     const sakuraContainer = document.getElementById('sakuraContainer');
     if (sakuraContainer) {
       function createPetal() {
         const petal = document.createElement('div');
         petal.className = 'sakura-petal';
         
-        const size = 6 + Math.random() * 8; /* Smaller, delicate petals */
+        const size = 6 + Math.random() * 8;
         const startX = Math.random() * 100;
-        const duration = 10 + Math.random() * 14; /* Slower, gentler fall */
+        const duration = 10 + Math.random() * 14;
         const delay = Math.random() * 15;
         const drift = -60 + Math.random() * 120;
         
@@ -224,17 +249,17 @@ document.addEventListener('DOMContentLoaded', () => {
           animation-delay: ${delay}s;
         `;
         
-        sakuraContainer.appendChild(petal);
-
-        // Remove and recreate after animation completes
-        setTimeout(() => {
+        // Use animationend instead of setTimeout to avoid timer drift and GC overhead
+        petal.addEventListener('animationend', () => {
           petal.remove();
           createPetal();
-        }, (delay + duration) * 1000);
+        }, { once: true });
+        
+        sakuraContainer.appendChild(petal);
       }
 
-      // Create initial batch of petals - increased for a richer, more artistic floral shower
-      const petalCount = window.innerWidth < 768 ? 16 : 36;
+      // Reduced petal count for smoother performance
+      const petalCount = window.innerWidth < 768 ? 8 : 18;
       for (let i = 0; i < petalCount; i++) {
         createPetal();
       }
@@ -445,14 +470,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroGraphicFrame = document.querySelector('#hero .hero-graphic-frame');
   const heroInfoPanel = document.querySelector('#hero .hero-info-panel-wrapper');
   const heroArtsySvg = document.querySelector('#hero .hero-artsy-svg');
+  const heroEnsoCircle = heroArtsySvg ? heroArtsySvg.querySelector('.hero-enso-group') : null;
+  const heroSection = document.getElementById('hero');
+  const heroHeight = heroSection ? heroSection.offsetHeight : 900;
 
-  let lastScrollY = 0;
   function updateHeroScrollEffects() {
     const scrollY = window.scrollY;
     
-    // Performance optimization: skip computations completely when hero is fully offscreen
-    if (scrollY > 900 && lastScrollY > 900) return;
-    lastScrollY = scrollY;
+    // Early exit: skip computation when hero is fully scrolled past viewport
+    if (scrollY > heroHeight + 200) return;
     
     // 1. Text sliding parallax scroll
     if (heroScrollText) {
@@ -460,38 +486,25 @@ document.addEventListener('DOMContentLoaded', () => {
       heroScrollText.style.transform = `translate(calc(-50% - ${xOffset}px), -55%)`;
     }
 
-    // 2. 3D Sinking Receding Parallax (elements scale down and recede into depth rather than fading)
-    const scaleFactor = Math.max(0.85, 1 - (scrollY * 0.0004)); // Subtle depth recession down to 0.85
+    // 2. 3D Sinking Receding Parallax
+    const scaleFactor = Math.max(0.85, 1 - (scrollY * 0.0004));
 
     if (heroGraphicFrame) {
-      // Photo frame sinks back, scales down, and rotates slightly
       const rotAngle = -1.5 + (scrollY * 0.003);
       heroGraphicFrame.style.transform = `translateY(${scrollY * 0.18}px) scale(${scaleFactor}) rotate(${rotAngle}deg)`;
-      heroGraphicFrame.style.opacity = '1'; // Solid physical presence, no fade
-      heroGraphicFrame.style.willChange = 'transform';
     }
 
     if (heroInfoPanel) {
-      // Plum info card drifts, scales down, and undergoes matching rotational depth
       const rotAngle = 0.5 - (scrollY * 0.002);
-      const cardScale = Math.max(0.88, 1 - (scrollY * 0.0003)); // Slightly slower depth shrink for layered look
+      const cardScale = Math.max(0.88, 1 - (scrollY * 0.0003));
       heroInfoPanel.style.transform = `translateY(${scrollY * 0.1}px) scale(${cardScale}) rotate(${rotAngle}deg)`;
-      heroInfoPanel.style.opacity = '1'; // Solid physical presence, no fade
-      heroInfoPanel.style.willChange = 'transform';
     }
 
     // 3. Stable background recession
-    if (heroArtsySvg) {
-      heroArtsySvg.style.opacity = '1'; // Always solid, relying on next-section overlap cover
-      
-      const ensoCircle = heroArtsySvg.querySelector('.hero-enso-group');
-      if (ensoCircle) {
-        // Enso circle sinks into background, slowly rotating and shrinking
-        const rotAngle = scrollY * 0.04;
-        const ensoScale = Math.max(0.95, 1.15 - (scrollY * 0.0002));
-        ensoCircle.style.transform = `translate(720px, ${390 + scrollY * 0.12}px) scale(${ensoScale}) rotate(${rotAngle}deg)`;
-        ensoCircle.style.willChange = 'transform';
-      }
+    if (heroEnsoCircle) {
+      const rotAngle = scrollY * 0.04;
+      const ensoScale = Math.max(0.95, 1.15 - (scrollY * 0.0002));
+      heroEnsoCircle.style.transform = `translate(720px, ${390 + scrollY * 0.12}px) scale(${ensoScale}) rotate(${rotAngle}deg)`;
     }
   }
 
@@ -1097,7 +1110,7 @@ document.head.appendChild(style);
   setTimeout(updateScrollSpy, 300);
 })();
 
-// === AUTO-SCROLL GALLERY ===
+// === AUTO-SCROLL GALLERY (Visibility-gated: only runs rAF when gallery is in viewport) ===
 (function() {
   const gallery = document.querySelector('.gallery-grid');
   if (!gallery) return;
@@ -1106,9 +1119,15 @@ document.head.appendChild(style);
   let scrollPos = gallery.scrollLeft;
   let autoScrollActive = true;
   let animationId = null;
+  let galleryVisible = false;
 
   function scrollStep() {
-    if (!autoScrollActive) {
+    if (!galleryVisible || !autoScrollActive) {
+      // When not visible or paused, sync position but don't request new frame
+      if (!galleryVisible) {
+        animationId = null;
+        return; // Stop the loop entirely when offscreen
+      }
       scrollPos = gallery.scrollLeft;
       animationId = requestAnimationFrame(scrollStep);
       return;
@@ -1127,9 +1146,30 @@ document.head.appendChild(style);
 
   function startAutoScroll() {
     if (!animationId) {
+      scrollPos = gallery.scrollLeft;
       animationId = requestAnimationFrame(scrollStep);
     }
   }
+
+  function stopAutoScroll() {
+    if (animationId) {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+    }
+  }
+
+  // Only run animation frames when gallery is actually visible
+  const galleryObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      galleryVisible = entry.isIntersecting;
+      if (galleryVisible) {
+        startAutoScroll();
+      } else {
+        stopAutoScroll();
+      }
+    });
+  }, { threshold: 0.05 });
+  galleryObserver.observe(gallery);
 
   // Intercept and pause auto-scroll during hover or manual touch scroll
   gallery.addEventListener('mouseenter', () => { autoScrollActive = false; });
@@ -1142,6 +1182,4 @@ document.head.appendChild(style);
     autoScrollActive = true; 
     scrollPos = gallery.scrollLeft;
   });
-
-  startAutoScroll();
 })();

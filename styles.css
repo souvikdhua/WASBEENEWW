@@ -1229,6 +1229,8 @@ button {
   background: var(--color-bg);
   position: relative;
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
 
 /* Massive background calligraphy brushstroke sweeping behind the entire about grid */
@@ -2594,6 +2596,8 @@ body.popup-open { overflow: hidden; }
   border-top: 1px solid var(--color-brand);
   border-bottom: none; /* Seamless white-to-black section transition */
   position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 
 /* === GALLERY JAPANESE CLICHÉS === */
@@ -2946,6 +2950,8 @@ body.popup-open { overflow: hidden; }
   padding: 8rem 3rem;
   position: relative;
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1200px;
 }
 
 .features-grid {
@@ -3400,6 +3406,8 @@ body.popup-open { overflow: hidden; }
   text-align: center;
   background: var(--color-surface);
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
 }
 
 .reservation::before {
@@ -3754,6 +3762,8 @@ body.popup-open { overflow: hidden; }
   padding: 8rem 3rem;
   position: relative;
   border-top: 1px dashed rgba(130, 6, 106, 0.12) !important;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
 }
 
 .contact-grid {
@@ -5279,6 +5289,8 @@ html.lenis body {
   position: relative;
   z-index: 10;
   transform: rotate(-0.5deg); /* Subtle hand-placed rotation */
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .hero-graphic-container {
@@ -5491,7 +5503,7 @@ html.lenis body {
   color: var(--color-text);
   pointer-events: auto;
   cursor: text;
-  will-change: left, top;
+  will-change: transform;
   transition: none; /* No transitions — pretext positions directly */
 }
 
@@ -7792,6 +7804,8 @@ html.lenis body {
   height: 90px;
   opacity: 0.22 !important; /* Extremely subtle watermark style to create organic depth */
   transition: transform 0.5s ease;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .menu-deco-ramen {
@@ -8660,6 +8674,8 @@ html.lenis body {
   align-items: center !important;
   z-index: 10 !important;
   position: relative !important;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* Kanji watermarks for the hero info card sides */
@@ -10030,17 +10046,16 @@ html, body {
 @keyframes subtleFloat {
   0%, 100% {
     transform: translateY(0) scale(1);
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
   }
   50% {
     transform: translateY(-10px) scale(1.005);
-    filter: drop-shadow(0 10px 24px rgba(0,0,0,0.12));
   }
 }
 
 .washi-card-wrapper {
   animation: subtleFloat 5.5s ease-in-out infinite;
-  will-change: transform, filter;
+  will-change: transform;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
 }
 
 /* Stagger so adjacent cards don't bob in perfect sync */
@@ -10097,6 +10112,8 @@ html, body {
 .experience-sakura {
   transition: transform 1.5s var(--ease-out-expo), opacity 0.5s ease;
   transform-origin: bottom center;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .sakura-left {
@@ -10158,6 +10175,8 @@ html, body {
   z-index: 1;
   opacity: 0.15;
   transition: opacity 0.5s ease, transform 1.5s var(--ease-out-expo);
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 [data-theme="dark"] .experience-bg-sakura {
@@ -10229,6 +10248,8 @@ html, body {
   pointer-events: none;
   z-index: 12;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.18));
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .sakura-interactive-wrap {
@@ -10281,6 +10302,8 @@ html, body {
   opacity: 0.85; /* Combined with internal SVG opacity to stay highly aesthetic and subtle */
   transition: opacity 0.8s ease, transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease;
   overflow: visible;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .menu-bamboo-left {
@@ -10350,31 +10373,9 @@ html, body {
   }
 }
 
-/* ══════════════════════════════════════════════════════ */
-/* HIGH-PERFORMANCE RENDERING ENGINE OPTIMIZATIONS        */
-/* ══════════════════════════════════════════════════════ */
 
-/* 1. content-visibility: auto for offscreen sections to prevent layout reflow thrashing */
-.about,
-.gallery,
-.menu-section,
-.reservation,
-.features,
-.contact {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 1000px;
-}
 
-/* 2. GPU layer promotions to eliminate repaint lags for sways and parallax */
-.menu-bamboo-doodle,
-.reservation-doodle,
-.reservation-doodle svg,
-.experience-bg-sakura,
-.gallery-sakura,
-.sakura-interactive-wrap,
-.hero-scroll-text,
-.hero-graphic-frame,
-.hero-info-panel-wrapper,
-.hero-enso-group {
-  will-change: transform, opacity;
-}
+
+
+
+
