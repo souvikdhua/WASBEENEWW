@@ -1352,6 +1352,20 @@ button {
   padding: 2.5rem 3.5rem !important; /* Wider, less tall */
 }
 
+/* Background Ramen Bowl watermark styling inside Our Story card */
+.about-ramen-watermark {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 1s var(--ease-out-expo);
+}
+
+.about-content:hover .about-ramen-watermark {
+  transform: rotate(5deg) scale(1.05);
+}
+
 .about-content .section-text {
   margin-bottom: 2rem;
 }
