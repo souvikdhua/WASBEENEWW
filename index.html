@@ -456,15 +456,126 @@
 
 
 
-  <!-- Marquee -->
-  <div class="marquee-section">
-    <div class="marquee-track">
-      <span class="filled">寿司</span><span>SUSHI</span>
-      <span class="filled">ラーメン</span><span>RAMEN</span>
-      <span class="filled">餃子</span><span>GYOZA</span>
-      <span class="filled">김밥</span><span>KIMBAP</span>
-      <span class="filled">パッタイ</span><span>PAD THAI</span>
-      <span class="filled">カレー</span><span>CURRY</span>
+  <!-- Marquee with Artsy Sakura Edges -->
+  <div style="position: relative; z-index: 13; margin-top: 3.5rem; margin-bottom: -3.5rem;">
+    <!-- The actual moving bar -->
+    <div class="marquee-section" style="margin-top: 0; margin-bottom: 0;">
+      <div class="marquee-track">
+        <span class="filled">寿司</span><span>SUSHI</span>
+        <span class="filled">ラーメン</span><span>RAMEN</span>
+        <span class="filled">餃子</span><span>GYOZA</span>
+        <span class="filled">김밥</span><span>KIMBAP</span>
+        <span class="filled">パッタイ</span><span>PAD THAI</span>
+        <span class="filled">カレー</span><span>CURRY</span>
+      </div>
+    </div>
+
+    <!-- Artsy Sakura Flowers overlapping the torn edges -->
+    <div class="marquee-sakura-overlay" aria-hidden="true">
+      <!-- Flower 1: Top Edge Left -->
+      <div class="marquee-sakura sakura-sway-1" style="top: -24px; left: 5%; width: 45px; height: 45px;">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 50 C40 25, 45 10, 50 5 C55 10, 60 25, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1.2"/>
+          <path d="M50 50 C75 40, 90 45, 95 50 C90 55, 75 60, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.2"/>
+          <path d="M50 50 C60 75, 55 90, 50 95 C45 90, 40 75, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1.2"/>
+          <path d="M50 50 C25 60, 10 55, 5 50 C10 45, 25 40, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.2"/>
+          <circle cx="50" cy="50" r="8" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.2"/>
+          <circle cx="50" cy="50" r="3" fill="#E6007E"/>
+        </svg>
+      </div>
+
+      <!-- Flower 2: Bottom Edge Left -->
+      <div class="marquee-sakura sakura-sway-2" style="bottom: -22px; left: 14%; width: 50px; height: 50px;">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 50 C40 25, 45 10, 50 5 C55 10, 60 25, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.2"/>
+          <path d="M50 50 C75 40, 90 45, 95 50 C90 55, 75 60, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1.2"/>
+          <path d="M50 50 C60 75, 55 90, 50 95 C45 90, 40 75, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.2"/>
+          <path d="M50 50 C25 60, 10 55, 5 50 C10 45, 25 40, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1.2"/>
+          <circle cx="50" cy="50" r="8" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1.2"/>
+          <circle cx="50" cy="50" r="3" fill="#E6007E"/>
+        </svg>
+      </div>
+
+      <!-- Flower 3: Top Edge Near-Left -->
+      <div class="marquee-sakura sakura-sway-1" style="top: -20px; left: 28%; width: 40px; height: 40px;">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 50 C40 25, 45 10, 50 5 C55 10, 60 25, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1"/>
+          <path d="M50 50 C75 40, 90 45, 95 50 C90 55, 75 60, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1"/>
+          <path d="M50 50 C60 75, 55 90, 50 95 C45 90, 40 75, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1"/>
+          <path d="M50 50 C25 60, 10 55, 5 50 C10 45, 25 40, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1"/>
+          <circle cx="50" cy="50" r="7" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1"/>
+          <circle cx="50" cy="50" r="2.5" fill="#E6007E"/>
+        </svg>
+      </div>
+
+      <!-- Petal 8: Drifting Top Left-Center -->
+      <div class="marquee-sakura sakura-sway-2" style="top: -28px; left: 18%; width: 22px; height: 22px; transform: rotate(15deg);">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 35 C 23 30, 15 32, 19 37 C 23 42, 29 40, 25 35 Z" fill="#FFB7C5" opacity="0.95"/>
+        </svg>
+      </div>
+
+      <!-- Flower 4: Bottom Edge Middle -->
+      <div class="marquee-sakura sakura-sway-2" style="bottom: -25px; left: 45%; width: 55px; height: 55px;">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 50 C40 25, 45 10, 50 5 C55 10, 60 25, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.3"/>
+          <path d="M50 50 C75 40, 90 45, 95 50 C90 55, 75 60, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1.3"/>
+          <path d="M50 50 C60 75, 55 90, 50 95 C45 90, 40 75, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.3"/>
+          <path d="M50 50 C25 60, 10 55, 5 50 C10 45, 25 40, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1.3"/>
+          <circle cx="50" cy="50" r="9" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1.3"/>
+          <circle cx="50" cy="50" r="3.5" fill="#E6007E"/>
+        </svg>
+      </div>
+
+      <!-- Petal 9: Drifting Bottom Center-Right -->
+      <div class="marquee-sakura sakura-sway-1" style="bottom: -26px; left: 60%; width: 24px; height: 24px; transform: rotate(-30deg);">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 35 C 23 30, 15 32, 19 37 C 23 42, 29 40, 25 35 Z" fill="#FFC0CB" opacity="0.95"/>
+        </svg>
+      </div>
+
+      <!-- Flower 5: Top Edge Near-Right -->
+      <div class="marquee-sakura sakura-sway-1" style="top: -22px; left: 66%; width: 48px; height: 48px;">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 50 C40 25, 45 10, 50 5 C55 10, 60 25, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1.2"/>
+          <path d="M50 50 C75 40, 90 45, 95 50 C90 55, 75 60, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.2"/>
+          <path d="M50 50 C60 75, 55 90, 50 95 C45 90, 40 75, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1.2"/>
+          <path d="M50 50 C25 60, 10 55, 5 50 C10 45, 25 40, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.2"/>
+          <circle cx="50" cy="50" r="8" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.2"/>
+          <circle cx="50" cy="50" r="3" fill="#E6007E"/>
+        </svg>
+      </div>
+
+      <!-- Flower 6: Bottom Edge Right -->
+      <div class="marquee-sakura sakura-sway-2" style="bottom: -20px; left: 81%; width: 42px; height: 42px;">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 50 C40 25, 45 10, 50 5 C55 10, 60 25, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1"/>
+          <path d="M50 50 C75 40, 90 45, 95 50 C90 55, 75 60, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1"/>
+          <path d="M50 50 C60 75, 55 90, 50 95 C45 90, 40 75, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1"/>
+          <path d="M50 50 C25 60, 10 55, 5 50 C10 45, 25 40, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1"/>
+          <circle cx="50" cy="50" r="7" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1"/>
+          <circle cx="50" cy="50" r="2.5" fill="#E6007E"/>
+        </svg>
+      </div>
+
+      <!-- Petal 10: Drifting Bottom Right -->
+      <div class="marquee-sakura sakura-sway-1" style="bottom: -28px; left: 90%; width: 20px; height: 20px; transform: rotate(45deg);">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 35 C 23 30, 15 32, 19 37 C 23 42, 29 40, 25 35 Z" fill="#FFB7C5" opacity="0.95"/>
+        </svg>
+      </div>
+
+      <!-- Flower 7: Top Edge Right -->
+      <div class="marquee-sakura sakura-sway-1" style="top: -26px; left: 93%; width: 52px; height: 52px;">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 50 C40 25, 45 10, 50 5 C55 10, 60 25, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1.3"/>
+          <path d="M50 50 C75 40, 90 45, 95 50 C90 55, 75 60, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.3"/>
+          <path d="M50 50 C60 75, 55 90, 50 95 C45 90, 40 75, 50 50 Z" fill="#FFC0CB" stroke="#FFA6C9" stroke-width="1.3"/>
+          <path d="M50 50 C25 60, 10 55, 5 50 C10 45, 25 40, 50 50 Z" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.3"/>
+          <circle cx="50" cy="50" r="9" fill="#FFB7C5" stroke="#FFA6C9" stroke-width="1.3"/>
+          <circle cx="50" cy="50" r="3.5" fill="#E6007E"/>
+        </svg>
+      </div>
     </div>
   </div>
 

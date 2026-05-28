@@ -4184,8 +4184,8 @@ body.popup-open { overflow: hidden; }
   background-blend-mode: soft-light;
   position: relative;
   z-index: 12;
-  margin-top: 3.5rem; /* Shipped down to bridge the transition */
-  margin-bottom: -3.5rem; /* Negate the offset so the next section overlaps cleanly */
+  margin-top: 0; /* Handled by parent unclipped container */
+  margin-bottom: 0; /* Handled by parent unclipped container */
   /* High-Detail Asymmetric Torn Edge */
   clip-path: polygon(0 4.2%, 2.1% 0.5%, 5.3% 3.8%, 8.2% 0.1%, 11.5% 4.1%, 15.6% 0.7%, 19.3% 4.4%, 23.4% 0.2%, 27.2% 3.9%, 31.5% 0.1%, 35.8% 4.6%, 40.2% 0.3%, 44.5% 4.2%, 48.3% 0.6%, 52.6% 3.7%, 57.1% 0.1%, 61.4% 4.3%, 65.2% 0.8%, 69.5% 3.9%, 74.1% 0.1%, 78.4% 4.2%, 82.3% 0.7%, 86.9% 3.8%, 91.2% 0.1%, 95.5% 4.3%, 100% 0.5%, 100% 96.2%, 97.4% 100%, 94.2% 95.7%, 91.1% 99.4%, 87.2% 96.1%, 83.5% 99.1%, 79.4% 95.8%, 75.3% 99.4%, 71.2% 96.2%, 67.1% 99.5%, 63% 95.7%, 58.2% 99.2%, 54.1% 95.9%, 49.3% 99.4%, 45.2% 96.1%, 41.1% 99.2%, 37% 95.7%, 32.2% 99.6%, 28.1% 96.1%, 23.3% 99.3%, 19.2% 95.8%, 15.1% 99.4%, 11.2% 96.2%, 7.1% 99.4%, 3.2% 95.7%, 0 100%);
   box-shadow: none; /* Removed borders and shadow edges */
@@ -10041,4 +10041,52 @@ html, body {
   position: relative;
   z-index: 2;
 }
+
+/* ══════════════════════════════════════════════════════ */
+/* MARQUEE ARTSY SAKURA BORDER OVERLAYS                  */
+/* ══════════════════════════════════════════════════════ */
+.marquee-sakura-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 14;
+}
+
+.marquee-sakura {
+  position: absolute;
+  pointer-events: none;
+  z-index: 15;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+  transition: transform 0.8s var(--ease-out-expo), opacity 0.4s ease;
+}
+
+/* Subtle individual swaying animations for natural scrapbook drift */
+.marquee-sakura.sakura-sway-1 {
+  animation: marqueeSwayOne 8s ease-in-out infinite alternate;
+}
+
+.marquee-sakura.sakura-sway-2 {
+  animation: marqueeSwayTwo 9s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes marqueeSwayOne {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(2px, -2px) rotate(8deg); }
+}
+
+@keyframes marqueeSwayTwo {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(-2px, 2px) rotate(-8deg); }
+}
+
+/* Interactive reaction when hovering the parent wrapper */
+[style*="margin-top: 3.5rem; margin-bottom: -3.5rem"]:hover .marquee-sakura {
+  transform: scale(1.18) rotate(15deg);
+}
+
+/* Dark theme minor opacity adjustment to prevent neon glowing */
+[data-theme="dark"] .marquee-sakura {
+  opacity: 0.9;
+}
+
 
