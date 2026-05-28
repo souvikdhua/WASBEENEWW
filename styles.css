@@ -2944,6 +2944,8 @@ body.popup-open { overflow: hidden; }
 .features {
   background: var(--color-bg);
   padding: 8rem 3rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .features-grid {
@@ -9980,5 +9982,63 @@ html, body {
   .sakura-right {
     right: calc(50% - 145px) !important;
   }
+}
+
+/* ══════════════════════════════════════════════════════ */
+/* WASABEE EXPERIENCE - DENSE SAKURA BACKGROUND ARTWORK */
+/* ══════════════════════════════════════════════════════ */
+.experience-bg-sakura {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.15;
+  transition: opacity 0.5s ease, transform 1.5s var(--ease-out-expo);
+}
+
+[data-theme="dark"] .experience-bg-sakura {
+  opacity: 0.08; /* Gentle contrast shift for midnight dark mode */
+}
+
+/* Slow breeze drift animation for a living canvas feel */
+.experience-bg-sakura.sakura-drift-1 {
+  animation: sakuraDriftOne 14s ease-in-out infinite alternate;
+}
+.experience-bg-sakura.sakura-drift-2 {
+  animation: sakuraDriftTwo 16s ease-in-out infinite alternate;
+}
+.experience-bg-sakura.sakura-drift-3 {
+  animation: sakuraDriftThree 18s ease-in-out infinite alternate;
+}
+
+@keyframes sakuraDriftOne {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(12px, -8px) rotate(4deg); }
+}
+
+@keyframes sakuraDriftTwo {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(-10px, 12px) rotate(-5deg); }
+}
+
+@keyframes sakuraDriftThree {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(15px, 10px) rotate(6deg); }
+}
+
+/* Interactivity: gentle wind-swept response when features section is hovered */
+.features:hover .experience-bg-sakura.sakura-drift-1 {
+  transform: translate(25px, -15px) rotate(6deg) scale(1.04);
+}
+.features:hover .experience-bg-sakura.sakura-drift-2 {
+  transform: translate(-20px, 20px) rotate(-8deg) scale(1.04);
+}
+.features:hover .experience-bg-sakura.sakura-drift-3 {
+  transform: translate(30px, 15px) rotate(8deg) scale(1.04);
+}
+
+/* Ensure the features content wrapper floats on top layer */
+.features .section-narrow {
+  position: relative;
+  z-index: 2;
 }
 
