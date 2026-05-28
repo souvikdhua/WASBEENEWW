@@ -348,7 +348,7 @@ button {
   letter-spacing: 0.05em;
   color: var(--color-text);
   text-transform: uppercase;
-  transition: all 0.3s var(--ease-out-expo);
+  transition: color 0.3s var(--ease-out-expo);
 }
 
 .top-bar-link:hover {
@@ -378,7 +378,8 @@ button {
   background-repeat: repeat;
   box-shadow: 0 4px 30px rgba(130, 6, 106, 0.05);
   border-bottom: 1px solid rgba(130, 6, 106, 0.1);
-  transition: all 0.5s var(--ease-out-expo);
+  will-change: padding, background-color, box-shadow;
+  transition: padding 0.5s var(--ease-out-expo), background-color 0.5s var(--ease-out-expo), border-color 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
 }
 
 .nav.nav--scrolled {
@@ -454,7 +455,7 @@ button {
 .nav-logo-img {
   height: 54px;
   width: auto;
-  transition: all 0.6s var(--ease-out-expo);
+  transition: transform 0.6s var(--ease-out-expo);
 }
 
 /* === KANJI BOOKENDS === */
@@ -539,7 +540,7 @@ button {
   width: 0;
   height: 1px;
   background: var(--color-brand);
-  transition: all 0.5s var(--ease-out-expo);
+  transition: width 0.5s var(--ease-out-expo);
   transform: translateX(-50%);
 }
 
@@ -564,7 +565,8 @@ button {
   color: #fff !important;
   border: 1px solid var(--color-brand) !important;
   border-radius: 20px 4px !important; /* Asymmetrical leaf-cut capsule */
-  transition: all 0.5s var(--ease-out-expo) !important;
+  will-change: background-color, border-color, border-radius, transform, box-shadow;
+  transition: background 0.5s var(--ease-out-expo), border-color 0.5s var(--ease-out-expo), border-radius 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo) !important;
   clip-path: none !important;
 }
 
@@ -592,7 +594,8 @@ button {
   gap: 5px;
   cursor: pointer;
   z-index: 1002;
-  transition: all 0.4s var(--ease-out-expo);
+  will-change: transform, background-color, border-color, box-shadow;
+  transition: transform 0.4s var(--ease-out-expo), background-color 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
   /* Premium Japanese Origami Octagonal Stamp */
   clip-path: polygon(
     10px 0%, 34px 0%, 44px 10%, 44px 34%, 34px 44%, 10px 44%, 0% 34%, 0% 10%
@@ -610,7 +613,7 @@ button {
   display: block;
   height: 2px;
   background: var(--color-brand);
-  transition: all 0.4s var(--ease-out-expo);
+  transition: width 0.4s var(--ease-out-expo), background-color 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo), opacity 0.4s var(--ease-out-expo);
   border-radius: 2px;
   transform-origin: center;
 }
@@ -747,7 +750,7 @@ button {
   margin-top: 3rem;
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.6s var(--ease-out-expo) 0.5s;
+  transition: opacity 0.6s var(--ease-out-expo) 0.5s, transform 0.6s var(--ease-out-expo) 0.5s;
 }
 
 .menu-overlay.active .menu-overlay-info {
@@ -1574,7 +1577,7 @@ button {
   border: 1px solid rgba(130, 6, 106, 0.1);
   border-radius: 4px;
   padding: 1rem 1.5rem;
-  transition: all 0.4s var(--ease-out-expo);
+  transition: background-color 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
 }
 
 .search-input-group:focus-within {
@@ -1640,7 +1643,7 @@ button {
   padding: 0.8rem 0;
   position: relative;
   white-space: nowrap;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .menu-cat-btn:hover { color: var(--color-brand); }
@@ -2315,7 +2318,8 @@ body.popup-open { overflow: hidden; }
   align-items: flex-start;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(130, 6, 106, 0.08);
-  transition: all 0.4s var(--ease-out-expo);
+  will-change: transform, border-color;
+  transition: transform 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo);
   position: relative;
 }
 
@@ -3044,7 +3048,8 @@ body.popup-open { overflow: hidden; }
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s var(--ease-out-expo);
+  will-change: background-color, border-color;
+  transition: background-color 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo);
 }
 
 .feature-card:hover .feature-card-arrow {
@@ -3231,7 +3236,8 @@ body.popup-open { overflow: hidden; }
   max-width: 600px !important;
   margin: 1.5rem auto 0 auto !important;
   box-shadow: 0 8px 25px rgba(130, 6, 106, 0.02) !important;
-  transition: all 0.4s var(--ease-out-expo) !important;
+  will-change: background-color, border-color, transform, box-shadow;
+  transition: background-color 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo) !important;
 }
 
 /* === OUR WORLD / COMBINED SECTION LAYOUT === */
@@ -3280,7 +3286,8 @@ body.popup-open { overflow: hidden; }
   text-decoration: none;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: all 0.4s var(--ease-out-expo);
+  will-change: color, transform;
+  transition: color 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
 }
 
 .insta-handle:hover {
@@ -3381,7 +3388,8 @@ body.popup-open { overflow: hidden; }
   align-items: center;
   gap: 0.7rem;
   border: 1px solid var(--color-border) !important;
-  transition: all 0.4s var(--ease-out-expo);
+  will-change: background-color, border-color, transform;
+  transition: background-color 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
 }
 
 .platform-btn:hover {
@@ -3509,7 +3517,8 @@ body.popup-open { overflow: hidden; }
   border-radius: 24px 4px; /* Asymmetric leaf shape! */
   background: transparent url("data:image/svg+xml,%3Csvg width='40' height='20' viewBox='0 0 40 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20c4.42 0 8-3.58 8-8s-3.58-8-8-8 8-3.58 8-8m0 20c4.42 0 8-3.58 8-8s-3.58-8-8-8 8-3.58 8-8m16 20c4.42 0 8-3.58 8-8s-3.58-8-8-8 8-3.58 8-8m0 20c4.42 0 8-3.58 8-8s-3.58-8-8-8 8-3.58 8-8m16 20c4.42 0 8-3.58 8-8s-3.58-8-8-8 8-3.58 8-8m0 20c4.42 0 8-3.58 8-8s-3.58-8-8-8 8-3.58 8-8' fill='%2382066A' fill-opacity='0.16'/%3E%3C/svg%3E") repeat-x top left;
   background-size: 20px 6px;
-  transition: all 0.5s var(--ease-out-expo);
+  will-change: color, border-color, border-radius;
+  transition: color 0.5s var(--ease-out-expo), border-color 0.5s var(--ease-out-expo), border-radius 0.5s var(--ease-out-expo);
   position: relative;
   overflow: hidden;
   clip-path: none !important;
@@ -3607,7 +3616,8 @@ body.popup-open { overflow: hidden; }
   letter-spacing: 0.25em;
   flex-shrink: 0;
   text-decoration: none;
-  transition: all 0.4s var(--ease-out-expo);
+  will-change: transform, opacity, color;
+  transition: transform 0.4s var(--ease-out-expo), opacity 0.4s var(--ease-out-expo), color 0.4s var(--ease-out-expo);
 }
 
 .hero-red-marquee a img {
@@ -3646,7 +3656,8 @@ body.popup-open { overflow: hidden; }
   border: 1px solid var(--color-border);
   border-radius: 8px;
   background: var(--color-surface);
-  transition: all 0.5s var(--ease-out-expo);
+  will-change: transform, border-color, background-color, box-shadow;
+  transition: transform 0.5s var(--ease-out-expo), border-color 0.5s var(--ease-out-expo), background-color 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
   text-decoration: none;
   min-height: 180px;
 }
@@ -3787,7 +3798,8 @@ body.popup-open { overflow: hidden; }
   border-radius: 8px 4px 12px 6px;
   padding: 1.5rem;
   will-change: transform;
-  transition: all 0.4s var(--ease-out-expo);
+  will-change: transform, border-color, background-color, box-shadow;
+  transition: background-color 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
   box-sizing: border-box;
 }
 
@@ -3841,7 +3853,7 @@ body.popup-open { overflow: hidden; }
   color: var(--color-brand);
   font-weight: 700;
   text-decoration: none;
-  transition: all 0.3s var(--ease-out-expo);
+  transition: color 0.3s var(--ease-out-expo), transform 0.3s var(--ease-out-expo);
   width: fit-content;
 }
 
@@ -4034,7 +4046,7 @@ body.popup-open { overflow: hidden; }
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  transition: all 0.3s var(--ease-out-expo);
+  transition: color 0.3s var(--ease-out-expo), transform 0.3s var(--ease-out-expo);
 }
 
 .footer-nav-col a:hover {
@@ -4058,7 +4070,7 @@ body.popup-open { overflow: hidden; }
   align-items: center;
   justify-content: center;
   color: rgba(250, 247, 242, 0.7);
-  transition: all 0.35s var(--ease-out-expo);
+  transition: background-color 0.35s var(--ease-out-expo), border-color 0.35s var(--ease-out-expo), color 0.35s var(--ease-out-expo), transform 0.35s var(--ease-out-expo);
   flex-shrink: 0;
 }
 
@@ -4771,7 +4783,8 @@ body.popup-open { overflow: hidden; }
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: background-color, border-color, transform, box-shadow;
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -4805,7 +4818,8 @@ body.popup-open { overflow: hidden; }
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: background-color, border-color;
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
@@ -5123,14 +5137,15 @@ html.lenis body {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 4px;
-  transition: all 0.3s var(--ease-out-expo);
+  will-change: transform, border-color, background-color, box-shadow;
+  transition: transform 0.3s var(--ease-out-expo), border-color 0.3s var(--ease-out-expo), background-color 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo);
   width: fit-content;
   min-width: 280px;
 }
 
 .platform-link img {
   filter: grayscale(1) opacity(0.8);
-  transition: all 0.3s ease;
+  transition: filter 0.3s ease;
 }
 
 .platform-link span {
@@ -5187,13 +5202,13 @@ html.lenis body {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
   width: fit-content;
 }
 
 .platform-link-minimal img {
   filter: grayscale(1) opacity(0.6);
-  transition: all 0.3s ease;
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .platform-link-minimal:hover {
@@ -5213,7 +5228,8 @@ html.lenis body {
   padding: 1rem;
   border: 1px solid var(--color-brand);
   background-color: var(--color-bg);
-  transition: all 0.6s var(--ease-out-expo);
+  will-change: transform, box-shadow;
+  transition: transform 0.6s var(--ease-out-expo), box-shadow 0.6s var(--ease-out-expo);
   z-index: 1;
 }
 
@@ -5244,7 +5260,8 @@ html.lenis body {
   padding: 1.5rem 2rem;
   box-shadow: 10px 10px 30px rgba(0,0,0,0.2);
   z-index: 2;
-  transition: all 0.6s var(--ease-out-expo);
+  will-change: transform;
+  transition: transform 0.6s var(--ease-out-expo);
 }
 
 .about-image:hover .about-img-overlay-content {
@@ -5669,7 +5686,7 @@ html.lenis body {
   justify-content: space-between;
   padding: 0.6rem 0.8rem !important; /* Compact padding */
   border-radius: 4px;
-  transition: all 0.4s var(--ease-out-expo);
+  transition: color 0.4s var(--ease-out-expo), background-color 0.4s var(--ease-out-expo), padding-left 0.4s var(--ease-out-expo);
   position: relative;
   overflow: hidden;
 }
@@ -5906,7 +5923,8 @@ html.lenis body {
   border: 1px solid rgba(250, 247, 242, 0.15) !important;
   border-radius: 8px;
   background: var(--color-brand) !important; /* Dark Plum card background */
-  transition: all 0.25s ease;
+  will-change: background-color, transform, box-shadow;
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   position: relative;
   min-height: 410px; /* Increased minimum height for larger images */
 }
@@ -6013,7 +6031,8 @@ html.lenis body {
   background: #FAF7F2 !important; /* Cream button background */
   color: var(--color-brand) !important; /* Plum icon/plus */
   cursor: pointer;
-  transition: all 0.2s;
+  will-change: background-color, color, transform;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
 }
 
 .unified-items-list .popup-item .btn-add-cart:hover {
@@ -6261,7 +6280,7 @@ html.lenis body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
 }
 
 .btn-add-cart:hover {
@@ -6358,7 +6377,8 @@ html.lenis body {
   opacity: 0;
   pointer-events: none;
   transform: translateY(20px);
-  transition: all 0.4s var(--ease-out-expo);
+  will-change: opacity, transform;
+  transition: opacity 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
   
   /* Washi Paper torn edges */
   clip-path: polygon(
@@ -6606,7 +6626,8 @@ html.lenis body {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.4s var(--ease-out-expo);
+  will-change: background-color, border-radius;
+  transition: background-color 0.4s var(--ease-out-expo), border-radius 0.4s var(--ease-out-expo);
   clip-path: none !important;
 }
 
@@ -6666,7 +6687,7 @@ html.lenis body {
   text-decoration: none;
   padding: 0.4rem 0;
   border-bottom: 1px dashed rgba(130, 6, 106, 0.3);
-  transition: all 0.3s;
+  transition: border-color 0.3s, color 0.3s;
 }
 
 .phone-number:hover {
@@ -6752,7 +6773,8 @@ html.lenis body {
   border: 1px solid var(--color-brand);
   border-radius: 24px 4px; /* Asymmetric leaf shape! */
   text-decoration: none;
-  transition: all 0.5s var(--ease-out-expo);
+  will-change: background-color, border-color, color, border-radius, transform, box-shadow;
+  transition: background-color 0.5s var(--ease-out-expo), border-color 0.5s var(--ease-out-expo), color 0.5s var(--ease-out-expo), border-radius 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
   position: relative;
   overflow: visible !important;
   clip-path: none !important;
@@ -6802,7 +6824,7 @@ html.lenis body {
   opacity: 0;
   border-radius: 24px 4px;
   transform: scale(0.96) rotate(0deg);
-  transition: all 0.5s var(--ease-out-expo);
+  transition: opacity 0.5s var(--ease-out-expo), border-radius 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
   pointer-events: none;
 }
 
@@ -6913,7 +6935,8 @@ html.lenis body {
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(130, 6, 106, 0.15);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 10;
   opacity: 0;
   pointer-events: none;
@@ -7285,7 +7308,7 @@ html.lenis body {
   cursor: pointer;
   font-family: var(--font-body);
   font-size: 0.85rem;
-  transition: all 0.3s;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   text-transform: none;
   letter-spacing: 0;
   font-weight: 500;
@@ -7318,7 +7341,8 @@ html.lenis body {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.4s var(--ease-out-expo);
+  will-change: background-color, border-radius, transform;
+  transition: background-color 0.4s var(--ease-out-expo), border-radius 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
   margin-top: 0.5rem;
   clip-path: none !important;
 }
@@ -7358,7 +7382,8 @@ html.lenis body {
   padding: 3rem;
   box-shadow: 0 10px 40px rgba(130, 6, 106, 0.02);
   will-change: transform;
-  transition: all 0.6s var(--ease-out-expo);
+  will-change: transform, box-shadow, border-color;
+  transition: transform 0.6s var(--ease-out-expo), box-shadow 0.6s var(--ease-out-expo), border-color 0.6s var(--ease-out-expo);
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -7424,7 +7449,7 @@ html.lenis body {
   font-weight: 900;
   pointer-events: none;
   line-height: 1;
-  transition: all 0.6s var(--ease-out-expo);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
 }
 
 .heritage-card:hover .heritage-kanji-watermark {
@@ -7550,7 +7575,7 @@ html.lenis body {
   z-index: -2; /* Sit behind the button content and main backgrounds */
   opacity: 0;
   transform: scale(0.96) rotate(0deg);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); /* Elegant and crisp premium transition */
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); /* Elegant and crisp premium transition */
   pointer-events: none;
   /* Organic hand-torn deckle paper edge polygon */
   clip-path: polygon(
@@ -7668,7 +7693,7 @@ html.lenis body {
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: 0.88rem;
-  transition: all 0.4s var(--ease-out-expo);
+  transition: background-color 0.4s var(--ease-out-expo), border-radius 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
   box-sizing: border-box;
 }
 
@@ -7730,7 +7755,7 @@ html.lenis body {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
 }
 
 .menu-filter-bar .filter-btn:hover {
@@ -8094,7 +8119,7 @@ html.lenis body {
 
 .unified-nav-link {
   color: var(--color-text) !important; /* Charcoal text for high visibility */
-  transition: all 0.4s var(--ease-out-expo) !important;
+  transition: color 0.4s var(--ease-out-expo), background-color 0.4s var(--ease-out-expo), border-radius 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo) !important;
 }
 
 .unified-nav-link .nav-jp {
@@ -8164,7 +8189,7 @@ html.lenis body {
 /* Menu Items List Overhaul */
 .popup-item {
   border-bottom: 1px dashed rgba(250, 247, 242, 0.1) !important;
-  transition: all 0.3s ease !important;
+  transition: background 0.3s ease, border-radius 0.3s ease, transform 0.3s ease !important;
   padding: 0.95rem 1rem !important;
 }
 
@@ -8342,7 +8367,8 @@ html.lenis body {
   background-size: 20px 6px !important;
   border: 1px solid var(--color-brand) !important;
   border-radius: 20px 4px !important; /* Asymmetric leaf shape */
-  transition: all 0.5s var(--ease-out-expo) !important;
+  will-change: background-color, border-color, border-radius, transform, box-shadow;
+  transition: background-color 0.5s var(--ease-out-expo), border-color 0.5s var(--ease-out-expo), border-radius 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo) !important;
   text-align: center;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(130, 6, 106, 0.2);
@@ -8461,7 +8487,8 @@ html.lenis body {
   overflow: visible !important;
   z-index: 1 !important;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.18)) !important;
-  transition: all 0.4s var(--ease-out-expo) !important;
+  will-change: transform, filter;
+  transition: transform 0.4s var(--ease-out-expo), filter 0.4s var(--ease-out-expo) !important;
 }
 
 /* Hover, active, and focus transitions */
@@ -8530,7 +8557,7 @@ html.lenis body {
   inset: 0 !important;
   z-index: -1 !important;
   background-repeat: repeat !important;
-  transition: all 0.4s var(--ease-out-expo) !important;
+  transition: background-color 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo) !important;
   transform: none !important;
   clip-path: polygon(
     0% 5%, 10% 1%, 20% 6%, 30% 2%, 40% 5%, 50% 2%, 60% 6%, 70% 3%, 80% 5%, 90% 1%, 100% 4%, 
@@ -8899,7 +8926,8 @@ html.lenis body {
   opacity: 0;
   pointer-events: none;
   transform: translateY(15px);
-  transition: all 0.4s var(--ease-out-expo) !important;
+  will-change: opacity, transform;
+  transition: opacity 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo) !important;
 }
 
 .mini-cart-toast.show {
@@ -8959,7 +8987,7 @@ html.lenis body {
   font-weight: 700 !important;
   border-radius: 20px !important;
   cursor: pointer !important;
-  transition: all 0.3s !important;
+  transition: background-color 0.3s, color 0.3s !important;
   white-space: nowrap !important;
 }
 
@@ -9508,7 +9536,7 @@ html, body {
     align-items: center !important;
     color: var(--color-text-muted) !important;
     font-weight: 500 !important;
-    transition: all 0.3s ease !important;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
     /* Reset desktop-only styles */
     padding-left: 0.9rem !important;
   }
