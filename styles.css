@@ -7764,6 +7764,8 @@ html.lenis body {
   justify-content: center;
   border-right: 1px dashed var(--color-border);
   padding-right: 2.5rem;
+  position: relative;
+  z-index: 10;
 }
 
 [data-theme="dark"] .menu-header-left {
@@ -7775,12 +7777,16 @@ html.lenis body {
   flex-direction: column;
   gap: 0.4rem;
   justify-content: center;
+  position: relative;
+  z-index: 10;
 }
 
 .menu-header-logo-container {
   display: flex;
   justify-content: center;
   margin-bottom: 0.3rem; /* Compact margin */
+  position: relative;
+  z-index: 10;
 }
 
 .menu-header-logo {
@@ -7788,6 +7794,8 @@ html.lenis body {
   height: auto;
   object-fit: contain;
   display: block;
+  position: relative;
+  z-index: 11;
 }
 
 .menu-section-header .section-label {
