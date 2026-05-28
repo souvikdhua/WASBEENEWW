@@ -9868,7 +9868,7 @@ html, body {
   position: absolute;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.009;
+  opacity: 0.08;
   transition: opacity 0.5s ease;
 }
 
@@ -9878,7 +9878,7 @@ html, body {
 }
 
 [data-theme="dark"] .reservation-doodle {
-  opacity: 0.006;
+  opacity: 0.06;
 }
 
 [data-theme="dark"] .reservation-doodle svg {
