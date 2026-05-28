@@ -3463,10 +3463,6 @@ body.popup-open { overflow: hidden; }
   transition: transform 0.6s var(--ease-out-expo);
   position: relative;
   z-index: 11;
-  background: var(--color-surface); /* Clean theme solid shield */
-  padding: 10px; /* Safe breathing boundary */
-  border-radius: 50%; /* Uniform circle space */
-  box-shadow: 0 0 15px 15px var(--color-surface); /* Expands the blank negative shield softly */
 }
 
 .reservation-emblem-logo:hover {
