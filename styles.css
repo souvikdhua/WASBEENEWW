@@ -2811,7 +2811,7 @@ body.popup-open { overflow: hidden; }
   height: 380px; /* Greatly increased height */
   border: 1px solid var(--color-brand);
   background: var(--color-bg);
-  transition: transform 0.8s var(--ease-out-expo);
+  transition: transform 0.8s var(--ease-out-expo), border-color 0.4s ease, box-shadow 0.4s ease;
   flex-shrink: 0;
 }
 
@@ -2841,7 +2841,7 @@ body.popup-open { overflow: hidden; }
   object-fit: cover;
   object-position: center;
   transition: transform 1s var(--ease-out-expo), filter 0.6s;
-  filter: brightness(1.06) contrast(1.03) saturate(1.1);
+  filter: brightness(1.08) contrast(1.05) saturate(1.2); /* Enhance food colors for maximum appeal */
 }
 
 /* --- Plate Number Labels (Exhibit Style) - Hidden --- */
@@ -2920,9 +2920,16 @@ body.popup-open { overflow: hidden; }
 }
 
 
+.gallery-item:hover {
+  border-color: var(--color-gold);
+  box-shadow: 
+    0 15px 35px rgba(130, 6, 106, 0.15),
+    0 0 20px rgba(212, 165, 116, 0.2);
+}
+
 .gallery-item:hover img {
   transform: scale(1.08);
-  filter: brightness(1.14) contrast(1.06) saturate(1.2);
+  filter: brightness(1.15) contrast(1.08) saturate(1.28); /* Exquisite mouthwatering pop */
 }
 
 .gallery-item-overlay {
@@ -4874,6 +4881,13 @@ body.popup-open { overflow: hidden; }
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: box-shadow 0.5s ease;
+}
+
+.lightbox.active .lightbox-image-wrapper {
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.75),
+    0 0 45px rgba(212, 165, 116, 0.25) !important; /* Premium gold soft outer glow */
 }
 
 .lightbox-main-img {
@@ -4885,6 +4899,7 @@ body.popup-open { overflow: hidden; }
   opacity: 0;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
   border-radius: 2px;
+  filter: brightness(1.08) contrast(1.05) saturate(1.22); /* Warm, high-vibrancy appetizing colors */
 }
 
 .lightbox.active .lightbox-main-img {
