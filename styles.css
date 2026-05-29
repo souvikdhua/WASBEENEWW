@@ -7135,8 +7135,8 @@ html.lenis body {
 @media (min-width: 1024px) {
   .hero-content {
     display: grid;
-    grid-template-columns: 2.1fr 0.95fr;
-    gap: 4rem;
+    grid-template-columns: 2.45fr 0.65fr;
+    gap: 2.5rem;
     align-items: center;
     max-width: 1500px;
     width: 95%;
@@ -7148,7 +7148,7 @@ html.lenis body {
     margin-top: 0;
   }
   .hero-graphic-frame {
-    max-width: 950px !important;
+    max-width: 1100px !important;
   }
   .hero-info-panel {
     display: flex;
@@ -8718,7 +8718,7 @@ html.lenis body {
 
 /* Layout & spacing specific to the hero panel */
 .hero-info-panel {
-  padding: 2.2rem 2.8rem !important; /* Shrunk padding */
+  padding: 1.8rem 1.2rem !important; /* Shrunk padding to maximize content width */
   margin: 0 auto !important;
   max-width: 800px !important;
   width: 100% !important;
@@ -8739,9 +8739,9 @@ html.lenis body {
   top: 50% !important;
   transform: translateY(-50%) !important;
   font-family: var(--font-jp) !important;
-  font-size: 5rem !important;
+  font-size: 4rem !important; /* Shrunk watermarks */
   color: var(--color-gold) !important;
-  opacity: 0.05 !important;
+  opacity: 0.04 !important;
   pointer-events: none !important;
   user-select: none !important;
   z-index: 0 !important;
@@ -8749,28 +8749,28 @@ html.lenis body {
   font-weight: 900 !important;
 }
 .hero-kanji-bg-left {
-  left: 1.5rem !important;
+  left: 0.8rem !important;
 }
 .hero-kanji-bg-right {
-  right: 1.5rem !important;
+  right: 0.8rem !important;
 }
 
 /* Align and color children inside the Plum Washi card */
 .hero-info-panel .hero-promo-header {
   width: 100% !important;
-  margin-bottom: 0.8rem !important; /* Shrunk from 1.2rem */
+  margin-bottom: 0.6rem !important; /* Shrunk from 0.8rem */
 }
 
 .hero-info-panel .section-label {
   color: var(--color-gold) !important;
   justify-content: center !important;
-  margin-bottom: 0.3rem !important;
+  margin-bottom: 0.2rem !important;
 }
 
 .hero-info-panel .hero-promo-title {
   color: #FAF7F2 !important;
   text-align: center !important;
-  font-size: clamp(1.6rem, 3.4vw, 2.5rem) !important; /* Slightly smaller */
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem) !important; /* Slightly smaller */
   line-height: 1.2 !important;
   margin: 0.2rem 0 0 0 !important;
 }
@@ -8784,17 +8784,17 @@ html.lenis body {
   border-left: none !important;
   padding-left: 0 !important;
   text-align: center !important;
-  margin: 0.4rem auto 0.8rem auto !important; /* Shrunk */
-  font-size: 0.82rem !important; /* Slightly smaller */
+  margin: 0.3rem auto 0.6rem auto !important; /* Shrunk */
+  font-size: 0.72rem !important; /* Smaller promo text font size */
   max-width: 480px !important;
-  line-height: 1.6 !important;
+  line-height: 1.5 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.08em !important;
   font-weight: 600 !important;
 }
 
 .hero-info-panel .hero-trust-list {
-  margin: 0 auto 1.4rem auto !important; /* Shrunk from 2.2rem */
+  margin: 0 auto 1rem auto !important; /* Shrunk */
   width: 100% !important;
   max-width: 600px !important;
 }
@@ -8802,39 +8802,45 @@ html.lenis body {
 .hero-trust-grid {
   display: grid !important;
   grid-template-columns: repeat(2, 1fr) !important;
-  gap: 0.5rem 1.8rem !important; /* Shrunk gap */
+  gap: 0.4rem 1rem !important; /* Shrunk gap */
 }
 
 .hero-info-panel .hero-trust-item {
   color: rgba(250, 247, 242, 0.95) !important;
-  font-size: 0.8rem !important; /* Slightly smaller */
+  font-size: 0.7rem !important; /* Smaller trust item font size */
   font-family: var(--font-display) !important;
-  letter-spacing: 0.1em !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
   display: flex !important;
   align-items: center !important;
   justify-content: start !important;
-  gap: 0.4rem !important;
+  gap: 0.3rem !important;
 }
 
 .trust-diamond {
   color: var(--color-gold) !important;
-  font-size: 0.7rem !important;
+  font-size: 0.6rem !important;
 }
 
 .hero-info-panel .hero-actions {
   display: flex !important;
   justify-content: center !important;
-  gap: 1.2rem !important; /* Shrunk */
+  gap: 0.8rem !important; /* Shrunk gap */
   width: 100% !important;
-  margin-bottom: 1.2rem !important; /* Shrunk */
+  margin-bottom: 0.8rem !important; /* Shrunk margin */
+}
+
+.hero-info-panel .hero-actions .hero-explore-cta {
+  padding: 0.45rem 1rem !important; /* Shrunk buttons */
+  font-size: 0.7rem !important;
 }
 
 .hero-info-panel .hero-events-nudge {
   color: rgba(250, 247, 242, 0.7) !important;
   text-align: center !important;
-  font-size: 0.82rem !important;
+  font-size: 0.72rem !important; /* Smaller nudge font size */
   letter-spacing: 0.04em !important;
+  margin: 0 !important;
 }
 
 .hero-info-panel .hero-events-nudge a {
