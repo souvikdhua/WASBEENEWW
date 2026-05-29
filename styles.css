@@ -5313,8 +5313,37 @@ html.lenis body {
 .hero-graphic-container {
   position: relative;
   width: 100%;
+  aspect-ratio: 1469 / 704; /* Matches graphic 5 aspect ratio */
   overflow: hidden;
   border: 1px solid rgba(130, 6, 106, 0.1);
+}
+
+.hero-slideshow-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1.5s ease-in-out;
+  display: block;
+}
+
+.hero-slideshow-slide.active {
+  opacity: 1;
+  z-index: 1;
+  animation: kenBurnsSlide 10s infinite alternate ease-in-out;
+}
+
+@keyframes kenBurnsSlide {
+  0% {
+    transform: scale(1.02) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate(-0.5%, -0.3%);
+  }
 }
 
 .hero-graphic-overlay {
@@ -5338,15 +5367,13 @@ html.lenis body {
 }
 
 .hero-logo-img-enlarged {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  transition: transform 1.2s var(--ease-out-expo);
+  height: 100%;
+  object-fit: cover;
   display: block;
-}
-
-.hero-graphic-frame:hover .hero-logo-img-enlarged {
-  transform: scale(1.01);
 }
 
 .hero-address-refined {
@@ -9229,6 +9256,7 @@ html, body {
   }
   .hero-graphic-container {
     height: 240px !important;
+    aspect-ratio: auto !important;
     border-radius: 6px !important;
   }
 

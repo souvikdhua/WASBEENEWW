@@ -1183,3 +1183,50 @@ document.head.appendChild(style);
     scrollPos = gallery.scrollLeft;
   });
 })();
+
+// === HERO SLIDESHOW RUNNER (Throttled & Visibility-gated) ===
+(function() {
+  const slideshow = document.getElementById('heroSlideshow');
+  if (!slideshow) return;
+
+  const slides = slideshow.querySelectorAll('.hero-slideshow-slide');
+  if (slides.length <= 1) return;
+
+  let currentIndex = 0;
+  let intervalId = null;
+  let slideshowVisible = false;
+  const intervalTime = 5000; // Crossfade every 5 seconds
+
+  function nextSlide() {
+    slides[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % slides.length;
+    slides[currentIndex].classList.add('active');
+  }
+
+  function startSlideshow() {
+    if (!intervalId) {
+      intervalId = setInterval(nextSlide, intervalTime);
+    }
+  }
+
+  function stopSlideshow() {
+    if (intervalId) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+  }
+
+  // Only run the timer when the hero section is actually visible in the viewport
+  const slideshowObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      slideshowVisible = entry.isIntersecting;
+      if (slideshowVisible) {
+        startSlideshow();
+      } else {
+        stopSlideshow();
+      }
+    });
+  }, { threshold: 0.1 });
+
+  slideshowObserver.observe(slideshow);
+})();
